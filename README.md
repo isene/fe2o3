@@ -14,22 +14,22 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 
 ### Binaries
 
-| Tool | Role | Ruby equivalent | Release |
+| Tool | Release | Role | Ruby equivalent |
 |---|---|---|---|
-| [rush](https://github.com/isene/rush) | Interactive shell | [rsh](https://github.com/isene/rsh) | ![rush](https://img.shields.io/github/v/release/isene/rush) |
-| [pointer](https://github.com/isene/pointer) | File manager | [RTFM](https://github.com/isene/RTFM) | ![pointer](https://img.shields.io/github/v/release/isene/pointer) |
-| [kastrup](https://github.com/isene/kastrup) | Messaging hub (email, RSS, chat) | [Heathrow](https://github.com/isene/heathrow) | ![kastrup](https://img.shields.io/github/v/release/isene/kastrup) |
-| [scroll](https://github.com/isene/scroll) | Web browser | [brrowser](https://github.com/isene/brrowser) | ![scroll](https://img.shields.io/github/v/release/isene/scroll) |
-| [tock](https://github.com/isene/tock) | Calendar with ephemeris | [Timely](https://github.com/isene/timely) | ![tock](https://img.shields.io/github/v/release/isene/tock) |
-| [nova](https://github.com/isene/nova) | Astronomy panel | [astropanel](https://github.com/isene/astropanel) | ![nova](https://img.shields.io/github/v/release/isene/nova) |
-| [watchit](https://github.com/isene/watchit) | Movie / series browser | [IMDB-terminal](https://github.com/isene/IMDB) | ![watchit](https://img.shields.io/github/v/release/isene/watchit) |
+| [rush](https://github.com/isene/rush) | ![rush](https://img.shields.io/github/v/release/isene/rush) | Interactive shell | [rsh](https://github.com/isene/rsh) |
+| [pointer](https://github.com/isene/pointer) | ![pointer](https://img.shields.io/github/v/release/isene/pointer) | File manager | [RTFM](https://github.com/isene/RTFM) |
+| [kastrup](https://github.com/isene/kastrup) | ![kastrup](https://img.shields.io/github/v/release/isene/kastrup) | Messaging hub (email, RSS, chat) | [Heathrow](https://github.com/isene/heathrow) |
+| [scroll](https://github.com/isene/scroll) | ![scroll](https://img.shields.io/github/v/release/isene/scroll) | Web browser | [brrowser](https://github.com/isene/brrowser) |
+| [tock](https://github.com/isene/tock) | ![tock](https://img.shields.io/github/v/release/isene/tock) | Calendar with ephemeris | [Timely](https://github.com/isene/timely) |
+| [nova](https://github.com/isene/nova) | ![nova](https://img.shields.io/github/v/release/isene/nova) | Astronomy panel | [astropanel](https://github.com/isene/astropanel) |
+| [watchit](https://github.com/isene/watchit) | ![watchit](https://img.shields.io/github/v/release/isene/watchit) | Movie / series browser | [IMDB-terminal](https://github.com/isene/IMDB) |
 
 ### Libraries
 
-| Crate | Role | Ruby equivalent | Release |
+| Crate | Release | Role | Ruby equivalent |
 |---|---|---|---|
-| [crust](https://github.com/isene/crust) | TUI foundation (panes, colors, input) | [rcurses](https://github.com/isene/rcurses) | ![crust](https://img.shields.io/github/v/release/isene/crust) |
-| [glow](https://github.com/isene/glow) | Inline images (kitty / sixel / w3m) | [termpix](https://github.com/isene/termpix) | ![glow](https://img.shields.io/github/v/release/isene/glow) |
+| [crust](https://github.com/isene/crust) | ![crust](https://img.shields.io/github/v/release/isene/crust) | TUI foundation (panes, colors, input) | [rcurses](https://github.com/isene/rcurses) |
+| [glow](https://github.com/isene/glow) | ![glow](https://img.shields.io/github/v/release/isene/glow) | Inline images (kitty / sixel / w3m) | [termpix](https://github.com/isene/termpix) |
 
 ## Install everything
 
