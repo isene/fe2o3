@@ -23,6 +23,8 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [tock](https://github.com/isene/tock) | ![tock](https://img.shields.io/github/v/release/isene/tock) | Calendar with ephemeris | [Timely](https://github.com/isene/timely) |
 | [nova](https://github.com/isene/nova) | ![nova](https://img.shields.io/github/v/release/isene/nova) | Astronomy panel | [astropanel](https://github.com/isene/astropanel) |
 | [watchit](https://github.com/isene/watchit) | ![watchit](https://img.shields.io/github/v/release/isene/watchit) | Movie / series browser | [IMDB-terminal](https://github.com/isene/IMDB) |
+| [scope](https://github.com/isene/scope) | ![scope](https://img.shields.io/github/v/release/isene/scope) | Telescope + eyepiece catalog / calculator | [telescope-term](https://github.com/isene/telescope) |
+| [hyper](https://github.com/isene/hyper) | ![hyper](https://img.shields.io/github/v/release/isene/hyper) | HyperList outline viewer | [HyperList](https://github.com/isene/HyperList) |
 
 ### Libraries
 
@@ -35,7 +37,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scroll tock nova watchit; do
+for app in rush pointer kastrup scroll tock nova watchit scope hyper; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
