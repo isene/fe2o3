@@ -203,6 +203,18 @@ section .section-intro {
 }
 .card-kind.lib { color: var(--cyan); }
 
+.card-ruby {
+  font-size: 0.78rem;
+  color: var(--fg-mute);
+  margin-top: 0.15rem;
+}
+.card-ruby a {
+  color: #e2544a;  /* faint Ruby red */
+  text-decoration: none;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+}
+.card-ruby a:hover { text-decoration: underline; }
+
 .card-desc {
   color: var(--fg);
   flex-grow: 1;
