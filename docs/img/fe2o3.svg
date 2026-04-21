@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#2a1a1a"/>
+      <stop offset="100%" style="stop-color:#0a0a14"/>
+    </radialGradient>
+    <radialGradient id="iron" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" style="stop-color:#ffb08a"/>
+      <stop offset="55%" style="stop-color:#f74c00"/>
+      <stop offset="100%" style="stop-color:#7a2400"/>
+    </radialGradient>
+    <radialGradient id="oxygen" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="55%" style="stop-color:#80dfff"/>
+      <stop offset="100%" style="stop-color:#1a5a7a"/>
+    </radialGradient>
+  </defs>
+  <style>
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.9; } }
+    .orbit { transform-origin: 128px 128px; animation: spin 18s linear infinite; }
+    .orbit-rev { transform-origin: 128px 128px; animation: spin 24s linear infinite reverse; }
+    .bond { animation: pulse 2.5s ease-in-out infinite; }
+  </style>
+
+  <!-- Background -->
+  <circle cx="128" cy="128" r="120" fill="url(#bg)" stroke="#f74c00" stroke-width="3"/>
+
+  <!-- Bonds (Fe2O3: 2 iron + 3 oxygen, drawn as a trigonal planar-ish layout) -->
+  <g stroke="#f74c00" stroke-width="2" stroke-linecap="round" opacity="0.5">
+    <line x1="128" y1="128" x2="74"  y2="96"  class="bond"/>
+    <line x1="128" y1="128" x2="182" y2="96"  class="bond"/>
+    <line x1="128" y1="128" x2="74"  y2="160" class="bond"/>
+    <line x1="128" y1="128" x2="182" y2="160" class="bond"/>
+    <line x1="128" y1="128" x2="128" y2="76"  class="bond"/>
+    <line x1="128" y1="128" x2="128" y2="180" class="bond"/>
+  </g>
+
+  <!-- Oxygens (3 of them) -->
+  <circle cx="128" cy="76"  r="14" fill="url(#oxygen)"/>
+  <circle cx="74"  cy="160" r="14" fill="url(#oxygen)"/>
+  <circle cx="182" cy="160" r="14" fill="url(#oxygen)"/>
+
+  <!-- Irons (2 of them) -->
+  <circle cx="74"  cy="96"  r="18" fill="url(#iron)"/>
+  <circle cx="182" cy="96"  r="18" fill="url(#iron)"/>
+
+  <!-- Central highlight -->
+  <circle cx="128" cy="128" r="6" fill="#ffe9a8"/>
+
+  <!-- Outer electron rings -->
+  <g class="orbit" fill="none" stroke="#f74c00" stroke-width="1" opacity="0.25">
+    <ellipse cx="128" cy="128" rx="104" ry="36"/>
+  </g>
+  <g class="orbit-rev" fill="none" stroke="#80dfff" stroke-width="1" opacity="0.2">
+    <ellipse cx="128" cy="128" rx="98" ry="58" transform="rotate(60 128 128)"/>
+  </g>
+
+  <!-- Tiny electrons on rings -->
+  <g class="orbit">
+    <circle cx="232" cy="128" r="2" fill="#ffe9a8"/>
+    <circle cx="24"  cy="128" r="2" fill="#ffe9a8"/>
+  </g>
+</svg>

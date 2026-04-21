@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fe2O3 - Rust Terminal Suite</title>
+  <meta name="description" content="Fe2O3 is a suite of fast, Rust-powered terminal tools for daily work: shell, file manager, messaging, web browser, calendar, astronomy panel, and movie browser. All built on one TUI library.">
+  <link rel="icon" href="img/fe2o3.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Fe2O3 — Rust Terminal Suite">
+  <meta property="og:description" content="Fast, opinionated terminal tools in Rust. Shell, file manager, email, browser, calendar, astronomy, movies.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/fe2o3.svg">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <img src="img/fe2o3.svg" alt="Fe2O3 logo" class="hero-logo">
+      <h1>Fe<span class="formula"><sub>2</sub></span>O<span class="formula"><sub>3</sub></span></h1>
+      <p class="tagline">
+        A suite of fast, opinionated terminal tools written in Rust.
+        Single static binaries. Shared TUI foundation. No runtime deps.
+      </p>
+      <div class="badges">
+        <img src="https://img.shields.io/badge/language-Rust-f74c00" alt="Rust">
+        <img src="https://img.shields.io/badge/license-Unlicense-green" alt="Unlicense">
+        <img src="https://img.shields.io/badge/platform-Linux%20%7C%20macOS-blue" alt="Linux | macOS">
+        <img src="https://img.shields.io/badge/Stay-Amazing-important" alt="Stay Amazing">
+      </div>
+      <div class="cta">
+        <a href="#tools" class="primary">Browse the tools</a>
+        <a href="https://github.com/isene" class="secondary">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="why">
+    <div class="container">
+      <h2>Why iron oxide?</h2>
+      <p class="section-intro">
+        Rust, the language, named itself after the chemical. Fe<sub>2</sub>O<sub>3</sub>
+        is the iron oxide that gives rust its color. It is also what happens
+        when iron meets oxygen meets time. These tools are the result of
+        pointing fast iron at the soft corners of a workflow. This is the
+        terminal half of that toolkit.
+      </p>
+      <div class="features">
+        <div class="feature">
+          <h3>One TUI foundation</h3>
+          <p>
+            Every tool sits on <a href="https://github.com/isene/crust" style="color:var(--rust-glow)">crust</a>,
+            a small pane-based TUI library. Colors, borders, scrolling, image rendering,
+            and line wrapping all behave identically everywhere.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Single binary, zero runtime</h3>
+          <p>
+            No Ruby, no Node, no Python. Drop the binary in <code>~/bin</code>
+            and it runs. Startup time is under 50 ms on a warm disk.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Ported from Ruby — but better</h3>
+          <p>
+            Every Fe2O3 tool is a feature port of a long-running Ruby
+            original. Same UX, dramatically faster, and with async
+            fetches so the UI never blocks on network I/O.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Inline images via glow</h3>
+          <p>
+            <a href="https://github.com/isene/glow" style="color:var(--rust-glow)">glow</a>
+            renders images inline using kitty, sixel, or w3m protocols.
+            PDFs preview as thumbnails, videos as extracted frames,
+            emails as rendered pictures, astronomy as starcharts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="container">
+      <h2>The tools</h2>
+      <p class="section-intro">
+        Seven binaries (and two libraries) that together cover most of
+        what a keyboard-bound terminal user does in a day.
+      </p>
+      <div class="grid">
+
+        <a class="card" href="https://github.com/isene/rush">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/rush/master/img/rush.svg" alt="rush logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title">rush</h3>
+              <div class="card-kind">Shell (binary)</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Interactive shell with tab completion, history search, syntax
+            highlighting, nick/gnick aliases, per-command autocorrect, and
+            OSC 7 for terminal cwd tracking. ~26 ms startup.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/rush</span>
+            <img src="https://img.shields.io/github/v/release/isene/rush" alt="release">
+          </div>
+        </a>
+
+        <a class="card" href="https://github.com/isene/pointer">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/pointer/master/img/pointer.svg" alt="pointer logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title">pointer</h3>
+              <div class="card-kind">File Manager (binary)</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Two-pane file manager with syntax-highlighted previews, inline
+            image + video frame rendering, archive browsing, SSH, async
+            file operations, undo, bookmarks, plugins.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/pointer</span>
+            <img src="https://img.shields.io/github/v/release/isene/pointer" alt="release">
+          </div>
+        </a>
+
+        <a class="card" href="https://github.com/isene/kastrup">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/kastrup/master/img/kastrup.svg" alt="kastrup logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title">kastrup</h3>
+              <div class="card-kind">Messaging Hub (binary)</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Unified terminal inbox for maildir email, RSS, weechat, Slack,
+            Discord, SMS. Thread view, tagging, search, AI assistant,
+            compose plugins, OSC 8 clickable links.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/kastrup</span>
+            <img src="https://img.shields.io/github/v/release/isene/kastrup" alt="release">
+          </div>
+        </a>
+
+        <a class="card" href="https://github.com/isene/scroll">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/scroll/master/img/scroll.svg" alt="scroll logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title">scroll</h3>
+              <div class="card-kind">Web Browser (binary)</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Terminal web browser with vim-style keys, tabs, inline images,
+            forms, bookmarks, and AI summaries. Handles mailto links by
+            handing them off to kastrup.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/scroll</span>
+            <img src="https://img.shields.io/github/v/release/isene/scroll" alt="release">
+          </div>
+        </a>
+
+        <a class="card" href="https://github.com/isene/tock">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/tock/master/img/tock.svg" alt="tock logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title">tock</h3>
+              <div class="card-kind">Calendar (binary)</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Day/week/month calendar with ephemeris: sun, moon, planets,
+            astronomical events. Google Calendar + Outlook sync. Desktop
+            notifications. Shared ephemeris engine with nova.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/tock</span>
+            <img src="https://img.shields.io/github/v/release/isene/tock" alt="release">
+          </div>
+        </a>
+
+        <a class="card" href="https://github.com/isene/nova">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/nova/master/img/nova.svg" alt="nova logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title">nova</h3>
+              <div class="card-kind">Astronomy Panel (binary)</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            9-day weather forecast, per-hour visibility bars for sun/moon/
+            planets, astronomical events, starchart, and NASA APOD. For
+            amateur astronomers deciding whether to take the scope out.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/nova</span>
+            <img src="https://img.shields.io/github/v/release/isene/nova" alt="release">
+          </div>
+        </a>
+
+        <a class="card" href="https://github.com/isene/watchit">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/watchit/master/img/watchit.svg" alt="watchit logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title">watchit</h3>
+              <div class="card-kind">Movie &amp; Series Browser (binary)</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            IMDb Top 250 browser with inline posters, TMDb streaming info,
+            wish/dump lists, genre filters, async background fetching.
+            Cut search time so you spend time watching.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/watchit</span>
+            <img src="https://img.shields.io/github/v/release/isene/watchit" alt="release">
+          </div>
+        </a>
+
+        <a class="card" href="https://github.com/isene/crust">
+          <div class="card-head">
+            <img class="card-logo" src="img/fe2o3.svg" alt="crust logo">
+            <div>
+              <h3 class="card-title">crust</h3>
+              <div class="card-kind lib">TUI Library (crate)</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            The TUI foundation that every Fe2O3 tool builds on. Panes,
+            colors, borders, input, scrolling, Unicode, OSC 8 hyperlinks,
+            diff rendering. Published as <code>fe2o3-crust</code>.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/crust</span>
+            <img src="https://img.shields.io/github/v/release/isene/crust" alt="release">
+          </div>
+        </a>
+
+        <a class="card" href="https://github.com/isene/glow">
+          <div class="card-head">
+            <img class="card-logo" src="img/fe2o3.svg" alt="glow logo">
+            <div>
+              <h3 class="card-title">glow</h3>
+              <div class="card-kind lib">Image Library (crate)</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Terminal image renderer supporting kitty, sixel, and w3m
+            protocols. Auto-detects the best fit. Used by pointer, kastrup,
+            scroll, watchit, and nova. Published as <code>fe2o3-glow</code>.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/glow</span>
+            <img src="https://img.shields.io/github/v/release/isene/glow" alt="release">
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="install" class="install">
+    <div class="container">
+      <h2>Install them all</h2>
+      <p class="section-intro">
+        Each tool ships multi-platform prebuilt binaries on every tagged
+        release. Pick your platform and drop them in <code>~/bin</code>:
+      </p>
+      <pre><span class="comment"># Linux x86_64 — one-liner to grab every Fe2O3 binary</span>
+<span class="cmd">for app in rush pointer kastrup scroll tock nova watchit; do
+  curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
+    -o ~/bin/$app && chmod +x ~/bin/$app
+done</span>
+
+<span class="comment"># Other platforms: replace -linux-x86_64 with:</span>
+<span class="comment">#   -linux-aarch64  (Raspberry Pi, ARM64 Linux)</span>
+<span class="comment">#   -macos-x86_64   (Intel Mac)</span>
+<span class="comment">#   -macos-aarch64  (Apple Silicon)</span></pre>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>
+        Fe<sub>2</sub>O<sub>3</sub> is maintained by
+        <a href="https://isene.com">Geir Isene</a>.
+        All tools are in the public domain (Unlicense).
+      </p>
+      <p style="margin-top: 0.5rem;">
+        Source:
+        <a href="https://github.com/isene">github.com/isene</a>
+         &middot;
+        This page:
+        <a href="https://github.com/isene/fe2o3">isene/fe2o3</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
