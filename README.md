@@ -19,12 +19,14 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [rush](https://github.com/isene/rush) | ![rush](https://img.shields.io/github/v/release/isene/rush) | Interactive shell | [rsh](https://github.com/isene/rsh) |
 | [pointer](https://github.com/isene/pointer) | ![pointer](https://img.shields.io/github/v/release/isene/pointer) | File manager | [RTFM](https://github.com/isene/RTFM) |
 | [kastrup](https://github.com/isene/kastrup) | ![kastrup](https://img.shields.io/github/v/release/isene/kastrup) | Messaging hub (email, RSS, chat) | [Heathrow](https://github.com/isene/heathrow) |
+| [scribe](https://github.com/isene/scribe) | ![scribe](https://img.shields.io/github/v/release/isene/scribe) | Modal text editor for writers | — |
 | [scroll](https://github.com/isene/scroll) | ![scroll](https://img.shields.io/github/v/release/isene/scroll) | Web browser | [brrowser](https://github.com/isene/brrowser) |
 | [tock](https://github.com/isene/tock) | ![tock](https://img.shields.io/github/v/release/isene/tock) | Calendar with ephemeris | [Timely](https://github.com/isene/timely) |
-| [nova](https://github.com/isene/nova) | ![nova](https://img.shields.io/github/v/release/isene/nova) | Astronomy panel | [astropanel](https://github.com/isene/astropanel) |
+| [astro](https://github.com/isene/astro) | ![astro](https://img.shields.io/github/v/release/isene/astro) | Astronomy panel + telescope/eyepiece catalog | [astropanel](https://github.com/isene/astropanel) + [telescope-term](https://github.com/isene/telescope) |
 | [watchit](https://github.com/isene/watchit) | ![watchit](https://img.shields.io/github/v/release/isene/watchit) | Movie / series browser | [IMDB-terminal](https://github.com/isene/IMDB) |
-| [scope](https://github.com/isene/scope) | ![scope](https://img.shields.io/github/v/release/isene/scope) | Telescope + eyepiece catalog / calculator | [telescope-term](https://github.com/isene/telescope) |
 | [hyper](https://github.com/isene/hyper) | ![hyper](https://img.shields.io/github/v/release/isene/hyper) | HyperList outline viewer | [HyperList](https://github.com/isene/HyperList) |
+
+> [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. Their READMEs link to astro for migration.
 
 ### Libraries
 
@@ -38,7 +40,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scroll tock nova watchit scope hyper; do
+for app in rush pointer kastrup scribe scroll tock astro watchit hyper; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
