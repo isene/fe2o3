@@ -33,7 +33,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | Crate | Release | Role | Ruby equivalent |
 |---|---|---|---|
 | [crust](https://github.com/isene/crust) | ![crust](https://img.shields.io/github/v/release/isene/crust) | TUI foundation (panes, colors, input) | [rcurses](https://github.com/isene/rcurses) |
-| [glow](https://github.com/isene/glow) | ![glow](https://img.shields.io/github/v/release/isene/glow) | Inline images (kitty / sixel / w3m) | [termpix](https://github.com/isene/termpix) |
+| [glow](https://github.com/isene/glow) | ![glow](https://img.shields.io/github/v/release/isene/glow) | Inline images (kitty / sixel / w3m / braille) | [termpix](https://github.com/isene/termpix) |
 | [orbit](https://github.com/isene/orbit) | ![orbit](https://img.shields.io/github/v/release/isene/orbit) | Moon phases, ephemeris, sun / planet positions | [ephemeris](https://github.com/isene/ephemeris) |
 
 ## Install everything

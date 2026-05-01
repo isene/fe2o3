@@ -74,9 +74,11 @@
           <h3>Inline images via glow</h3>
           <p>
             <a href="https://github.com/isene/glow" style="color:var(--rust-glow)">glow</a>
-            renders images inline using kitty, sixel, or w3m protocols.
-            PDFs preview as thumbnails, videos as extracted frames,
-            emails as rendered pictures, astronomy as starcharts.
+            renders images inline using kitty, sixel, w3m, or — as a
+            graphics-free fallback — colored Unicode braille (works over
+            SSH and in tmux without passthrough). PDFs preview as
+            thumbnails, videos as extracted frames, emails as rendered
+            pictures, astronomy as starcharts.
           </p>
         </div>
       </div>
@@ -303,9 +305,10 @@
             </div>
           </div>
           <p class="card-desc">
-            Terminal image renderer supporting kitty, sixel, and w3m
-            protocols. Auto-detects the best fit. Used by pointer, kastrup,
-            scroll, watchit, and nova. Published as <code>fe2o3-glow</code>.
+            Terminal image renderer supporting kitty, sixel, w3m, and
+            colored-braille fallback for graphics-free terminals. Auto-detects
+            the best fit. Used by pointer, kastrup, scroll, watchit, and
+            astro. Published as <code>fe2o3-glow</code>.
           </p>
           <div class="card-meta">
             <span class="repo">isene/glow</span>
