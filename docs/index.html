@@ -89,7 +89,7 @@
     <div class="container">
       <h2>The tools</h2>
       <p class="section-intro">
-        Seven binaries (and two libraries) that together cover most of
+        Ten binaries and five libraries that together cover most of
         what a keyboard-bound terminal user does in a day.
       </p>
       <div class="grid">
@@ -215,23 +215,24 @@
           </div>
         </a>
 
-        <a class="card" href="https://github.com/isene/nova">
+        <a class="card" href="https://github.com/isene/astro">
           <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/nova/master/img/nova.svg" alt="nova logo" onerror="this.style.visibility='hidden'">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/astro/master/img/astro.svg" alt="astro logo" onerror="this.style.visibility='hidden'">
             <div>
-              <h3 class="card-title">nova</h3>
-              <div class="card-kind">Astronomy Panel (binary)</div>
-              <div class="card-ruby">Ruby: <a href="https://github.com/isene/astropanel">astropanel</a></div>
+              <h3 class="card-title">astro</h3>
+              <div class="card-kind">Astronomy Panel + Telescope Catalog (binary)</div>
+              <div class="card-ruby">Ruby: <a href="https://github.com/isene/astropanel">astropanel</a> + <a href="https://github.com/isene/telescope">telescope-term</a></div>
             </div>
           </div>
           <p class="card-desc">
-            9-day weather forecast, per-hour visibility bars for sun/moon/
-            planets, astronomical events, starchart, and NASA APOD. For
-            amateur astronomers deciding whether to take the scope out.
+            Single amateur-astronomy app: Sky mode (weather, ephemeris,
+            observation conditions, APOD, starcharts) plus Gear mode
+            (telescopes, eyepieces, recommended combinations,
+            observation logs). Replaces nova and scope.
           </p>
           <div class="card-meta">
-            <span class="repo">isene/nova</span>
-            <img src="https://img.shields.io/github/v/release/isene/nova" alt="release">
+            <span class="repo">isene/astro</span>
+            <img src="https://img.shields.io/github/v/release/isene/astro" alt="release">
           </div>
         </a>
 
@@ -255,24 +256,44 @@
           </div>
         </a>
 
-        <a class="card" href="https://github.com/isene/scope">
+        <a class="card" href="https://github.com/isene/torii">
           <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/scope/master/img/scope.svg" alt="scope logo" onerror="this.style.visibility='hidden'">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/torii/master/img/torii.svg" alt="torii logo" onerror="this.style.visibility='hidden'">
             <div>
-              <h3 class="card-title">scope</h3>
-              <div class="card-kind">Telescope Calculator (binary)</div>
-              <div class="card-ruby">Ruby: <a href="https://github.com/isene/telescope">telescope-term</a></div>
+              <h3 class="card-title">torii</h3>
+              <div class="card-kind">Captive-portal listener (binary)</div>
+              <div class="card-ruby">—</div>
             </div>
           </div>
           <p class="card-desc">
-            Catalog your telescopes and eyepieces. Computes focal ratio,
-            magnitude limit, min/max magnification, Rayleigh/Dawes separation,
-            recommended EPs per target type. Tag combinations to build
-            observation logs.
+            Replaces Firefox's removed "Open network login page" banner.
+            Subscribes to NetworkManager via D-Bus and opens a Firefox
+            tab at the gateway IP on captive-portal detection. Pure
+            signal-driven; ~4 MB RSS, 0 % CPU when idle.
           </p>
           <div class="card-meta">
-            <span class="repo">isene/scope</span>
-            <img src="https://img.shields.io/github/v/release/isene/scope" alt="release">
+            <span class="repo">isene/torii</span>
+            <img src="https://img.shields.io/github/v/release/isene/torii" alt="release">
+          </div>
+        </a>
+
+        <a class="card" href="https://github.com/isene/crush">
+          <div class="card-head">
+            <img class="card-logo" src="img/fe2o3.svg" alt="crush logo">
+            <div>
+              <h3 class="card-title">crush</h3>
+              <div class="card-kind">Rush Config (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Interactive TUI configuration for the rush shell. Browse and
+            modify all rush settings with live color previews, theme
+            cycling, and a full 256-color palette.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/crush</span>
+            <img src="https://img.shields.io/github/v/release/isene/crush" alt="release">
           </div>
         </a>
 
@@ -339,7 +360,55 @@
           </div>
         </a>
 
+        <a class="card" href="https://github.com/isene/orbit">
+          <div class="card-head">
+            <img class="card-logo" src="img/fe2o3.svg" alt="orbit logo">
+            <div>
+              <h3 class="card-title">orbit</h3>
+              <div class="card-kind lib">Ephemeris Library (crate)</div>
+              <div class="card-ruby">Ruby: <a href="https://github.com/isene/ephemeris">ephemeris</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Moon phases, sun and planet positions, observation windows.
+            Shared ephemeris engine used by tock and astro.
+            Published as <code>fe2o3-orbit</code>.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/orbit</span>
+            <img src="https://img.shields.io/github/v/release/isene/orbit" alt="release">
+          </div>
+        </a>
+
+        <a class="card" href="https://github.com/isene/plot">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/plot/master/img/plot.svg" alt="plot logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title">plot</h3>
+              <div class="card-kind lib">Charts Library (crate)</div>
+              <div class="card-ruby">Ruby: <a href="https://github.com/isene/termchart">termchart</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Sparklines, line charts, candlestick charts, and bar charts
+            rendered with Unicode block / braille characters and ANSI
+            colors. Pure Rust, zero runtime dependencies.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/plot</span>
+            <img src="https://img.shields.io/github/v/release/isene/plot" alt="release">
+          </div>
+        </a>
+
       </div>
+
+      <p class="archived-note" style="margin-top:1.5rem;opacity:0.7;font-size:0.9rem;">
+        Archived: <a href="https://github.com/isene/nova">nova</a> and
+        <a href="https://github.com/isene/scope">scope</a> have been folded
+        into <strong>astro</strong>;
+        <a href="https://github.com/isene/hyper">hyper</a> has been folded
+        into <strong>scribe</strong>.
+      </p>
     </div>
   </section>
 
@@ -351,7 +420,7 @@
         release. Pick your platform and drop them in <code>~/bin</code>:
       </p>
       <pre><span class="comment"># Linux x86_64 — one-liner to grab every Fe2O3 binary</span>
-<span class="cmd">for app in rush pointer kastrup scroll tock nova watchit; do
+<span class="cmd">for app in rush pointer kastrup scribe scroll tock astro watchit torii crush; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done</span>

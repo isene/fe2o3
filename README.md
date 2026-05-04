@@ -24,6 +24,8 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [tock](https://github.com/isene/tock) | ![tock](https://img.shields.io/github/v/release/isene/tock) | Calendar with ephemeris | [Timely](https://github.com/isene/timely) |
 | [astro](https://github.com/isene/astro) | ![astro](https://img.shields.io/github/v/release/isene/astro) | Astronomy panel + telescope/eyepiece catalog | [astropanel](https://github.com/isene/astropanel) + [telescope-term](https://github.com/isene/telescope) |
 | [watchit](https://github.com/isene/watchit) | ![watchit](https://img.shields.io/github/v/release/isene/watchit) | Movie / series browser | [IMDB-terminal](https://github.com/isene/IMDB) |
+| [torii](https://github.com/isene/torii) | ![torii](https://img.shields.io/github/v/release/isene/torii) | Captive-portal listener (NetworkManager → Firefox) | — |
+| [crush](https://github.com/isene/crush) | ![crush](https://img.shields.io/github/v/release/isene/crush) | Configuration TUI for rush | — |
 
 > [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. [hyper](https://github.com/isene/hyper) has been folded into **scribe** — `.hl` editing now lives there with full hyperlist.vim parity. All three READMEs link to their replacements.
 
@@ -35,12 +37,13 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [glow](https://github.com/isene/glow) | ![glow](https://img.shields.io/github/v/release/isene/glow) | Inline images (kitty / sixel / w3m / braille) | [termpix](https://github.com/isene/termpix) |
 | [highlight](https://github.com/isene/highlight) | ![highlight](https://img.shields.io/github/v/release/isene/highlight) | Theme-aware syntax highlighter (~18 source langs + HL / Markdown / LaTeX / email) | — |
 | [orbit](https://github.com/isene/orbit) | ![orbit](https://img.shields.io/github/v/release/isene/orbit) | Moon phases, ephemeris, sun / planet positions | [ephemeris](https://github.com/isene/ephemeris) |
+| [plot](https://github.com/isene/plot) | ![plot](https://img.shields.io/github/v/release/isene/plot) | Terminal charts (sparkline / line / candle / bar) with Unicode + ANSI | [termchart](https://github.com/isene/termchart) |
 
 ## Install everything
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll tock astro watchit; do
+for app in rush pointer kastrup scribe scroll tock astro watchit torii crush; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
