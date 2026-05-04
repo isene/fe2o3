@@ -150,6 +150,32 @@ section .section-intro {
   gap: 1.5rem;
 }
 
+/* Visual break between the apps grid and the libraries grid: a thin
+   horizontal rule on each side with a centered label. The rule
+   colours follow the rust accent at low opacity to match the page. */
+.grid-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2.5rem 0 1.25rem;
+  color: var(--fg-mute);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+.grid-divider::before,
+.grid-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(247, 76, 0, 0.35), transparent);
+}
+.grid-divider-label {
+  white-space: nowrap;
+  color: var(--rust-glow, #f74c00);
+  font-weight: 600;
+}
+
 .card {
   background: var(--bg-card);
   border: 1px solid #26263a;
