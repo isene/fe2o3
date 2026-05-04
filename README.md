@@ -56,7 +56,7 @@ done
 
 ## Why "Fe₂O₃"?
 
-Rust the language took its name from rust the chemical. Fe₂O₃ is the iron oxide that gives rust its color, and what happens when iron meets oxygen meets time. This is the terminal-facing half of that toolkit.
+Rust the language was actually named after a family of fungi (Pucciniales, plant pathogens "over-engineered for survival" per Graydon Hoare). The iron-oxide association came later, through the visual rhyme with what those fungi look like on a leaf. Fe₂O₃ is that iron oxide: what happens when iron meets oxygen meets time. This is the terminal-facing half of that toolkit.
 
 Every tool is a feature port of a long-running Ruby original, rewritten for speed, single-binary distribution, and async-first UI behavior.
 

@@ -195,6 +195,26 @@ section .section-intro {
   color: var(--yellow);
   margin: 0;
 }
+/* Stretched-link pattern: the title is the actual link, but its
+   ::after overlays the whole .card so the entire surface clicks
+   through to the repo. Required because <a class="card"> can't
+   contain a nested <a> (e.g. the Ruby-equivalent reference) — the
+   HTML5 parser otherwise yanks every block element after the inner
+   <a> out of the card and into the grid as a sibling. */
+.card-link {
+  color: inherit;
+  text-decoration: none;
+}
+.card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.card-ruby a {
+  position: relative;
+  z-index: 2;
+}
 .card-kind {
   font-size: 0.8rem;
   color: var(--fg-mute);
