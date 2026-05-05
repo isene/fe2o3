@@ -92,7 +92,7 @@
     <div class="container">
       <h2>The tools</h2>
       <p class="section-intro">
-        Ten binaries and five libraries that together cover most of
+        Eleven binaries and five libraries that together cover most of
         what a keyboard-bound terminal user does in a day.
       </p>
       <div class="grid">
@@ -290,6 +290,26 @@
             <img src="https://img.shields.io/github/v/release/isene/crush" alt="release">
           </div>
         </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/prism/master/img/prism.svg" alt="prism logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/prism">prism</a></h3>
+              <div class="card-kind">Color Picker (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            TUI color picker with FG/BG slots, R/G/B and H/S/V sliders,
+            hex input, live sample-text preview, and WCAG 2.x contrast
+            ratio. Pure ANSI 24-bit truecolor — no kitty graphics
+            dependency.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/prism</span>
+            <img src="https://img.shields.io/github/v/release/isene/prism" alt="release">
+          </div>
+        </div>
       </div>
 
       <div class="grid-divider">
@@ -415,7 +435,7 @@
         release. Pick your platform and drop them in <code>~/bin</code>:
       </p>
       <pre><span class="comment"># Linux x86_64 — one-liner to grab every Fe2O3 binary</span>
-<span class="cmd">for app in rush pointer kastrup scribe scroll tock astro watchit torii crush; do
+<span class="cmd">for app in rush pointer kastrup scribe scroll tock astro watchit torii crush prism; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done</span>
