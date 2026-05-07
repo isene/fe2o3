@@ -27,6 +27,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [torii](https://github.com/isene/torii) | ![torii](https://img.shields.io/github/v/release/isene/torii) | Captive-portal listener (NetworkManager → Firefox) | — |
 | [crush](https://github.com/isene/crush) | ![crush](https://img.shields.io/github/v/release/isene/crush) | Configuration TUI for rush | — |
 | [prism](https://github.com/isene/prism) | ![prism](https://img.shields.io/github/v/release/isene/prism) | TUI color picker (FG/BG slots, RGB+HSV, WCAG contrast) | — |
+| [drain](https://github.com/isene/drain) | ![drain](https://img.shields.io/github/v/release/isene/drain) | Battery-drain triage TUI (top wakers, per-WS attribution) | — |
 
 > [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. [hyper](https://github.com/isene/hyper) has been folded into **scribe** — `.hl` editing now lives there with full hyperlist.vim parity. All three READMEs link to their replacements.
 
@@ -44,7 +45,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll tock astro watchit torii crush prism; do
+for app in rush pointer kastrup scribe scroll tock astro watchit torii crush prism drain; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done

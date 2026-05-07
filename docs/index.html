@@ -310,6 +310,27 @@
             <img src="https://img.shields.io/github/v/release/isene/prism" alt="release">
           </div>
         </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/drain/master/img/drain.svg" alt="drain logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/drain">drain</a></h3>
+              <div class="card-kind">Battery-Drain Triage TUI (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Top drainers by CPU%, voluntary-context-switches/s (the
+            polling proxy), and I/O. Per-workspace attribution via
+            EWMH, claude-powered analysis pane, persistent baseline,
+            <code>strace -c</code> on demand, and a pinned summary
+            for the asm foundation tools.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/drain</span>
+            <img src="https://img.shields.io/github/v/release/isene/drain" alt="release">
+          </div>
+        </div>
       </div>
 
       <div class="grid-divider">
@@ -435,7 +456,7 @@
         release. Pick your platform and drop them in <code>~/bin</code>:
       </p>
       <pre><span class="comment"># Linux x86_64 — one-liner to grab every Fe2O3 binary</span>
-<span class="cmd">for app in rush pointer kastrup scribe scroll tock astro watchit torii crush prism; do
+<span class="cmd">for app in rush pointer kastrup scribe scroll tock astro watchit torii crush prism drain; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done</span>
