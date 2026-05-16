@@ -29,6 +29,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [prism](https://github.com/isene/prism) | ![prism](https://img.shields.io/github/v/release/isene/prism) | TUI color picker (FG/BG slots, RGB+HSV, WCAG contrast) | — |
 | [drain](https://github.com/isene/drain) | ![drain](https://img.shields.io/github/v/release/isene/drain) | Battery-drain triage TUI (top wakers, per-WS attribution) | — |
 | [amar](https://github.com/isene/amar) | ![amar](https://img.shields.io/github/v/release/isene/amar) | Amar RPG companion (NPC / encounter / town / weather forge, campaign tracker, lore, AI inspire) | [Amar-Tools](https://github.com/isene/Amar-Tools) |
+| [tune](https://github.com/isene/tune) | ![tune](https://img.shields.io/github/v/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
 
 > [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. [hyper](https://github.com/isene/hyper) has been folded into **scribe** — `.hl` editing now lives there with full hyperlist.vim parity. All three READMEs link to their replacements.
 
@@ -46,7 +47,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll tock astro watchit torii crush prism drain amar; do
+for app in rush pointer kastrup scribe scroll tock astro watchit torii crush prism drain amar tune; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
