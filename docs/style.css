@@ -248,6 +248,22 @@ section .section-intro {
   letter-spacing: 0.08em;
 }
 .card-kind.lib { color: var(--cyan); }
+.card-kind.companion { color: #a78bfa; }
+
+/* Companion cards: visually distinct from the Rust suite proper.
+   Left-edge accent in Kotlin/Android purple, faint border tint,
+   hover stays in the same family rather than the rust glow. */
+.card.companion {
+  border-color: #2d2640;
+  border-left: 3px solid #7f52ff;
+}
+.card.companion::before {
+  background: radial-gradient(200px 150px at 0% 0%, rgba(127, 82, 255, 0.10), transparent 70%);
+}
+.card.companion:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 20px 50px rgba(127, 82, 255, 0.18);
+}
 
 .card-ruby {
   font-size: 0.78rem;

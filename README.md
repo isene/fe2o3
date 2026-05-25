@@ -43,6 +43,16 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [orbit](https://github.com/isene/orbit) | ![orbit](https://img.shields.io/github/v/release/isene/orbit) | Moon phases, ephemeris, sun / planet positions | [ephemeris](https://github.com/isene/ephemeris) |
 | [plot](https://github.com/isene/plot) | ![plot](https://img.shields.io/github/v/release/isene/plot) | Terminal charts (sparkline / line / candle / bar) with Unicode + ANSI | [termchart](https://github.com/isene/termchart) |
 
+## Companion apps
+
+Not Rust, not part of the suite proper — but a member of the
+extended family that pairs with one of the Fe₂O₃ tools to extend
+its reach to other devices.
+
+| App | Platform | Pairs with | Role |
+|---|---|---|---|
+| [tasks](https://github.com/isene/tasks) | Android (Kotlin / Compose) | [scribe](https://github.com/isene/scribe), [kastrup](https://github.com/isene/kastrup) | Phone editor for `~/.tasks/todo.hl`, synced via [Syncthing](https://syncthing.net) |
+
 ## Install everything
 
 ```bash

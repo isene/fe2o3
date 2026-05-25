@@ -92,8 +92,9 @@
     <div class="container">
       <h2>The tools</h2>
       <p class="section-intro">
-        Eleven binaries and five libraries that together cover most of
-        what a keyboard-bound terminal user does in a day.
+        Fourteen binaries and five libraries that together cover most of
+        what a keyboard-bound terminal user does in a day — plus a phone
+        companion that bridges one of those workflows off the laptop.
       </p>
       <div class="grid">
 
@@ -478,6 +479,40 @@
           <div class="card-meta">
             <span class="repo">isene/plot</span>
             <img src="https://img.shields.io/github/v/release/isene/plot" alt="release">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-divider">
+        <span class="grid-divider-label">Companion apps</span>
+      </div>
+      <p class="section-intro" style="margin-top:-0.5rem;font-size:0.92rem;opacity:0.85;">
+        Not Rust, not strictly part of the suite — but a phone-side
+        bridge that extends one of the Fe<sub>2</sub>O<sub>3</sub>
+        workflows off the laptop.
+      </p>
+
+      <div class="grid">
+        <div class="card companion">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/tasks/master/img/tasks.svg" alt="tasks logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/tasks">tasks</a></h3>
+              <div class="card-kind companion">Android Companion (Kotlin / Compose)</div>
+              <div class="card-ruby">Pairs with <a href="https://github.com/isene/scribe">scribe</a> &amp; <a href="https://github.com/isene/kastrup">kastrup</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Phone-side editor for the same <code>~/.tasks/todo.hl</code>
+            hyperlist that scribe edits and kastrup's <code>z</code>
+            triage appends to. Syncs over
+            <a href="https://syncthing.net">Syncthing</a> — no Google
+            account, no cloud middleman. Adaptive icon, Material 3,
+            SAF-based file access, minSdk 33.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/tasks</span>
+            <img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK">
           </div>
         </div>
       </div>
