@@ -43,15 +43,24 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [orbit](https://github.com/isene/orbit) | ![orbit](https://img.shields.io/github/v/release/isene/orbit) | Moon phases, ephemeris, sun / planet positions | [ephemeris](https://github.com/isene/ephemeris) |
 | [plot](https://github.com/isene/plot) | ![plot](https://img.shields.io/github/v/release/isene/plot) | Terminal charts (sparkline / line / candle / bar) with Unicode + ANSI | [termchart](https://github.com/isene/termchart) |
 
-## Companion apps
+## Companion apps — [nomad](https://github.com/isene/nomad)
 
-Not Rust, not part of the suite proper — but a member of the
-extended family that pairs with one of the Fe₂O₃ tools to extend
-its reach to other devices.
+The mobile half of the family. **[nomad](https://github.com/isene/nomad)** is a
+single Android monorepo — a shared **Rust core** (the same logic as the
+desktop, via [UniFFI](https://mozilla.github.io/uniffi-rs/)) under thin
+**Kotlin / Compose** shells. Each app carries one Fe₂O₃ workflow off the laptop
+and syncs its data over [Syncthing](https://syncthing.net) — no Google account,
+no cloud middleman.
 
-| App | Platform | Pairs with | Role |
-|---|---|---|---|
-| [tasks](https://github.com/isene/tasks) | Android (Kotlin / Compose) | [scribe](https://github.com/isene/scribe), [kastrup](https://github.com/isene/kastrup) | Phone editor for `~/.tasks/todo.hl`, synced via [Syncthing](https://syncthing.net) |
+| App | Pairs with | Role |
+|---|---|---|
+| **tasks** | [scribe](https://github.com/isene/scribe), [kastrup](https://github.com/isene/kastrup) | HyperList todo editor + Glance widget for `~/.tasks/todo.hl` |
+| **hyperlist** | [scribe](https://github.com/isene/scribe) | General HyperList editor with full syntax highlighting |
+| **relay** | [kastrup](https://github.com/isene/kastrup) | Notification gateway (WhatsApp / Messenger / IG / SMS / Discord → kastrup) — replaces the laptop Marionette bridge |
+| **astro** | [astro](https://github.com/isene/astro) | Ephemeris, weather + observing conditions, events, APOD, gear catalog |
+| **watchit** | [watchit](https://github.com/isene/watchit) | TMDB movie / series browser with wish/dump lists |
+| **amardice** | [amar](https://github.com/isene/amar) | Amar RPG O6 dice roller (skill / combat / fear) |
+| **xrpn** | [xrpn](https://github.com/isene/xrpn) | Pocket HP-41 RPN calculator + FOCAL program runner |
 
 ## Install everything
 

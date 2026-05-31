@@ -487,33 +487,124 @@
         <span class="grid-divider-label">Companion apps</span>
       </div>
       <p class="section-intro" style="margin-top:-0.5rem;font-size:0.92rem;opacity:0.85;">
-        Not Rust, not strictly part of the suite — but a phone-side
-        bridge that extends one of the Fe<sub>2</sub>O<sub>3</sub>
-        workflows off the laptop.
+        <a href="https://github.com/isene/nomad">nomad</a> is the mobile half of
+        the family — a single Android monorepo with a shared <strong>Rust
+        core</strong> (the same logic as the desktop, via
+        <a href="https://mozilla.github.io/uniffi-rs/">UniFFI</a>) under thin
+        <strong>Kotlin / Compose</strong> shells. Each app carries one
+        Fe<sub>2</sub>O<sub>3</sub> workflow off the laptop and syncs over
+        <a href="https://syncthing.net">Syncthing</a> — no Google account, no
+        cloud middleman.
       </p>
 
       <div class="grid">
         <div class="card companion">
           <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/tasks/master/img/tasks.svg" alt="tasks logo" onerror="this.style.visibility='hidden'">
             <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/tasks">tasks</a></h3>
-              <div class="card-kind companion">Android Companion (Kotlin / Compose)</div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/nomad">tasks</a></h3>
+              <div class="card-kind companion">nomad · Android (Kotlin / Compose)</div>
               <div class="card-ruby">Pairs with <a href="https://github.com/isene/scribe">scribe</a> &amp; <a href="https://github.com/isene/kastrup">kastrup</a></div>
             </div>
           </div>
           <p class="card-desc">
-            Phone-side editor for the same <code>~/.tasks/todo.hl</code>
-            hyperlist that scribe edits and kastrup's <code>z</code>
-            triage appends to. Syncs over
-            <a href="https://syncthing.net">Syncthing</a> — no Google
-            account, no cloud middleman. Adaptive icon, Material 3,
-            SAF-based file access, minSdk 33.
+            HyperList todo editor + Glance home-screen widget for the same
+            <code>~/.tasks/todo.hl</code> that scribe edits and kastrup's
+            <code>z</code> triage appends to.
           </p>
-          <div class="card-meta">
-            <span class="repo">isene/tasks</span>
-            <img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK">
+          <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
+        </div>
+
+        <div class="card companion">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/nomad">hyperlist</a></h3>
+              <div class="card-kind companion">nomad · Android (Kotlin / Compose)</div>
+              <div class="card-ruby">Pairs with <a href="https://github.com/isene/scribe">scribe</a></div>
+            </div>
           </div>
+          <p class="card-desc">
+            General <a href="https://isene.org/hyperlist/">HyperList</a> editor —
+            full syntax highlighting, fold, drag-reorder across depth, and
+            auto-renumber.
+          </p>
+          <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
+        </div>
+
+        <div class="card companion">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/nomad">relay</a></h3>
+              <div class="card-kind companion">nomad · Android (Kotlin / Compose)</div>
+              <div class="card-ruby">Pairs with <a href="https://github.com/isene/kastrup">kastrup</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Notification gateway: relays WhatsApp / Messenger / Instagram / SMS /
+            Discord (and photos) into kastrup and fires replies — replacing the
+            laptop's Marionette bridge.
+          </p>
+          <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
+        </div>
+
+        <div class="card companion">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/nomad">astro</a></h3>
+              <div class="card-kind companion">nomad · Android (Kotlin / Compose)</div>
+              <div class="card-ruby">Pairs with <a href="https://github.com/isene/astro">astro</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Amateur-astronomy companion: ephemeris, met.no weather + observing
+            conditions, in-the-sky events, APOD, starchart, and a
+            telescope/eyepiece gear catalog (shared with desktop astro).
+          </p>
+          <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
+        </div>
+
+        <div class="card companion">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/nomad">watchit</a></h3>
+              <div class="card-kind companion">nomad · Android (Kotlin / Compose)</div>
+              <div class="card-ruby">Pairs with <a href="https://github.com/isene/watchit">watchit</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            TMDB movie / series browser — top-rated &amp; popular lists, your own
+            wish/dump lists, posters, full detail, and search-to-add.
+          </p>
+          <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
+        </div>
+
+        <div class="card companion">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/nomad">amardice</a></h3>
+              <div class="card-kind companion">nomad · Android (Kotlin / Compose)</div>
+              <div class="card-ruby">Pairs with <a href="https://github.com/isene/amar">amar</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Amar RPG O6 dice roller: D6, skill, and combat rolls with the full
+            crit/fumble tables, plus fear rolls with mental-fortitude.
+          </p>
+          <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
+        </div>
+
+        <div class="card companion">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/nomad">xrpn</a></h3>
+              <div class="card-kind companion">nomad · Android (Kotlin / Compose)</div>
+              <div class="card-ruby">Pairs with <a href="https://github.com/isene/xrpn">xrpn</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Pocket HP-41 RPN scientific calculator — full stack/registers/modes,
+            an HP-41-style multi-shift keypad, and a FOCAL program runner.
+          </p>
+          <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
         </div>
       </div>
 
