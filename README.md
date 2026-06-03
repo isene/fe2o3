@@ -61,6 +61,9 @@ no cloud middleman.
 | **watchit** | [watchit](https://github.com/isene/watchit) | TMDB movie / series browser with wish/dump lists |
 | **amardice** | [amar](https://github.com/isene/amar) | Amar RPG O6 dice roller (skill / combat / fear) |
 | **xrpn** | [xrpn](https://github.com/isene/xrpn) | Pocket HP-41 RPN calculator + FOCAL program runner |
+| **scribe** | [scribe](https://github.com/isene/scribe) | Distraction-free notes pad — touch companion to the scribe editor |
+| **ref** | — | Offline, searchable reference reader (glossaries, books, personal writings) |
+| **vox** | — | Voice quick-capture — pocket version of the laptop `Win+a` voice-to-text |
 
 ## Install everything
 
