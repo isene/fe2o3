@@ -21,6 +21,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [kastrup](https://github.com/isene/kastrup) | ![kastrup](https://img.shields.io/github/v/release/isene/kastrup) | Messaging hub (email, RSS, chat) | [Heathrow](https://github.com/isene/heathrow) |
 | [scribe](https://github.com/isene/scribe) | ![scribe](https://img.shields.io/github/v/release/isene/scribe) | Modal text editor for writers | — |
 | [scroll](https://github.com/isene/scroll) | ![scroll](https://img.shields.io/github/v/release/isene/scroll) | Web browser | [brrowser](https://github.com/isene/brrowser) |
+| [gazette](https://github.com/isene/gazette) | ![gazette](https://img.shields.io/github/v/release/isene/gazette) | Daily news digest reader | — |
 | [tock](https://github.com/isene/tock) | ![tock](https://img.shields.io/github/v/release/isene/tock) | Calendar with ephemeris | [Timely](https://github.com/isene/timely) |
 | [astro](https://github.com/isene/astro) | ![astro](https://img.shields.io/github/v/release/isene/astro) | Astronomy panel + telescope/eyepiece catalog | [astropanel](https://github.com/isene/astropanel) + [telescope-term](https://github.com/isene/telescope) |
 | [watchit](https://github.com/isene/watchit) | ![watchit](https://img.shields.io/github/v/release/isene/watchit) | Movie / series browser | [IMDB-terminal](https://github.com/isene/IMDB) |
@@ -69,7 +70,7 @@ no cloud middleman.
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll tock astro watchit torii crush prism drain amar tune; do
+for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism drain amar tune; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
