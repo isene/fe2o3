@@ -65,6 +65,7 @@ no cloud middleman.
 | **scribe** | [scribe](https://github.com/isene/scribe) | Distraction-free notes pad — touch companion to the scribe editor |
 | **ref** | — | Offline, searchable reference reader (glossaries, books, personal writings) |
 | **vox** | — | Voice quick-capture — pocket version of the laptop `Win+a` voice-to-text |
+| **gazette** | [gazette](https://github.com/isene/gazette) | Daily news digest reader — browse the last 7 issues (and PDF) synced into `~/.news` |
 
 ## Install everything
 
