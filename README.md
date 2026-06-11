@@ -31,6 +31,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [drain](https://github.com/isene/drain) | ![drain](https://img.shields.io/github/v/release/isene/drain) | Battery-drain triage TUI (top wakers, per-WS attribution) | — |
 | [amar](https://github.com/isene/amar) | ![amar](https://img.shields.io/github/v/release/isene/amar) | Amar RPG companion (NPC / encounter / town / weather forge, campaign tracker, lore, AI inspire) | [Amar-Tools](https://github.com/isene/Amar-Tools) |
 | [tune](https://github.com/isene/tune) | ![tune](https://img.shields.io/github/v/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
+| [library](https://github.com/isene/library) | ![library](https://img.shields.io/github/v/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written on demand) | — |
 
 > [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. [hyper](https://github.com/isene/hyper) has been folded into **scribe** — `.hl` editing now lives there with full hyperlist.vim parity. All three READMEs link to their replacements.
 
@@ -66,12 +67,14 @@ no cloud middleman.
 | **ref** | — | Offline, searchable reference reader (glossaries, books, personal writings) |
 | **vox** | — | Voice quick-capture — pocket version of the laptop `Win+a` voice-to-text |
 | **gazette** | [gazette](https://github.com/isene/gazette) | Daily news digest reader — browse the last 7 issues (and PDF) synced into `~/.news` |
+| **books** | [library](https://github.com/isene/library) | The library on your phone, read-only: only the books you have made, grouped by shelf, with inline figures |
+| **onepage** | — | Minimal Android home launcher (one screen, freely-placed widgets, zero idle cost) |
 
 ## Install everything
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism drain amar tune; do
+for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism drain amar tune library; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done

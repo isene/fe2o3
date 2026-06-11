@@ -92,7 +92,7 @@
     <div class="container">
       <h2>The tools</h2>
       <p class="section-intro">
-        Fourteen binaries and five libraries that together cover most of
+        Sixteen binaries and five libraries that together cover most of
         what a keyboard-bound terminal user does in a day — plus a phone
         companion that bridges one of those workflows off the laptop.
       </p>
@@ -396,6 +396,27 @@
             <img src="https://img.shields.io/github/v/release/isene/tune" alt="release">
           </div>
         </div>
+
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/library/master/img/library.svg" alt="library logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/library">library</a></h3>
+              <div class="card-kind">Generative Library (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            A personal library of the books that should exist. Curate a shelf
+            of enticing titles; grab one and Claude writes the whole book,
+            with inline figures, to read in the terminal. Real books fetch
+            from legal sources. Syncs to the phone reader, books.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/library</span>
+            <img src="https://img.shields.io/github/v/release/isene/library" alt="release">
+          </div>
+        </div>
       </div>
 
       <div class="grid-divider">
@@ -686,6 +707,38 @@
           </p>
           <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
         </div>
+
+        <div class="card companion">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/nomad">books</a></h3>
+              <div class="card-kind companion">nomad · Android (Kotlin / Compose)</div>
+              <div class="card-ruby">Pairs with <a href="https://github.com/isene/library">library</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            The library on your phone. Read-only reader over the synced
+            <code>~/.library</code>: only the books you have made, grouped by
+            shelf, with inline figures, read full-screen and offline.
+          </p>
+          <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
+        </div>
+
+        <div class="card companion">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/nomad">onepage</a></h3>
+              <div class="card-kind companion">nomad · Android (Kotlin / Views)</div>
+              <div class="card-ruby">Standalone · zero idle cost</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            A minimal home-screen launcher: one screen, your widgets placed
+            freely, nothing else. Built to cost nothing when idle, no polling
+            or background wake-ups.
+          </p>
+          <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
+        </div>
       </div>
 
       <p class="archived-note" style="margin-top:1.5rem;opacity:0.7;font-size:0.9rem;">
@@ -706,7 +759,7 @@
         release. Pick your platform and drop them in <code>~/bin</code>:
       </p>
       <pre><span class="comment"># Linux x86_64 — one-liner to grab every Fe2O3 binary</span>
-<span class="cmd">for app in rush pointer kastrup scribe scroll tock astro watchit torii crush prism drain; do
+<span class="cmd">for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism drain amar tune library; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done</span>
