@@ -32,6 +32,8 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [amar](https://github.com/isene/amar) | ![amar](https://img.shields.io/github/v/release/isene/amar) | Amar RPG companion (NPC / encounter / town / weather forge, campaign tracker, lore, AI inspire) | [Amar-Tools](https://github.com/isene/Amar-Tools) |
 | [tune](https://github.com/isene/tune) | ![tune](https://img.shields.io/github/v/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
 | [library](https://github.com/isene/library) | ![library](https://img.shields.io/github/v/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written on demand) | — |
+| [grid](https://github.com/isene/grid) | ![grid](https://img.shields.io/github/v/release/isene/grid) | AI-native spreadsheet (csv/xlsx/ods, formula engine, Claude editing) | — |
+| [viewer](https://github.com/isene/viewer) | ![viewer](https://img.shields.io/github/v/release/isene/viewer) | Universal file viewer (tables, docs, slides, pdf, images, code; launches the right editor) | — |
 
 > [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. [hyper](https://github.com/isene/hyper) has been folded into **scribe** — `.hl` editing now lives there with full hyperlist.vim parity. All three READMEs link to their replacements.
 
