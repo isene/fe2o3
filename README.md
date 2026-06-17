@@ -16,24 +16,24 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 
 | Tool | Release | Role | Ruby equivalent |
 |---|---|---|---|
-| [rush](https://github.com/isene/rush) | ![rush](https://img.shields.io/github/v/release/isene/rush) | Interactive shell | [rsh](https://github.com/isene/rsh) |
-| [pointer](https://github.com/isene/pointer) | ![pointer](https://img.shields.io/github/v/release/isene/pointer) | File manager | [RTFM](https://github.com/isene/RTFM) |
-| [kastrup](https://github.com/isene/kastrup) | ![kastrup](https://img.shields.io/github/v/release/isene/kastrup) | Messaging hub (email, RSS, chat) | [Heathrow](https://github.com/isene/heathrow) |
-| [scribe](https://github.com/isene/scribe) | ![scribe](https://img.shields.io/github/v/release/isene/scribe) | Modal text editor for writers | — |
-| [scroll](https://github.com/isene/scroll) | ![scroll](https://img.shields.io/github/v/release/isene/scroll) | Web browser | [brrowser](https://github.com/isene/brrowser) |
-| [gazette](https://github.com/isene/gazette) | ![gazette](https://img.shields.io/github/v/release/isene/gazette) | Daily news digest reader | — |
-| [tock](https://github.com/isene/tock) | ![tock](https://img.shields.io/github/v/release/isene/tock) | Calendar with ephemeris | [Timely](https://github.com/isene/timely) |
-| [astro](https://github.com/isene/astro) | ![astro](https://img.shields.io/github/v/release/isene/astro) | Astronomy panel + telescope/eyepiece catalog | [astropanel](https://github.com/isene/astropanel) + [telescope-term](https://github.com/isene/telescope) |
-| [watchit](https://github.com/isene/watchit) | ![watchit](https://img.shields.io/github/v/release/isene/watchit) | Movie / series browser | [IMDB-terminal](https://github.com/isene/IMDB) |
-| [torii](https://github.com/isene/torii) | ![torii](https://img.shields.io/github/v/release/isene/torii) | Captive-portal listener (NetworkManager → Firefox) | — |
-| [crush](https://github.com/isene/crush) | ![crush](https://img.shields.io/github/v/release/isene/crush) | Configuration TUI for rush | — |
-| [prism](https://github.com/isene/prism) | ![prism](https://img.shields.io/github/v/release/isene/prism) | TUI color picker (FG/BG slots, RGB+HSV, WCAG contrast) | — |
-| [drain](https://github.com/isene/drain) | ![drain](https://img.shields.io/github/v/release/isene/drain) | Battery-drain triage TUI (top wakers, per-WS attribution) | — |
-| [amar](https://github.com/isene/amar) | ![amar](https://img.shields.io/github/v/release/isene/amar) | Amar RPG companion (NPC / encounter / town / weather forge, campaign tracker, lore, AI inspire) | [Amar-Tools](https://github.com/isene/Amar-Tools) |
-| [tune](https://github.com/isene/tune) | ![tune](https://img.shields.io/github/v/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
-| [library](https://github.com/isene/library) | ![library](https://img.shields.io/github/v/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written on demand) | — |
-| [grid](https://github.com/isene/grid) | ![grid](https://img.shields.io/github/v/release/isene/grid) | AI-native spreadsheet (csv/xlsx/ods, formula engine, Claude editing) | — |
-| [viewer](https://github.com/isene/viewer) | ![viewer](https://img.shields.io/github/v/release/isene/viewer) | Universal file viewer (tables, docs, slides, pdf, images, code; launches the right editor) | — |
+| [rush](https://github.com/isene/rush) | ![rush](https://badgen.net/github/release/isene/rush) | Interactive shell | [rsh](https://github.com/isene/rsh) |
+| [pointer](https://github.com/isene/pointer) | ![pointer](https://badgen.net/github/release/isene/pointer) | File manager | [RTFM](https://github.com/isene/RTFM) |
+| [kastrup](https://github.com/isene/kastrup) | ![kastrup](https://badgen.net/github/release/isene/kastrup) | Messaging hub (email, RSS, chat) | [Heathrow](https://github.com/isene/heathrow) |
+| [scribe](https://github.com/isene/scribe) | ![scribe](https://badgen.net/github/release/isene/scribe) | Modal text editor for writers | — |
+| [scroll](https://github.com/isene/scroll) | ![scroll](https://badgen.net/github/release/isene/scroll) | Web browser | [brrowser](https://github.com/isene/brrowser) |
+| [gazette](https://github.com/isene/gazette) | ![gazette](https://badgen.net/github/release/isene/gazette) | Daily news digest reader | — |
+| [tock](https://github.com/isene/tock) | ![tock](https://badgen.net/github/release/isene/tock) | Calendar with ephemeris | [Timely](https://github.com/isene/timely) |
+| [astro](https://github.com/isene/astro) | ![astro](https://badgen.net/github/release/isene/astro) | Astronomy panel + telescope/eyepiece catalog | [astropanel](https://github.com/isene/astropanel) + [telescope-term](https://github.com/isene/telescope) |
+| [watchit](https://github.com/isene/watchit) | ![watchit](https://badgen.net/github/release/isene/watchit) | Movie / series browser | [IMDB-terminal](https://github.com/isene/IMDB) |
+| [torii](https://github.com/isene/torii) | ![torii](https://badgen.net/github/release/isene/torii) | Captive-portal listener (NetworkManager → Firefox) | — |
+| [crush](https://github.com/isene/crush) | ![crush](https://badgen.net/github/release/isene/crush) | Configuration TUI for rush | — |
+| [prism](https://github.com/isene/prism) | ![prism](https://badgen.net/github/release/isene/prism) | TUI color picker (FG/BG slots, RGB+HSV, WCAG contrast) | — |
+| [drain](https://github.com/isene/drain) | ![drain](https://badgen.net/github/release/isene/drain) | Battery-drain triage TUI (top wakers, per-WS attribution) | — |
+| [amar](https://github.com/isene/amar) | ![amar](https://badgen.net/github/release/isene/amar) | Amar RPG companion (NPC / encounter / town / weather forge, campaign tracker, lore, AI inspire) | [Amar-Tools](https://github.com/isene/Amar-Tools) |
+| [tune](https://github.com/isene/tune) | ![tune](https://badgen.net/github/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
+| [library](https://github.com/isene/library) | ![library](https://badgen.net/github/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written on demand) | — |
+| [grid](https://github.com/isene/grid) | ![grid](https://badgen.net/github/release/isene/grid) | AI-native spreadsheet (csv/xlsx/ods, formula engine, Claude editing) | — |
+| [viewer](https://github.com/isene/viewer) | ![viewer](https://badgen.net/github/release/isene/viewer) | Universal file viewer (tables, docs, slides, pdf, images, code; launches the right editor) | — |
 
 > [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. [hyper](https://github.com/isene/hyper) has been folded into **scribe** — `.hl` editing now lives there with full hyperlist.vim parity. All three READMEs link to their replacements.
 
@@ -41,11 +41,11 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 
 | Crate | Release | Role | Ruby equivalent |
 |---|---|---|---|
-| [crust](https://github.com/isene/crust) | ![crust](https://img.shields.io/github/v/release/isene/crust) | TUI foundation (panes, colors, input) | [rcurses](https://github.com/isene/rcurses) |
-| [glow](https://github.com/isene/glow) | ![glow](https://img.shields.io/github/v/release/isene/glow) | Inline images (kitty / sixel / w3m / braille) | [termpix](https://github.com/isene/termpix) |
-| [highlight](https://github.com/isene/highlight) | ![highlight](https://img.shields.io/github/v/release/isene/highlight) | Theme-aware syntax highlighter (~18 source langs + HL / Markdown / LaTeX / email) | — |
-| [orbit](https://github.com/isene/orbit) | ![orbit](https://img.shields.io/github/v/release/isene/orbit) | Moon phases, ephemeris, sun / planet positions | [ephemeris](https://github.com/isene/ephemeris) |
-| [plot](https://github.com/isene/plot) | ![plot](https://img.shields.io/github/v/release/isene/plot) | Terminal charts (sparkline / line / candle / bar) with Unicode + ANSI | [termchart](https://github.com/isene/termchart) |
+| [crust](https://github.com/isene/crust) | ![crust](https://badgen.net/github/release/isene/crust) | TUI foundation (panes, colors, input) | [rcurses](https://github.com/isene/rcurses) |
+| [glow](https://github.com/isene/glow) | ![glow](https://badgen.net/github/release/isene/glow) | Inline images (kitty / sixel / w3m / braille) | [termpix](https://github.com/isene/termpix) |
+| [highlight](https://github.com/isene/highlight) | ![highlight](https://badgen.net/github/release/isene/highlight) | Theme-aware syntax highlighter (~18 source langs + HL / Markdown / LaTeX / email) | — |
+| [orbit](https://github.com/isene/orbit) | ![orbit](https://badgen.net/github/release/isene/orbit) | Moon phases, ephemeris, sun / planet positions | [ephemeris](https://github.com/isene/ephemeris) |
+| [plot](https://github.com/isene/plot) | ![plot](https://badgen.net/github/release/isene/plot) | Terminal charts (sparkline / line / candle / bar) with Unicode + ANSI | [termchart](https://github.com/isene/termchart) |
 
 ## Companion apps — [nomad](https://github.com/isene/nomad)
 
