@@ -76,7 +76,7 @@ no cloud middleman.
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism drain amar tune library; do
+for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism drain amar tune library grid viewer; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
