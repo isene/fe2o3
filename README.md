@@ -28,6 +28,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [torii](https://github.com/isene/torii) | ![torii](https://badgen.net/github/release/isene/torii) | Captive-portal listener (NetworkManager → Firefox) | — |
 | [crush](https://github.com/isene/crush) | ![crush](https://badgen.net/github/release/isene/crush) | Configuration TUI for rush | — |
 | [prism](https://github.com/isene/prism) | ![prism](https://badgen.net/github/release/isene/prism) | TUI color picker (FG/BG slots, RGB+HSV, WCAG contrast) | — |
+| [fonts](https://github.com/isene/fonts) | ![fonts](https://badgen.net/github/release/isene/fonts) | TUI font picker with live previews (enumerates installed fonts via glyph); returns family + size | — |
 | [drain](https://github.com/isene/drain) | ![drain](https://badgen.net/github/release/isene/drain) | Battery-drain triage TUI (top wakers, per-WS attribution) | — |
 | [amar](https://github.com/isene/amar) | ![amar](https://badgen.net/github/release/isene/amar) | Amar RPG companion (NPC / encounter / town / weather forge, campaign tracker, lore, AI inspire) | [Amar-Tools](https://github.com/isene/Amar-Tools) |
 | [tune](https://github.com/isene/tune) | ![tune](https://badgen.net/github/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
@@ -76,7 +77,7 @@ no cloud middleman.
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism drain amar tune library grid viewer; do
+for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune library grid viewer; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
