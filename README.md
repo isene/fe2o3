@@ -32,6 +32,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [drain](https://github.com/isene/drain) | ![drain](https://badgen.net/github/release/isene/drain) | Battery-drain triage TUI (top wakers, per-WS attribution) | — |
 | [amar](https://github.com/isene/amar) | ![amar](https://badgen.net/github/release/isene/amar) | Amar RPG companion (NPC / encounter / town / weather forge, campaign tracker, lore, AI inspire) | [Amar-Tools](https://github.com/isene/Amar-Tools) |
 | [tune](https://github.com/isene/tune) | ![tune](https://badgen.net/github/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
+| [melody](https://github.com/isene/melody) | ![melody](https://badgen.net/github/release/isene/melody) | Melody maker — piano-roll play / record / edit, metronome, WAV export for Suno | — |
 | [library](https://github.com/isene/library) | ![library](https://badgen.net/github/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written on demand) | — |
 | [grid](https://github.com/isene/grid) | ![grid](https://badgen.net/github/release/isene/grid) | AI-native spreadsheet (csv/xlsx/ods, formula engine, Claude editing) | — |
 | [viewer](https://github.com/isene/viewer) | ![viewer](https://badgen.net/github/release/isene/viewer) | Universal file viewer (tables, docs, slides, pdf, images, code; launches the right editor) | — |
@@ -77,7 +78,7 @@ no cloud middleman.
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune library grid viewer; do
+for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune melody library grid viewer; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
