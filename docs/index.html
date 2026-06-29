@@ -420,6 +420,26 @@
 
         <div class="card">
           <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/melody/master/img/melody.svg" alt="melody logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/melody">melody</a></h3>
+              <div class="card-kind">Melody Maker (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Terminal melody maker. Play a piano line live on the keyboard,
+            record and edit it on a piano-roll, keep time with the
+            metronome, then export to WAV as the starting point for a song.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/melody</span>
+            <img src="https://badgen.net/github/release/isene/melody" alt="release">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
             <img class="card-logo" src="https://raw.githubusercontent.com/isene/library/master/img/library.svg" alt="library logo" onerror="this.style.visibility='hidden'">
             <div>
               <h3 class="card-title"><a class="card-link" href="https://github.com/isene/library">library</a></h3>
@@ -822,7 +842,7 @@
         release. Pick your platform and drop them in <code>~/bin</code>:
       </p>
       <pre><span class="comment"># Linux x86_64 — one-liner to grab every Fe2O3 binary</span>
-<span class="cmd">for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune library grid viewer; do
+<span class="cmd">for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune melody library grid viewer; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done</span>
