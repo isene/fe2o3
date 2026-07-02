@@ -440,6 +440,26 @@
 
         <div class="card">
           <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/petri/master/img/petri.svg" alt="petri logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/petri">petri</a></h3>
+              <div class="card-kind">Petri Net Player (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Terminal Petri net player. Load a net, fire transitions and watch
+            tokens flow, spot conflicting transitions, and search for
+            deadlocks. A compact playground for modelling concurrency.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/petri</span>
+            <img src="https://badgen.net/github/release/isene/petri" alt="release">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
             <img class="card-logo" src="https://raw.githubusercontent.com/isene/library/master/img/library.svg" alt="library logo" onerror="this.style.visibility='hidden'">
             <div>
               <h3 class="card-title"><a class="card-link" href="https://github.com/isene/library">library</a></h3>
@@ -842,7 +862,7 @@
         release. Pick your platform and drop them in <code>~/bin</code>:
       </p>
       <pre><span class="comment"># Linux x86_64 — one-liner to grab every Fe2O3 binary</span>
-<span class="cmd">for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune melody library grid viewer; do
+<span class="cmd">for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune melody petri library grid viewer; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done</span>

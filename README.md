@@ -33,6 +33,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [amar](https://github.com/isene/amar) | ![amar](https://badgen.net/github/release/isene/amar) | Amar RPG companion (NPC / encounter / town / weather forge, campaign tracker, lore, AI inspire) | [Amar-Tools](https://github.com/isene/Amar-Tools) |
 | [tune](https://github.com/isene/tune) | ![tune](https://badgen.net/github/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
 | [melody](https://github.com/isene/melody) | ![melody](https://badgen.net/github/release/isene/melody) | Melody maker — piano-roll play / record / edit, metronome, WAV export | — |
+| [petri](https://github.com/isene/petri) | ![petri](https://badgen.net/github/release/isene/petri) | Petri net player — load a net, fire transitions, watch conflicts, find deadlocks | — |
 | [petri](https://github.com/isene/petri) | ![petri](https://badgen.net/github/release/isene/petri) | Petri net player — fire transitions, watch conflicts, find deadlocks | — |
 | [library](https://github.com/isene/library) | ![library](https://badgen.net/github/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written on demand) | — |
 | [grid](https://github.com/isene/grid) | ![grid](https://badgen.net/github/release/isene/grid) | AI-native spreadsheet (csv/xlsx/ods, formula engine, Claude editing) | — |
