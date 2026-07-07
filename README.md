@@ -38,6 +38,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [library](https://github.com/isene/library) | ![library](https://badgen.net/github/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written on demand) | — |
 | [grid](https://github.com/isene/grid) | ![grid](https://badgen.net/github/release/isene/grid) | AI-native spreadsheet (csv/xlsx/ods, formula engine, Claude editing) | — |
 | [viewer](https://github.com/isene/viewer) | ![viewer](https://badgen.net/github/release/isene/viewer) | Universal file viewer (tables, docs, slides, pdf, images, code; launches the right editor) | — |
+| [rpnx](https://github.com/isene/rpnx) | ![rpnx](https://badgen.net/github/release/isene/rpnx) | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs) | [T-REX](https://github.com/isene/T-REX) |
 
 > [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. [hyper](https://github.com/isene/hyper) has been folded into **scribe** — `.hl` editing now lives there with full hyperlist.vim parity. All three READMEs link to their replacements.
 
@@ -50,6 +51,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [highlight](https://github.com/isene/highlight) | ![highlight](https://badgen.net/github/release/isene/highlight) | Theme-aware syntax highlighter (~18 source langs + HL / Markdown / LaTeX / email) | — |
 | [orbit](https://github.com/isene/orbit) | ![orbit](https://badgen.net/github/release/isene/orbit) | Moon phases, ephemeris, sun / planet positions | [ephemeris](https://github.com/isene/ephemeris) |
 | [plot](https://github.com/isene/plot) | ![plot](https://badgen.net/github/release/isene/plot) | Terminal charts (sparkline / line / candle / bar) with Unicode + ANSI | [termchart](https://github.com/isene/termchart) |
+| [fe2o3-rpnx-core](https://github.com/isene/rpnx-core) | ![rpnx-core](https://badgen.net/github/release/isene/rpnx-core) | RPN / XRPN calculator engine shared by rpnx (TUI) + the RPNx phone app | — |
 
 ## Companion apps — [nomad](https://github.com/isene/nomad)
 
@@ -68,7 +70,7 @@ no cloud middleman.
 | **astro** | [astro](https://github.com/isene/astro) | Ephemeris, weather + observing conditions, events, APOD, gear catalog |
 | **watchit** | [watchit](https://github.com/isene/watchit) | TMDB movie / series browser with wish/dump lists |
 | **amardice** | [amar](https://github.com/isene/amar) | Amar RPG O6 dice roller (skill / combat / fear) |
-| **xrpn** | [xrpn](https://github.com/isene/xrpn) | Pocket HP-41 RPN calculator + FOCAL program runner |
+| **rpnx** | [rpnx](https://github.com/isene/rpnx) | Pocket HP-41 RPN calculator + FOCAL program runner (same engine as the rpnx TUI) |
 | **scribe** | [scribe](https://github.com/isene/scribe) | Distraction-free notes pad — touch companion to the scribe editor |
 | **ref** | — | Offline, searchable reference reader (glossaries, books, personal writings) |
 | **vox** | — | Voice quick-capture — pocket version of the laptop `Win+a` voice-to-text |
@@ -80,7 +82,7 @@ no cloud middleman.
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune melody petri library grid viewer; do
+for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune melody petri library grid viewer rpnx; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
