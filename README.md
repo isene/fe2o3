@@ -34,10 +34,10 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [tune](https://github.com/isene/tune) | ![tune](https://badgen.net/github/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
 | [melody](https://github.com/isene/melody) | ![melody](https://badgen.net/github/release/isene/melody) | Melody maker — piano-roll play / record / edit, metronome, WAV export | — |
 | [petri](https://github.com/isene/petri) | ![petri](https://badgen.net/github/release/isene/petri) | Petri net player — load a net, fire transitions, watch conflicts, find deadlocks | — |
-| [petri](https://github.com/isene/petri) | ![petri](https://badgen.net/github/release/isene/petri) | Petri net player — fire transitions, watch conflicts, find deadlocks | — |
 | [library](https://github.com/isene/library) | ![library](https://badgen.net/github/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written on demand) | — |
 | [grid](https://github.com/isene/grid) | ![grid](https://badgen.net/github/release/isene/grid) | AI-native spreadsheet (csv/xlsx/ods, formula engine, Claude editing) | — |
 | [viewer](https://github.com/isene/viewer) | ![viewer](https://badgen.net/github/release/isene/viewer) | Universal file viewer (tables, docs, slides, pdf, images, code; launches the right editor) | — |
+| [CC-sessions](https://github.com/isene/CC-sessions) | ![CC-sessions](https://badgen.net/github/release/isene/CC-sessions) | Claude Code session manager (`cc`/`cl`: bookmark + resume sessions with tags, `/bm` command) | CC-sessions ≤1.5 (Ruby) |
 | [rpnx](https://github.com/isene/rpnx) | ![rpnx](https://badgen.net/github/release/isene/rpnx) | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs) | [T-REX](https://github.com/isene/T-REX) |
 
 > [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. [hyper](https://github.com/isene/hyper) has been folded into **scribe** — `.hl` editing now lives there with full hyperlist.vim parity. All three READMEs link to their replacements.
