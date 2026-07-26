@@ -41,6 +41,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 | [rpnx](https://github.com/isene/rpnx) | ![rpnx](https://badgen.net/github/release/isene/rpnx) | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs) | [T-REX](https://github.com/isene/T-REX) |
 | [typo](https://github.com/isene/typo) | ![typo](https://badgen.net/github/release/isene/typo) | Touch-typing tutor (strict drills, live WPM/accuracy, US + Norwegian layouts) | — |
 | [elements](https://github.com/isene/elements) | ![elements](https://badgen.net/github/release/isene/elements) | Periodic table explorer (118 elements + hypothesized 119–126, full Wikipedia article per element, offline) | — |
+| [stars](https://github.com/isene/stars) | ![stars](https://badgen.net/github/release/isene/stars) | Hertzsprung-Russell diagram explorer (461 named stars, evolutionary tracks, full Wikipedia article per star) | — |
 
 > [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. [hyper](https://github.com/isene/hyper) has been folded into **scribe** — `.hl` editing now lives there with full hyperlist.vim parity. All three READMEs link to their replacements.
 
@@ -84,7 +85,7 @@ no cloud middleman.
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune melody petri library grid viewer rpnx typo elements; do
+for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune melody petri library grid viewer rpnx typo elements stars; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
