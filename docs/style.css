@@ -163,6 +163,9 @@ section .section-intro {
   text-transform: uppercase;
   letter-spacing: 0.18em;
 }
+.grid-divider.first {
+  margin-top: 1.25rem;
+}
 .grid-divider::before,
 .grid-divider::after {
   content: "";

@@ -92,12 +92,15 @@
     <div class="container">
       <h2>The tools</h2>
       <p class="section-intro">
-        Sixteen binaries and five libraries that together cover most of
-        what a keyboard-bound terminal user does in a day — plus a phone
+        Twenty-seven binaries and five libraries that together cover most
+        of what a keyboard-bound terminal user does in a day — plus a phone
         companion that bridges one of those workflows off the laptop.
       </p>
-      <div class="grid">
+      <div class="grid-divider first">
+        <span class="grid-divider-label">Daily drivers</span>
+      </div>
 
+      <div class="grid">
         <div class="card">
           <div class="card-head">
             <img class="card-logo" src="https://raw.githubusercontent.com/isene/rush/master/img/rush.svg" alt="rush logo" onerror="this.style.visibility='hidden'">
@@ -194,26 +197,13 @@
             <img src="https://badgen.net/github/release/isene/scroll" alt="release">
           </div>
         </div>
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/gazette/master/img/gazette.svg" alt="gazette logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/gazette">gazette</a></h3>
-              <div class="card-kind">News Reader (binary)</div>
-              <div class="card-ruby">—</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            Reader for your personal daily news digest. A server-side Claude
-            run gathers the news you care about into a dated Markdown issue
-            (and a typeset PDF); gazette browses the last 7 days and opens
-            source links in scroll.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/gazette</span>
-            <img src="https://badgen.net/github/release/isene/gazette" alt="release">
-          </div>
-        </div>
+      </div>
+
+      <div class="grid-divider">
+        <span class="grid-divider-label">Desk</span>
+      </div>
+
+      <div class="grid">
         <div class="card">
           <div class="card-head">
             <img class="card-logo" src="https://raw.githubusercontent.com/isene/tock/master/img/tock.svg" alt="tock logo" onerror="this.style.visibility='hidden'">
@@ -235,6 +225,93 @@
         </div>
         <div class="card">
           <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/grid/master/img/grid.svg" alt="grid logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/grid">grid</a></h3>
+              <div class="card-kind">AI-native Spreadsheet (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            A terminal spreadsheet that lets the AI do the tedious parts. Edit
+            cells and write formulas, or just tell Claude what to change. Reads
+            and writes csv/xlsx/ods with a hand-rolled formula engine, undo, and
+            multi-sheet workbooks.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/grid</span>
+            <img src="https://badgen.net/github/release/isene/grid" alt="release">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/viewer/master/img/viewer.svg" alt="viewer logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/viewer">viewer</a></h3>
+              <div class="card-kind">Universal File Viewer (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            One read-only view for any file: spreadsheets, documents, slide
+            decks, PDFs, images and syntax-highlighted code. Renders each with
+            the right method and launches the right editor on a keypress.
+            Browses with pointer; new formats are a config line.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/viewer</span>
+            <img src="https://badgen.net/github/release/isene/viewer" alt="release">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/CC-sessions/master/img/cc-sessions.svg" alt="cc-sessions logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/CC-sessions">cc-sessions</a></h3>
+              <div class="card-kind">Claude Code session manager (binary)</div>
+              <div class="card-ruby">Ruby: CC-sessions &le;1.5</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Bookmark and resume Claude Code sessions with tags: cc / cl
+            pickers with reorder and running indicators, /bm command
+            inside Claude, automatic follow of context continuations.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/CC-sessions</span>
+            <img src="https://badgen.net/github/release/isene/CC-sessions" alt="release">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/rpnx/master/img/rpnx.svg" alt="rpnx logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/rpnx">rpnx</a></h3>
+              <div class="card-kind">RPN / XRPN Calculator (binary)</div>
+              <div class="card-ruby">Ruby: <a href="https://github.com/isene/T-REX">T-REX</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            A terminal RPN scientific calculator in the HP tradition: a live
+            X/Y/Z/T stack, the full math/trig/log/stats/base command set, and
+            coloured cycling shift pages (f/g/h). Runs XRPN (HP-41 / FOCAL)
+            programs. Shares one Rust engine with the RPNx phone app; the scribe
+            editor drops its result into your text on <code>=</code>.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/rpnx</span>
+            <img src="https://badgen.net/github/release/isene/rpnx" alt="release">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-divider">
+        <span class="grid-divider-label">Science</span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-head">
             <img class="card-logo" src="https://raw.githubusercontent.com/isene/astro/master/img/astro.svg" alt="astro logo" onerror="this.style.visibility='hidden'">
             <div>
               <h3 class="card-title"><a class="card-link" href="https://github.com/isene/astro">astro</a></h3>
@@ -251,6 +328,93 @@
           <div class="card-meta">
             <span class="repo">isene/astro</span>
             <img src="https://badgen.net/github/release/isene/astro" alt="release">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/stars/master/img/stars.svg" alt="stars logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/stars">stars</a></h3>
+              <div class="card-kind">HR Diagram Explorer (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            The Hertzsprung-Russell diagram in the terminal. 461 named stars
+            plotted by temperature and luminosity, walk between them with the
+            arrow keys, schematic evolutionary tracks for 1, 5 and 15 solar
+            masses, and the full Wikipedia article for each star offline.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/stars</span>
+            <img src="https://badgen.net/github/release/isene/stars" alt="release">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/particles/master/img/particles.svg" alt="particles logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/particles">particles</a></h3>
+              <div class="card-kind">Standard Model Explorer (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            The Standard Model chart with every particle's PDG numbers and its
+            Wikipedia article, plus a zoom that takes a carbon atom apart in
+            four steps &mdash; nucleus, nucleon, quark &mdash; as a 3D model you
+            rotate with the arrow keys.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/particles</span>
+            <img src="https://badgen.net/github/release/isene/particles" alt="release">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/elements/master/img/elements.svg" alt="elements logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/elements">elements</a></h3>
+              <div class="card-kind">Periodic Table Explorer (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            The periodic table in your terminal. All 118 elements plus the
+            hypothesized 119–126, category-colored, with structured
+            properties and the complete Wikipedia article per element —
+            fetched once, then fully offline.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/elements</span>
+            <img src="https://badgen.net/github/release/isene/elements" alt="release">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-divider">
+        <span class="grid-divider-label">Media</span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/gazette/master/img/gazette.svg" alt="gazette logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/gazette">gazette</a></h3>
+              <div class="card-kind">News Reader (binary)</div>
+              <div class="card-ruby">—</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Reader for your personal daily news digest. A server-side Claude
+            run gathers the news you care about into a dated Markdown issue
+            (and a typeset PDF); gazette browses the last 7 days and opens
+            source links in scroll.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/gazette</span>
+            <img src="https://badgen.net/github/release/isene/gazette" alt="release">
           </div>
         </div>
         <div class="card">
@@ -274,24 +438,140 @@
         </div>
         <div class="card">
           <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/torii/master/img/torii.svg" alt="torii logo" onerror="this.style.visibility='hidden'">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/tune/master/img/tune.svg" alt="tune logo" onerror="this.style.visibility='hidden'">
             <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/torii">torii</a></h3>
-              <div class="card-kind">Captive-portal listener (binary)</div>
-              <div class="card-ruby">—</div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/tune">tune</a></h3>
+              <div class="card-kind">Spotify Connect Controller (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
             </div>
           </div>
           <p class="card-desc">
-            Replaces Firefox's removed "Open network login page" banner.
-            Subscribes to NetworkManager via D-Bus and opens a Firefox
-            tab at the gateway IP on captive-portal detection. Pure
-            signal-driven; ~4 MB RSS, 0 % CPU when idle.
+            Terminal Spotify controller. Search, browse playlists and
+            saved tracks, queue items, switch devices, drive playback
+            (play / pause / next / prev / seek / volume / shuffle /
+            repeat). No audio backend — drives Spotify Connect, so
+            playback runs on whatever device the user authorizes
+            (phone, desktop, speaker, web player).
           </p>
           <div class="card-meta">
-            <span class="repo">isene/torii</span>
-            <img src="https://badgen.net/github/release/isene/torii" alt="release">
+            <span class="repo">isene/tune</span>
+            <img src="https://badgen.net/github/release/isene/tune" alt="release">
           </div>
         </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/library/master/img/library.svg" alt="library logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/library">library</a></h3>
+              <div class="card-kind">Generative Library (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            A personal library of the books that should exist. Curate a shelf
+            of enticing titles; grab one and Claude writes the whole book,
+            with inline figures, to read in the terminal. Real books fetch
+            from legal sources. Syncs to the phone reader, books.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/library</span>
+            <img src="https://badgen.net/github/release/isene/library" alt="release">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-divider">
+        <span class="grid-divider-label">Play</span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/amar/master/img/amar.svg" alt="amar logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/amar">amar</a></h3>
+              <div class="card-kind">RPG Companion (binary)</div>
+              <div class="card-ruby">Ruby: <a href="https://github.com/isene/Amar-Tools">Amar-Tools</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Five-tab terminal companion for the
+            <a href="https://d6gaming.org">Amar RPG</a> — a 3-tier d6
+            system. NPC / encounter / town / weather forge, persistent
+            campaign tracker with adventure import + inline scene
+            images, live combat HUD, browsable canon (187 wiki entries
+            scraped from d6gaming.org), and AI-assisted Inspire prompts.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/amar</span>
+            <img src="https://badgen.net/github/release/isene/amar" alt="release">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/melody/master/img/melody.svg" alt="melody logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/melody">melody</a></h3>
+              <div class="card-kind">Melody Maker (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Terminal melody maker. Play a piano line live on the keyboard,
+            record and edit it on a piano-roll, keep time with the
+            metronome, then export to WAV as the starting point for a song.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/melody</span>
+            <img src="https://badgen.net/github/release/isene/melody" alt="release">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/petri/master/img/petri.svg" alt="petri logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/petri">petri</a></h3>
+              <div class="card-kind">Petri Net Player (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Terminal Petri net player. Load a net, fire transitions and watch
+            tokens flow, spot conflicting transitions, and search for
+            deadlocks. A compact playground for modelling concurrency.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/petri</span>
+            <img src="https://badgen.net/github/release/isene/petri" alt="release">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/typo/master/img/typo.svg" alt="typo logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/typo">typo</a></h3>
+              <div class="card-kind">Touch-typing Tutor (binary)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Terminal touch-typing tutor. Eight lessons from the home row to
+            full sentences, strict advance-on-correct-key drills, live WPM
+            and accuracy, per-lesson personal bests. US and Norwegian
+            keyboard layouts.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/typo</span>
+            <img src="https://badgen.net/github/release/isene/typo" alt="release">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-divider">
+        <span class="grid-divider-label">System</span>
+      </div>
+
+      <div class="grid">
         <div class="card">
           <div class="card-head">
             <img class="card-logo" src="img/fe2o3.svg" alt="crush logo">
@@ -375,273 +655,22 @@
         </div>
         <div class="card">
           <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/amar/master/img/amar.svg" alt="amar logo" onerror="this.style.visibility='hidden'">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/torii/master/img/torii.svg" alt="torii logo" onerror="this.style.visibility='hidden'">
             <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/amar">amar</a></h3>
-              <div class="card-kind">RPG Companion (binary)</div>
-              <div class="card-ruby">Ruby: <a href="https://github.com/isene/Amar-Tools">Amar-Tools</a></div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/torii">torii</a></h3>
+              <div class="card-kind">Captive-portal listener (binary)</div>
+              <div class="card-ruby">—</div>
             </div>
           </div>
           <p class="card-desc">
-            Five-tab terminal companion for the
-            <a href="https://d6gaming.org">Amar RPG</a> — a 3-tier d6
-            system. NPC / encounter / town / weather forge, persistent
-            campaign tracker with adventure import + inline scene
-            images, live combat HUD, browsable canon (187 wiki entries
-            scraped from d6gaming.org), and AI-assisted Inspire prompts.
+            Replaces Firefox's removed "Open network login page" banner.
+            Subscribes to NetworkManager via D-Bus and opens a Firefox
+            tab at the gateway IP on captive-portal detection. Pure
+            signal-driven; ~4 MB RSS, 0 % CPU when idle.
           </p>
           <div class="card-meta">
-            <span class="repo">isene/amar</span>
-            <img src="https://badgen.net/github/release/isene/amar" alt="release">
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/tune/master/img/tune.svg" alt="tune logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/tune">tune</a></h3>
-              <div class="card-kind">Spotify Connect Controller (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            Terminal Spotify controller. Search, browse playlists and
-            saved tracks, queue items, switch devices, drive playback
-            (play / pause / next / prev / seek / volume / shuffle /
-            repeat). No audio backend — drives Spotify Connect, so
-            playback runs on whatever device the user authorizes
-            (phone, desktop, speaker, web player).
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/tune</span>
-            <img src="https://badgen.net/github/release/isene/tune" alt="release">
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/melody/master/img/melody.svg" alt="melody logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/melody">melody</a></h3>
-              <div class="card-kind">Melody Maker (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            Terminal melody maker. Play a piano line live on the keyboard,
-            record and edit it on a piano-roll, keep time with the
-            metronome, then export to WAV as the starting point for a song.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/melody</span>
-            <img src="https://badgen.net/github/release/isene/melody" alt="release">
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/petri/master/img/petri.svg" alt="petri logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/petri">petri</a></h3>
-              <div class="card-kind">Petri Net Player (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            Terminal Petri net player. Load a net, fire transitions and watch
-            tokens flow, spot conflicting transitions, and search for
-            deadlocks. A compact playground for modelling concurrency.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/petri</span>
-            <img src="https://badgen.net/github/release/isene/petri" alt="release">
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/library/master/img/library.svg" alt="library logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/library">library</a></h3>
-              <div class="card-kind">Generative Library (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            A personal library of the books that should exist. Curate a shelf
-            of enticing titles; grab one and Claude writes the whole book,
-            with inline figures, to read in the terminal. Real books fetch
-            from legal sources. Syncs to the phone reader, books.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/library</span>
-            <img src="https://badgen.net/github/release/isene/library" alt="release">
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/grid/master/img/grid.svg" alt="grid logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/grid">grid</a></h3>
-              <div class="card-kind">AI-native Spreadsheet (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            A terminal spreadsheet that lets the AI do the tedious parts. Edit
-            cells and write formulas, or just tell Claude what to change. Reads
-            and writes csv/xlsx/ods with a hand-rolled formula engine, undo, and
-            multi-sheet workbooks.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/grid</span>
-            <img src="https://badgen.net/github/release/isene/grid" alt="release">
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/viewer/master/img/viewer.svg" alt="viewer logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/viewer">viewer</a></h3>
-              <div class="card-kind">Universal File Viewer (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            One read-only view for any file: spreadsheets, documents, slide
-            decks, PDFs, images and syntax-highlighted code. Renders each with
-            the right method and launches the right editor on a keypress.
-            Browses with pointer; new formats are a config line.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/viewer</span>
-            <img src="https://badgen.net/github/release/isene/viewer" alt="release">
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/rpnx/master/img/rpnx.svg" alt="rpnx logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/rpnx">rpnx</a></h3>
-              <div class="card-kind">RPN / XRPN Calculator (binary)</div>
-              <div class="card-ruby">Ruby: <a href="https://github.com/isene/T-REX">T-REX</a></div>
-            </div>
-          </div>
-          <p class="card-desc">
-            A terminal RPN scientific calculator in the HP tradition: a live
-            X/Y/Z/T stack, the full math/trig/log/stats/base command set, and
-            coloured cycling shift pages (f/g/h). Runs XRPN (HP-41 / FOCAL)
-            programs. Shares one Rust engine with the RPNx phone app; the scribe
-            editor drops its result into your text on <code>=</code>.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/rpnx</span>
-            <img src="https://badgen.net/github/release/isene/rpnx" alt="release">
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/CC-sessions/master/img/cc-sessions.svg" alt="cc-sessions logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/CC-sessions">cc-sessions</a></h3>
-              <div class="card-kind">Claude Code session manager (binary)</div>
-              <div class="card-ruby">Ruby: CC-sessions &le;1.5</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            Bookmark and resume Claude Code sessions with tags: cc / cl
-            pickers with reorder and running indicators, /bm command
-            inside Claude, automatic follow of context continuations.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/CC-sessions</span>
-            <img src="https://badgen.net/github/release/isene/CC-sessions" alt="release">
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/typo/master/img/typo.svg" alt="typo logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/typo">typo</a></h3>
-              <div class="card-kind">Touch-typing Tutor (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            Terminal touch-typing tutor. Eight lessons from the home row to
-            full sentences, strict advance-on-correct-key drills, live WPM
-            and accuracy, per-lesson personal bests. US and Norwegian
-            keyboard layouts.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/typo</span>
-            <img src="https://badgen.net/github/release/isene/typo" alt="release">
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/elements/master/img/elements.svg" alt="elements logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/elements">elements</a></h3>
-              <div class="card-kind">Periodic Table Explorer (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            The periodic table in your terminal. All 118 elements plus the
-            hypothesized 119–126, category-colored, with structured
-            properties and the complete Wikipedia article per element —
-            fetched once, then fully offline.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/elements</span>
-            <img src="https://badgen.net/github/release/isene/elements" alt="release">
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/stars/master/img/stars.svg" alt="stars logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/stars">stars</a></h3>
-              <div class="card-kind">HR Diagram Explorer (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            The Hertzsprung-Russell diagram in the terminal. 461 named stars
-            plotted by temperature and luminosity, walk between them with the
-            arrow keys, schematic evolutionary tracks for 1, 5 and 15 solar
-            masses, and the full Wikipedia article for each star offline.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/stars</span>
-            <img src="https://badgen.net/github/release/isene/stars" alt="release">
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/particles/master/img/particles.svg" alt="particles logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/particles">particles</a></h3>
-              <div class="card-kind">Standard Model Explorer (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            The Standard Model chart with every particle's PDG numbers and its
-            Wikipedia article, plus a zoom that takes a carbon atom apart in
-            four steps &mdash; nucleus, nucleon, quark &mdash; as a 3D model you
-            rotate with the arrow keys.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/particles</span>
-            <img src="https://badgen.net/github/release/isene/particles" alt="release">
+            <span class="repo">isene/torii</span>
+            <img src="https://badgen.net/github/release/isene/torii" alt="release">
           </div>
         </div>
       </div>
