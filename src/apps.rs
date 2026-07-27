@@ -7,7 +7,9 @@ pub struct App {
     /// What it is called — also the logo's file name.
     pub name: &'static str,
     /// The binary to run and to look for on PATH. Usually the same as
-    /// `name`; CC-sessions ships as `cc`.
+    /// `name`; CC-sessions is `cl`, its session list — its other command
+    /// is `cc`, which every Unix already has as the C compiler, so it
+    /// would report itself installed everywhere.
     pub bin: &'static str,
     /// The GitHub repo under github.com/isene, for `w`.
     pub repo: &'static str,
@@ -27,7 +29,7 @@ pub const APPS: &[App] = &[
     App { name: "tock", bin: "tock", repo: "tock", kind: "Calendar", blurb: "Day/week/month calendar with ephemeris", group: "Desk" },
     App { name: "grid", bin: "grid", repo: "grid", kind: "AI-native Spreadsheet", blurb: "A terminal spreadsheet that lets the AI do the…", group: "Desk" },
     App { name: "viewer", bin: "viewer", repo: "viewer", kind: "Universal File Viewer", blurb: "One read-only view for any file", group: "Desk" },
-    App { name: "cc-sessions", bin: "cc", repo: "CC-sessions", kind: "Claude Code session manager", blurb: "Bookmark and resume Claude Code sessions with tags", group: "Desk" },
+    App { name: "cc-sessions", bin: "cl", repo: "CC-sessions", kind: "Claude Code session manager", blurb: "Bookmark and resume Claude Code sessions with tags", group: "Desk" },
     App { name: "rpnx", bin: "rpnx", repo: "rpnx", kind: "RPN / XRPN Calculator", blurb: "A terminal RPN scientific calculator in the HP…", group: "Desk" },
     App { name: "astro", bin: "astro", repo: "astro", kind: "Astronomy Panel + Telescope Catalog", blurb: "Single amateur-astronomy app", group: "Science" },
     App { name: "stars", bin: "stars", repo: "stars", kind: "HR Diagram Explorer", blurb: "The Hertzsprung-Russell diagram in the terminal", group: "Science" },

@@ -348,12 +348,12 @@ fn draw_header(ui: &Ui, cols: u16) {
         info.push_str(&format!("   {}", style::rgb(&format!("/{}", ui.filter), Some(HEAD_RGB), None, "b")));
     }
     let right = if missing > 0 {
-        format!("{n} apps · {missing} not installed ")
+        format!("✓ {} installed · ↓ {missing} to fetch — i / I ", n - missing)
     } else {
-        format!("{n} apps ")
+        format!("✓ all {n} installed ")
     };
     let pad = (cols as usize)
-        .saturating_sub(crust::display_width(&info) + right.len());
+        .saturating_sub(crust::display_width(&info) + crust::display_width(&right));
     let armed = style::rgb("", None, Some(BAR_BG), "");
     let armed = armed.trim_end_matches(style::RESET);
     let line = info.replace(style::RESET, &format!("{}{}", style::RESET, armed));
@@ -466,8 +466,23 @@ fn card(app: &App, x: u16, y: u16, card_w: u16, selected: bool, installed: bool)
     // the background half way along the row.
     let bar = |c: &str| style::rgb(c, Some(frame), Some(bg), "");
 
+    // Installed or not is the one thing you want to read at a glance, so
+    // it is said twice: a solid frame against a dashed one, and a mark in
+    // the top edge — a tick for what is here, an arrow for what one `i`
+    // would fetch.
+    let (rule, mark, mark_rgb) = if installed {
+        ("─", "✓", (120, 205, 130))
+    } else {
+        ("╌", "↓", (255, 180, 90))
+    };
     s.push_str(&Cursor::at(x, y));
-    s.push_str(&bar(&format!("┌{}┐", "─".repeat(w))));
+    s.push_str(&format!(
+        "{}{}{}{}",
+        bar(&format!("┌{}", rule.repeat(w - 2))),
+        style::rgb(mark, Some(mark_rgb), Some(bg), "b"),
+        bar(rule),
+        bar("┐")
+    ));
     let lines = [
         style::rgb(&fit(app.name, tw), Some(name_rgb), Some(bg), if selected { "b" } else { "" }),
         style::rgb(&fit(app.kind, tw), Some(text_rgb), Some(bg), ""),
@@ -484,7 +499,7 @@ fn card(app: &App, x: u16, y: u16, card_w: u16, selected: bool, installed: bool)
         ));
     }
     s.push_str(&Cursor::at(x, y + CARD_H - 1));
-    s.push_str(&bar(&format!("└{}┘", "─".repeat(w))));
+    s.push_str(&bar(&format!("└{}┘", rule.repeat(w))));
     s
 }
 
@@ -550,11 +565,12 @@ fn asset_suffix() -> Option<&'static str> {
     })
 }
 
-/// Download one app's latest release binary. Returns where it landed.
-///
-/// A symlink is left alone on purpose: on a machine that builds the suite
-/// from source, `~/bin/<tool>` points at that repo's `target/release`, and
-/// replacing the link with a download would quietly unhook the build.
+/// Apps that ship more than one command: what `i` fetches beside the one
+/// the card names. Everything else is a single binary.
+const EXTRA_BINS: &[(&str, &[&str])] = &[("cc-sessions", &["cc", "cc-bookmark"])];
+
+/// Download one app's latest release, plus any sibling commands it ships.
+/// Returns where the app's own binary landed.
 fn install(app: &App) -> Result<PathBuf, String> {
     let Some(suffix) = asset_suffix() else {
         return Err(format!(
@@ -565,18 +581,34 @@ fn install(app: &App) -> Result<PathBuf, String> {
     };
     let dir = install_dir();
     std::fs::create_dir_all(&dir).map_err(|e| format!("{}: {e}", dir.display()))?;
-    let dest = dir.join(app.bin);
+    let dest = fetch_bin(app.repo, app.bin, suffix, &dir)?;
+    let extra = EXTRA_BINS
+        .iter()
+        .find(|(n, _)| *n == app.name)
+        .map(|(_, b)| *b)
+        .unwrap_or(&[]);
+    for b in extra {
+        fetch_bin(app.repo, b, suffix, &dir)?;
+    }
+    Ok(dest)
+}
+
+/// One binary from one release, into `dir`.
+///
+/// A symlink is left alone on purpose: on a machine that builds the suite
+/// from source, `~/bin/<tool>` points at that repo's `target/release`, and
+/// replacing the link with a download would quietly unhook the build.
+fn fetch_bin(repo: &str, bin: &str, suffix: &str, dir: &std::path::Path) -> Result<PathBuf, String> {
+    let dest = dir.join(bin);
     if std::fs::symlink_metadata(&dest)
         .map(|m| m.file_type().is_symlink())
         .unwrap_or(false)
     {
         return Err(format!("{} is a symlink to a local build", dest.display()));
     }
-    let url = format!(
-        "https://github.com/isene/{}/releases/latest/download/{}-{}",
-        app.repo, app.bin, suffix
-    );
-    let tmp = dir.join(format!(".{}.new", app.bin));
+    let url =
+        format!("https://github.com/isene/{repo}/releases/latest/download/{bin}-{suffix}");
+    let tmp = dir.join(format!(".{bin}.new"));
     let out = std::process::Command::new("curl")
         .args(["-fL", "-sS", "--retry", "2", "-o"])
         .arg(&tmp)
@@ -586,7 +618,7 @@ fn install(app: &App) -> Result<PathBuf, String> {
     if !out.status.success() {
         let _ = std::fs::remove_file(&tmp);
         let why = String::from_utf8_lossy(&out.stderr).trim().to_string();
-        return Err(if why.is_empty() { "download failed".into() } else { why });
+        return Err(if why.is_empty() { format!("{bin}: download failed") } else { why });
     }
     use std::os::unix::fs::PermissionsExt;
     let _ = std::fs::set_permissions(&tmp, std::fs::Permissions::from_mode(0o755));
