@@ -325,7 +325,39 @@ fn draw_header(ui: &Ui, cols: u16) {
             ""
         )
     );
+    draw_legend(ui, cols);
     std::io::stdout().flush().ok();
+}
+
+/// Row 2: what each card tint means. The names carry the same light
+/// colour their heading gets in `-l`, so the legend, the bands and the
+/// text listing all agree. A group with nothing on screen (filtered
+/// away) goes dim rather than disappearing, so the row never reflows.
+fn draw_legend(ui: &Ui, cols: u16) {
+    let mut seen: Vec<&str> = Vec::new();
+    for app in APPS {
+        if !seen.contains(&app.group) {
+            seen.push(app.group);
+        }
+    }
+    let present: Vec<&str> = ui
+        .shown
+        .iter()
+        .map(|&i| APPS[i].group)
+        .collect();
+    let parts: Vec<String> = seen
+        .iter()
+        .map(|g| {
+            let (_, light) = group_rgb(g);
+            if present.contains(g) {
+                style::rgb(g, Some(light), None, "")
+            } else {
+                style::rgb(g, Some((70, 70, 76)), None, "")
+            }
+        })
+        .collect();
+    let line = format!("  {}", parts.join(&style::dim(" · ")));
+    print!("{}{}", Cursor::at(1, 2), crust::truncate_ansi(&line, cols as usize));
 }
 
 /// Draw the cards of the current page. `with_images` is false when only
