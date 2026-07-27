@@ -31,6 +31,15 @@ fn group_rgb(group: &str) -> ((u8, u8, u8), (u8, u8, u8)) {
     }
 }
 
+/// The legend chip: the same hue lifted a third of the way toward its
+/// light end. A card tint is near-black on purpose — right behind a whole
+/// card, unreadable as a twelve-character chip.
+fn chip_rgb(group: &str) -> (u8, u8, u8) {
+    let (dark, light) = group_rgb(group);
+    let mix = |d: u8, l: u8| (d as u16 + (l as u16 - d as u16) * 38 / 100) as u8;
+    (mix(dark.0, light.0), mix(dark.1, light.1), mix(dark.2, light.2))
+}
+
 /// The selected card lifts off its group tint.
 fn lift(c: (u8, u8, u8)) -> (u8, u8, u8) {
     (
@@ -350,9 +359,12 @@ fn draw_legend(ui: &Ui, cols: u16) {
     let parts: Vec<String> = seen
         .iter()
         .map(|g| {
-            let (tint, _) = group_rgb(g);
-            let fg = if present.contains(g) { (185, 185, 192) } else { (95, 95, 102) };
-            style::rgb(&format!(" {g} "), Some(fg), Some(tint), "")
+            let (fg, bg) = if present.contains(g) {
+                ((240, 240, 245), chip_rgb(g))
+            } else {
+                ((120, 120, 128), group_rgb(g).0)
+            };
+            style::rgb(&format!(" {g} "), Some(fg), Some(bg), "")
         })
         .collect();
     let line = format!("  {}", parts.join(" "));
