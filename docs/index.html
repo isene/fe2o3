@@ -101,24 +101,6 @@
       </div>
 
       <div class="grid">
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="https://raw.githubusercontent.com/isene/rush/master/img/rush.svg" alt="rush logo" onerror="this.style.visibility='hidden'">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/rush">rush</a></h3>
-              <div class="card-kind">Shell (binary)</div>
-              <div class="card-ruby">Ruby: <a href="https://github.com/isene/rsh">rsh</a></div>
-            </div>
-          </div>
-          <p class="card-desc">
-            Interactive shell with tab completion, history search, syntax
-            highlighting, nick/gnick aliases, per-command autocorrect, and
-            OSC 7 for terminal cwd tracking. ~26 ms startup.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/rush</span>
-            <img src="https://badgen.net/github/release/isene/rush" alt="release">
-          </div>
         </div>
         <div class="card">
           <div class="card-head">
@@ -572,24 +554,6 @@
       </div>
 
       <div class="grid">
-        <div class="card">
-          <div class="card-head">
-            <img class="card-logo" src="img/fe2o3.svg" alt="crush logo">
-            <div>
-              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/crush">crush</a></h3>
-              <div class="card-kind">Rush Config (binary)</div>
-              <div class="card-ruby">&nbsp;</div>
-            </div>
-          </div>
-          <p class="card-desc">
-            Interactive TUI configuration for the rush shell. Browse and
-            modify all rush settings with live color previews, theme
-            cycling, and a full 256-color palette.
-          </p>
-          <div class="card-meta">
-            <span class="repo">isene/crush</span>
-            <img src="https://badgen.net/github/release/isene/crush" alt="release">
-          </div>
         </div>
         <div class="card">
           <div class="card-head">
@@ -673,6 +637,50 @@
             <img src="https://badgen.net/github/release/isene/torii" alt="release">
           </div>
         </div>
+      </div>
+
+
+      <div class="grid-divider">
+        <span class="grid-divider-label">Retired</span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/rush/master/img/rush.svg" alt="rush logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/rush">rush</a></h3>
+              <div class="card-kind">Shell (retired)</div>
+              <div class="card-ruby">Ruby: <a href="https://github.com/isene/rsh">rsh</a></div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Interactive shell with tab completion, history search, syntax
+            highlighting, nick/gnick aliases, per-command autocorrect, and
+            OSC 7 for terminal cwd tracking. ~26 ms startup.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/rush</span>
+            <img src="https://badgen.net/github/release/isene/rush" alt="release">
+          </div>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="img/fe2o3.svg" alt="crush logo">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/crush">crush</a></h3>
+              <div class="card-kind">Rush Config (retired)</div>
+              <div class="card-ruby">&nbsp;</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            Interactive TUI configuration for the rush shell. Browse and
+            modify all rush settings with live color previews, theme
+            cycling, and a full 256-color palette.
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/crush</span>
+            <img src="https://badgen.net/github/release/isene/crush" alt="release">
+          </div>
       </div>
 
       <div class="grid-divider">
@@ -1016,7 +1024,7 @@
         release. Pick your platform and drop them in <code>~/bin</code>:
       </p>
       <pre><span class="comment"># Linux x86_64 — one-liner to grab every Fe2O3 binary</span>
-<span class="cmd">for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune melody petri library grid viewer rpnx typo elements stars particles; do
+<span class="cmd">for app in fe2o3 pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo elements stars particles; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done</span>

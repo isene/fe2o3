@@ -36,7 +36,6 @@ Adding an app to the grid is one line in `src/apps.rs` plus its logo in
 
 | Tool | Release | Role | Ruby equivalent |
 |---|---|---|---|
-| [rush](https://github.com/isene/rush) | ![rush](https://badgen.net/github/release/isene/rush) | Interactive shell | [rsh](https://github.com/isene/rsh) |
 | [pointer](https://github.com/isene/pointer) | ![pointer](https://badgen.net/github/release/isene/pointer) | File manager | [RTFM](https://github.com/isene/RTFM) |
 | [kastrup](https://github.com/isene/kastrup) | ![kastrup](https://badgen.net/github/release/isene/kastrup) | Messaging hub (email, RSS, chat) | [Heathrow](https://github.com/isene/heathrow) |
 | [scribe](https://github.com/isene/scribe) | ![scribe](https://badgen.net/github/release/isene/scribe) | Modal text editor for writers | — |
@@ -46,7 +45,6 @@ Adding an app to the grid is one line in `src/apps.rs` plus its logo in
 | [astro](https://github.com/isene/astro) | ![astro](https://badgen.net/github/release/isene/astro) | Astronomy panel + telescope/eyepiece catalog | [astropanel](https://github.com/isene/astropanel) + [telescope-term](https://github.com/isene/telescope) |
 | [watchit](https://github.com/isene/watchit) | ![watchit](https://badgen.net/github/release/isene/watchit) | Movie / series browser | [IMDB-terminal](https://github.com/isene/IMDB) |
 | [torii](https://github.com/isene/torii) | ![torii](https://badgen.net/github/release/isene/torii) | Captive-portal listener (NetworkManager → Firefox) | — |
-| [crush](https://github.com/isene/crush) | ![crush](https://badgen.net/github/release/isene/crush) | Configuration TUI for rush | — |
 | [prism](https://github.com/isene/prism) | ![prism](https://badgen.net/github/release/isene/prism) | TUI color picker (FG/BG slots, RGB+HSV, WCAG contrast) | — |
 | [fonts](https://github.com/isene/fonts) | ![fonts](https://badgen.net/github/release/isene/fonts) | TUI font picker with live previews (enumerates installed fonts via glyph); returns family + size | — |
 | [drain](https://github.com/isene/drain) | ![drain](https://badgen.net/github/release/isene/drain) | Battery-drain triage TUI (top wakers, per-WS attribution) | — |
@@ -63,6 +61,15 @@ Adding an app to the grid is one line in `src/apps.rs` plus its logo in
 | [elements](https://github.com/isene/elements) | ![elements](https://badgen.net/github/release/isene/elements) | Periodic table explorer (118 elements + hypothesized 119–126, full Wikipedia article per element, offline) | — |
 | [stars](https://github.com/isene/stars) | ![stars](https://badgen.net/github/release/isene/stars) | Hertzsprung-Russell diagram explorer (461 named stars, evolutionary tracks, full Wikipedia article per star) | — |
 | [particles](https://github.com/isene/particles) | ![particles](https://badgen.net/github/release/isene/particles) | Standard Model explorer (17 fundamental particles + proton/neutron, and a rotatable zoom from atom to quark) | — |
+
+### Retired
+
+Superseded by the assembly tools in [CHasm](https://github.com/isene/chasm), which do the same job with a fraction of the cycles.
+
+| Tool | Release | Was | Replaced by |
+|---|---|---|---|
+| [rush](https://github.com/isene/rush) | ![rush](https://badgen.net/github/release/isene/rush) | Interactive shell | [bare](https://github.com/isene/bare) |
+| [crush](https://github.com/isene/crush) | ![crush](https://badgen.net/github/release/isene/crush) | Configuration TUI for rush | [bareconf](https://github.com/isene/bareconf) |
 
 > [nova](https://github.com/isene/nova) and [scope](https://github.com/isene/scope) have been merged into **astro** and are archived. [hyper](https://github.com/isene/hyper) has been folded into **scribe** — `.hl` editing now lives there with full hyperlist.vim parity. All three READMEs link to their replacements.
 
@@ -106,7 +113,7 @@ no cloud middleman.
 
 ```bash
 # Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in rush pointer kastrup scribe scroll gazette tock astro watchit torii crush prism fonts drain amar tune melody petri library grid viewer rpnx typo elements stars particles; do
+for app in fe2o3 pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo elements stars particles; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
