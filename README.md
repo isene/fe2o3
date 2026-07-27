@@ -10,6 +10,26 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 
 <br clear="left"/>
 
+## The launcher
+
+This repo also holds `fe2o3` itself: the suite as a grid of cards, one per
+app, with its logo, what it is and one line on why. Arrow keys move, Enter
+runs it **in the same terminal**, `?` shows that app's own help, `w` opens
+its repo, `/` filters. Apps you have not installed stay on the grid,
+dimmed, with the command to fetch them.
+
+![the fe2o3 launcher](docs/img/fe2o3-launcher.png)
+
+```bash
+cargo build --release        # or grab the binary from Releases
+fe2o3                        # the grid
+fe2o3 tock                   # skip the grid, run one
+fe2o3 -l                     # the suite as plain text
+```
+
+Adding an app to the grid is one line in `src/apps.rs` plus its logo in
+`img/logos/<name>.png`.
+
 ## The tools
 
 ### Binaries
