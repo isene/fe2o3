@@ -50,9 +50,8 @@ fn main() {
             "-h" | "--help" => {
                 println!("fe2o3 — the Fe2O3 suite as a card grid");
                 println!();
-                println!("Usage: fe2o3 [APP]");
+                println!("Usage: fe2o3 [-l]");
                 println!();
-                println!("  APP    launch that app directly");
                 println!("  -l     list the suite as plain text");
                 println!("  -v     print version");
                 println!();
@@ -74,17 +73,10 @@ fn main() {
                 }
                 return;
             }
+            // `fe2o3 tock` would just be a slower `tock` — the shell
+            // already finds it on PATH — so there is no app argument.
             other => {
-                // `fe2o3 tock` is a shortcut, not a grid session.
-                if let Some(app) = APPS.iter().find(|a| a.name == other || a.bin == other) {
-                    let err = std::process::Command::new(app.bin).status();
-                    if let Err(e) = err {
-                        eprintln!("fe2o3: {} did not start: {e}", app.bin);
-                        std::process::exit(1);
-                    }
-                    return;
-                }
-                eprintln!("fe2o3: no app called '{other}' (try -l)");
+                eprintln!("fe2o3: unknown option '{other}' (try -h)");
                 std::process::exit(1);
             }
         }

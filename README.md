@@ -23,7 +23,6 @@ dimmed, with the command to fetch them.
 ```bash
 cargo build --release        # or grab the binary from Releases
 fe2o3                        # the grid
-fe2o3 tock                   # skip the grid, run one
 fe2o3 -l                     # the suite as plain text
 ```
 
