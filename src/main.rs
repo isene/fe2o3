@@ -345,18 +345,17 @@ fn draw_legend(ui: &Ui, cols: u16) {
         .iter()
         .map(|&i| APPS[i].group)
         .collect();
+    // Each chip wears the tint its cards wear, so the legend is a sample
+    // of the thing itself rather than a second colour to learn.
     let parts: Vec<String> = seen
         .iter()
         .map(|g| {
-            let (_, light) = group_rgb(g);
-            if present.contains(g) {
-                style::rgb(g, Some(light), None, "")
-            } else {
-                style::rgb(g, Some((70, 70, 76)), None, "")
-            }
+            let (tint, _) = group_rgb(g);
+            let fg = if present.contains(g) { (185, 185, 192) } else { (95, 95, 102) };
+            style::rgb(&format!(" {g} "), Some(fg), Some(tint), "")
         })
         .collect();
-    let line = format!("  {}", parts.join(&style::dim(" · ")));
+    let line = format!("  {}", parts.join(" "));
     print!("{}{}", Cursor::at(1, 2), crust::truncate_ansi(&line, cols as usize));
 }
 
