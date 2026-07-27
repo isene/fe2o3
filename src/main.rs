@@ -16,6 +16,30 @@ use crust::{Crust, Cursor, Input, Pane, Popup};
 use std::io::Write;
 use std::path::PathBuf;
 
+/// Each group gets a hue at two ends of the scale: a dark tint behind
+/// its cards, a light one for its heading in `-l`. Same colour, so a
+/// group is recognisable whichever way you look at the suite.
+fn group_rgb(group: &str) -> ((u8, u8, u8), (u8, u8, u8)) {
+    match group {
+        "Daily drivers" => ((36, 21, 12), (255, 150, 90)),
+        "Desk" => ((14, 22, 36), (120, 175, 255)),
+        "Science" => ((11, 29, 29), (105, 225, 215)),
+        "Media" => ((28, 16, 34), (200, 140, 255)),
+        "Play" => ((14, 30, 19), (130, 220, 140)),
+        "System" => ((32, 27, 12), (240, 205, 110)),
+        _ => ((20, 20, 23), (150, 150, 158)), // Retired
+    }
+}
+
+/// The selected card lifts off its group tint.
+fn lift(c: (u8, u8, u8)) -> (u8, u8, u8) {
+    (
+        c.0.saturating_add(24),
+        c.1.saturating_add(20),
+        c.2.saturating_add(16),
+    )
+}
+
 const RUST_RGB: (u8, u8, u8) = (247, 76, 0);
 const HEAD_RGB: (u8, u8, u8) = (247, 140, 60);
 const DIM_RGB: (u8, u8, u8) = (110, 110, 120);
@@ -63,11 +87,17 @@ fn main() {
                 return;
             }
             "-l" | "--list" => {
+                let color = std::io::IsTerminal::is_terminal(&std::io::stdout());
                 let mut group = "";
                 for app in APPS {
                     if app.group != group {
                         group = app.group;
-                        println!("\n{group}");
+                        if color {
+                            let (_, light) = group_rgb(group);
+                            println!("\n{}", style::rgb(group, Some(light), None, "b"));
+                        } else {
+                            println!("\n{group}");
+                        }
                     }
                     println!("  {:<12} {:<28} {}", app.name, app.kind, app.blurb);
                 }
@@ -343,6 +373,8 @@ fn draw_cards(ui: &mut Ui, cols: u16, rows: u16, with_images: bool) {
 /// block afterwards by the image layer.
 fn card(app: &App, x: u16, y: u16, card_w: u16, selected: bool, installed: bool) -> String {
     let w = (card_w - 2) as usize;
+    let (tint, _) = group_rgb(app.group);
+    let bg = if selected { lift(tint) } else { tint };
     let (frame, name_rgb) = if selected {
         (RUST_RGB, HEAD_RGB)
     } else if installed {
@@ -351,23 +383,26 @@ fn card(app: &App, x: u16, y: u16, card_w: u16, selected: bool, installed: bool)
         ((45, 45, 52), DIM_RGB)
     };
     let text_rgb = if installed { (170, 170, 180) } else { DIM_RGB };
+    let blurb_rgb = if installed { (135, 135, 145) } else { (85, 85, 92) };
     let tw = w - LOGO_W as usize; // room left of the logo block
     let mut s = String::new();
-    let bar = |c: &str| style::rgb(c, Some(frame), None, "");
+    // Every segment carries the tint itself: a nested reset would drop
+    // the background half way along the row.
+    let bar = |c: &str| style::rgb(c, Some(frame), Some(bg), "");
 
     s.push_str(&Cursor::at(x, y));
     s.push_str(&bar(&format!("┌{}┐", "─".repeat(w))));
     let lines = [
-        style::rgb(&fit(app.name, tw), Some(name_rgb), None, if selected { "b" } else { "" }),
-        style::rgb(&fit(app.kind, tw), Some(text_rgb), None, ""),
-        style::dim(&fit(app.blurb, tw)),
+        style::rgb(&fit(app.name, tw), Some(name_rgb), Some(bg), if selected { "b" } else { "" }),
+        style::rgb(&fit(app.kind, tw), Some(text_rgb), Some(bg), ""),
+        style::rgb(&fit(app.blurb, tw), Some(blurb_rgb), Some(bg), ""),
     ];
     for (i, l) in lines.iter().enumerate() {
         s.push_str(&Cursor::at(x, y + 1 + i as u16));
         s.push_str(&format!(
             "{}{}{}{}",
             bar("│"),
-            " ".repeat(LOGO_W as usize),
+            style::rgb(&" ".repeat(LOGO_W as usize), None, Some(bg), ""),
             l,
             bar("│")
         ));
