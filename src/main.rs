@@ -234,8 +234,11 @@ fn main() {
         }
     }
 
+    // On the way out, drop every placement rather than the ids we think
+    // we own: a leftover logo painted over the shell outlives the process
+    // that could have removed it.
     if let Some(d) = ui.images.as_mut() {
-        d.clear(1, GRID_Y, cols, rows.saturating_sub(GRID_Y), cols, rows);
+        d.clear_all();
     }
     Crust::cleanup();
 }
@@ -481,8 +484,7 @@ fn help_line(ui: &Ui) -> String {
 /// Hand the terminal over, run the app, take it back.
 fn launch(ui: &mut Ui, i: usize) {
     if let Some(d) = ui.images.as_mut() {
-        let (c, r) = Crust::terminal_size();
-        d.clear(1, GRID_Y, c, r.saturating_sub(GRID_Y), c, r);
+        d.clear_all();
     }
     Crust::cleanup();
     let _ = std::process::Command::new(APPS[i].bin).status();
@@ -490,23 +492,63 @@ fn launch(ui: &mut Ui, i: usize) {
     Crust::set_app_identity("Fe2O3");
 }
 
+
+/// Ask an app what it is, without trusting it.
+///
+/// A third of the suite ignores `--help` and starts drawing instead, so
+/// this runs with no stdin, gives it a second, and kills it if it is
+/// still going. Whatever it printed comes back; the caller decides
+/// whether it looks like help.
+fn ask_help(bin: &str) -> String {
+    use std::process::{Command, Stdio};
+    let Ok(mut child) = Command::new(bin)
+        .arg("--help")
+        .stdin(Stdio::null())
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
+    else {
+        return String::new();
+    };
+    let deadline = std::time::Instant::now() + std::time::Duration::from_millis(1000);
+    loop {
+        match child.try_wait() {
+            Ok(Some(_)) => break,
+            Ok(None) if std::time::Instant::now() < deadline => {
+                std::thread::sleep(std::time::Duration::from_millis(20));
+            }
+            _ => {
+                // Still running: it is a TUI that took --help as "start".
+                let _ = child.kill();
+                let _ = child.wait();
+                return String::new();
+            }
+        }
+    }
+    match child.wait_with_output() {
+        Ok(o) if !o.stdout.is_empty() => String::from_utf8_lossy(&o.stdout).to_string(),
+        Ok(o) => String::from_utf8_lossy(&o.stderr).to_string(),
+        Err(_) => String::new(),
+    }
+}
+
 /// The app's own `--help`, in a popup. Its help is always current; a
 /// bundled copy of a README would start drifting the day it shipped.
 fn show_help(ui: &mut Ui, i: usize, cols: u16, rows: u16) {
     let app = &APPS[i];
     let body = if ui.installed[i] {
-        let out = std::process::Command::new(app.bin).arg("--help").output();
-        let text = match out {
-            Ok(o) if !o.stdout.is_empty() => String::from_utf8_lossy(&o.stdout).to_string(),
-            Ok(o) if !o.stderr.is_empty() => String::from_utf8_lossy(&o.stderr).to_string(),
-            _ => String::new(),
-        };
-        // An app that refuses to answer over a pipe has nothing to say
-        // here; fall back to what the card knows rather than showing its
-        // complaint about not having a terminal.
-        if text.trim().is_empty() || text.contains("no terminal") || text.contains("not a terminal") {
+        let text = ask_help(app.bin);
+        // Help text is plain. An escape sequence means the app ignored
+        // --help and started drawing itself into the pipe, and a
+        // complaint about the terminal means it refused outright — in
+        // both cases show what the card knows instead.
+        if text.trim().is_empty()
+            || text.contains('\x1b')
+            || text.contains("no terminal")
+            || text.contains("not a terminal")
+        {
             format!(
-                "{}\n\nIt has no --help to show over a pipe. Press Enter to run it,\nor w to open its README on GitHub.",
+                "{}\n\nThis one does not answer --help over a pipe. Press Enter to run\nit, or w to open its README on GitHub.",
                 app.blurb
             )
         } else {

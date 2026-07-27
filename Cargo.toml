@@ -1,6 +1,6 @@
 [package]
 name = "fe2o3"
-version = "0.1.5"
+version = "0.1.6"
 edition = "2021"
 authors = ["Geir Isene <g@isene.com>"]
 description = "The Fe2O3 suite as a card grid: pick an app, press Enter, it runs in this terminal."
@@ -9,7 +9,7 @@ repository = "https://github.com/isene/fe2o3"
 
 [dependencies]
 crust = { version = "0.1.46", path = "../crust", package = "fe2o3-crust" }
-glow  = { version = "0.1.19", path = "../glow",  package = "fe2o3-glow" }
+glow  = { version = "0.1.21", path = "../glow",  package = "fe2o3-glow" }
 
 [profile.release]
 opt-level = 3
