@@ -107,8 +107,13 @@
             its logo, what it is, and one line on why. Arrow keys move, Enter
             runs it <em>in the same terminal</em>, <code>?</code> shows that
             app's own help, <code>w</code> opens its repo, <code>/</code>
-            filters. Apps you have not installed stay on the grid, dimmed,
-            with the command to fetch them.
+            filters.
+          </p>
+          <p>
+            It is also the installer. Apps you do not have stay on the grid,
+            dimmed; <code>i</code> fetches the one under the cursor,
+            <code>I</code> fetches every missing one in view. So one binary
+            is all you need to get the whole suite.
           </p>
           <pre><span class="cmd">fe2o3       <span class="comment"># the grid</span>
 fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
@@ -1040,18 +1045,24 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
       <h2>Install them all</h2>
       <p class="section-intro">
         Each tool ships multi-platform prebuilt binaries on every tagged
-        release. Pick your platform and drop them in <code>~/bin</code>:
+        release. Grab the launcher, then press <code>I</code> and it fetches
+        every app you do not have:
       </p>
-      <pre><span class="comment"># Linux x86_64 — one-liner to grab every Fe2O3 binary</span>
-<span class="cmd">for app in fe2o3 pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo elements stars particles; do
-  curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
-    -o ~/bin/$app && chmod +x ~/bin/$app
-done</span>
+      <pre><span class="cmd">curl -L "https://github.com/isene/fe2o3/releases/latest/download/fe2o3-linux-x86_64" \
+  -o ~/bin/fe2o3 &amp;&amp; chmod +x ~/bin/fe2o3
+fe2o3</span>          <span class="comment"># then press I</span>
 
 <span class="comment"># Other platforms: replace -linux-x86_64 with:</span>
 <span class="comment">#   -linux-aarch64  (Raspberry Pi, ARM64 Linux)</span>
 <span class="comment">#   -macos-x86_64   (Intel Mac)</span>
 <span class="comment">#   -macos-aarch64  (Apple Silicon)</span></pre>
+      <p class="section-intro" style="margin-top:1.5rem;">
+        Or take them straight from the shell:
+      </p>
+      <pre><span class="cmd">for app in pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo elements stars particles; do
+  curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
+    -o ~/bin/$app &amp;&amp; chmod +x ~/bin/$app
+done</span></pre>
     </div>
   </section>
 

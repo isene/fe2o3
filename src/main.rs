@@ -3,7 +3,8 @@
 //! Every app in the family as a card with its logo, what it is, and one
 //! line on why. Walk with the arrow keys, Enter runs it in this terminal,
 //! `?` shows its own `--help`. Apps that are not installed stay on the
-//! grid, dimmed, with the command to fetch them.
+//! grid, dimmed; `i` fetches one, `I` fetches every missing one — so this
+//! binary alone is enough to get the whole suite.
 //!
 //! The launcher itself does nothing while it waits: one blocking read on
 //! stdin, no timers, no polling.
@@ -88,7 +89,8 @@ fn main() {
                 println!("  -l     list the suite as plain text");
                 println!("  -v     print version");
                 println!();
-                println!("In the grid: arrows move · Enter runs · ? help · w repo · / filter · q quit");
+                println!("In the grid: arrows move · Enter runs · i installs · I installs all missing");
+                println!("             ? help · w repo · / filter · q quit");
                 return;
             }
             "-v" | "--version" => {
@@ -130,7 +132,7 @@ fn main() {
     }
 
     let logos = unpack_logos();
-    let installed: Vec<bool> = APPS.iter().map(|a| on_path(a.bin)).collect();
+    let installed: Vec<bool> = APPS.iter().map(|a| bin_path(a.bin).is_some()).collect();
     let mut ui = Ui {
         sel: 0,
         top: 0,
@@ -179,10 +181,7 @@ fn main() {
                 let Some(&i) = ui.shown.get(ui.sel) else { continue };
                 if !ui.installed[i] {
                     status.say(&style::rgb(
-                        &format!(
-                            " {} is not installed — press w for github.com/isene/{}",
-                            APPS[i].name, APPS[i].repo
-                        ),
+                        &format!(" {} is not installed — press i to fetch it", APPS[i].name),
                         Some((255, 170, 80)),
                         None,
                         "",
@@ -196,6 +195,37 @@ fn main() {
                 status.y = rows;
                 status.w = cols;
                 draw_all(&mut ui, &mut status, cols, rows);
+            }
+            "i" => {
+                let Some(&i) = ui.shown.get(ui.sel) else { continue };
+                fetch_one(&mut ui, i, &mut status);
+                draw_cards(&mut ui, cols, rows, false);
+                draw_header(&ui, cols);
+            }
+            "I" => {
+                let missing: Vec<usize> = ui
+                    .shown
+                    .iter()
+                    .copied()
+                    .filter(|&i| !ui.installed[i])
+                    .collect();
+                if missing.is_empty() {
+                    status.say(&style::dim(" everything on screen is already installed"));
+                    continue;
+                }
+                let mut ok = 0;
+                for i in &missing {
+                    if fetch_one(&mut ui, *i, &mut status) {
+                        ok += 1;
+                    }
+                }
+                draw_all(&mut ui, &mut status, cols, rows);
+                status.say(&style::rgb(
+                    &format!(" installed {ok} of {}", missing.len()),
+                    Some(if ok == missing.len() { (140, 220, 140) } else { (255, 170, 80) }),
+                    None,
+                    "",
+                ));
             }
             "?" => {
                 let Some(&i) = ui.shown.get(ui.sel) else { continue };
@@ -470,11 +500,11 @@ fn fit(s: &str, w: usize) -> String {
 fn help_line(ui: &Ui) -> String {
     match ui.shown.get(ui.sel) {
         Some(&i) if !ui.installed[i] => style::dim(&format!(
-            "←↓↑→ move · not installed: w opens github.com/isene/{} · ? help · / filter · q quit",
-            APPS[i].repo
+            "←↓↑→ move · i installs {} · I installs all missing · ? help · w repo · q quit",
+            APPS[i].name
         )),
         _ => style::dim(
-            "←↓↑→ move · Enter runs it here · ? its help · w its repo · / filter · q quit",
+            "←↓↑→ move · Enter runs it here · ? its help · w its repo · I installs missing · q quit",
         ),
     }
 }
@@ -483,13 +513,130 @@ fn help_line(ui: &Ui) -> String {
 
 /// Hand the terminal over, run the app, take it back.
 fn launch(ui: &mut Ui, i: usize) {
+    let bin = bin_path(APPS[i].bin).unwrap_or_else(|| PathBuf::from(APPS[i].bin));
     if let Some(d) = ui.images.as_mut() {
         d.clear_all();
     }
     Crust::cleanup();
-    let _ = std::process::Command::new(APPS[i].bin).status();
+    let _ = std::process::Command::new(bin).status();
     Crust::init();
     Crust::set_app_identity("Fe2O3");
+}
+
+// ───────────────────────────── fetching ──────────────────────────────
+
+/// Where a downloaded binary lands: `~/bin` if it exists, else
+/// `~/.local/bin`. Nothing is created here — that is the installer's job,
+/// so the lookup path stays a couple of `stat`s.
+fn install_dir() -> PathBuf {
+    let home = PathBuf::from(std::env::var("HOME").unwrap_or_else(|_| ".".into()));
+    let bin = home.join("bin");
+    if bin.is_dir() {
+        bin
+    } else {
+        home.join(".local/bin")
+    }
+}
+
+/// The release-asset suffix for this machine, matching the names the
+/// per-app workflows publish.
+fn asset_suffix() -> Option<&'static str> {
+    Some(match (std::env::consts::OS, std::env::consts::ARCH) {
+        ("linux", "x86_64") => "linux-x86_64",
+        ("linux", "aarch64") => "linux-aarch64",
+        ("macos", "x86_64") => "macos-x86_64",
+        ("macos", "aarch64") => "macos-aarch64",
+        _ => return None,
+    })
+}
+
+/// Download one app's latest release binary. Returns where it landed.
+///
+/// A symlink is left alone on purpose: on a machine that builds the suite
+/// from source, `~/bin/<tool>` points at that repo's `target/release`, and
+/// replacing the link with a download would quietly unhook the build.
+fn install(app: &App) -> Result<PathBuf, String> {
+    let Some(suffix) = asset_suffix() else {
+        return Err(format!(
+            "no release build for {}/{} — build from source",
+            std::env::consts::OS,
+            std::env::consts::ARCH
+        ));
+    };
+    let dir = install_dir();
+    std::fs::create_dir_all(&dir).map_err(|e| format!("{}: {e}", dir.display()))?;
+    let dest = dir.join(app.bin);
+    if std::fs::symlink_metadata(&dest)
+        .map(|m| m.file_type().is_symlink())
+        .unwrap_or(false)
+    {
+        return Err(format!("{} is a symlink to a local build", dest.display()));
+    }
+    let url = format!(
+        "https://github.com/isene/{}/releases/latest/download/{}-{}",
+        app.repo, app.bin, suffix
+    );
+    let tmp = dir.join(format!(".{}.new", app.bin));
+    let out = std::process::Command::new("curl")
+        .args(["-fL", "-sS", "--retry", "2", "-o"])
+        .arg(&tmp)
+        .arg(&url)
+        .output()
+        .map_err(|e| format!("curl: {e}"))?;
+    if !out.status.success() {
+        let _ = std::fs::remove_file(&tmp);
+        let why = String::from_utf8_lossy(&out.stderr).trim().to_string();
+        return Err(if why.is_empty() { "download failed".into() } else { why });
+    }
+    use std::os::unix::fs::PermissionsExt;
+    let _ = std::fs::set_permissions(&tmp, std::fs::Permissions::from_mode(0o755));
+    std::fs::rename(&tmp, &dest).map_err(|e| e.to_string())?;
+    Ok(dest)
+}
+
+/// Fetch one app and report it on the status line. Returns whether the
+/// app is installed afterwards.
+fn fetch_one(ui: &mut Ui, i: usize, status: &mut Pane) -> bool {
+    let app = &APPS[i];
+    if ui.installed[i] {
+        status.say(&style::dim(&format!(" {} is already installed", app.name)));
+        return true;
+    }
+    status.say(&style::dim(&format!(" fetching {} …", app.name)));
+    match install(app) {
+        Ok(p) => {
+            ui.installed[i] = true;
+            let warn = if on_path_dir(&p) {
+                String::new()
+            } else {
+                format!("  (add {} to PATH)", p.parent().map(|d| d.display().to_string()).unwrap_or_default())
+            };
+            status.say(&style::rgb(
+                &format!(" {} → {}{}", app.name, p.display(), warn),
+                Some((140, 220, 140)),
+                None,
+                "",
+            ));
+            true
+        }
+        Err(e) => {
+            status.say(&style::rgb(
+                &format!(" {}: {e}", app.name),
+                Some((255, 140, 120)),
+                None,
+                "",
+            ));
+            false
+        }
+    }
+}
+
+/// Is this file's directory one the shell will search?
+fn on_path_dir(p: &std::path::Path) -> bool {
+    let Some(dir) = p.parent() else { return false };
+    std::env::var("PATH")
+        .map(|path| path.split(':').any(|d| std::path::Path::new(d) == dir))
+        .unwrap_or(false)
 }
 
 
@@ -499,7 +646,7 @@ fn launch(ui: &mut Ui, i: usize) {
 /// this runs with no stdin, gives it a second, and kills it if it is
 /// still going. Whatever it printed comes back; the caller decides
 /// whether it looks like help.
-fn ask_help(bin: &str) -> String {
+fn ask_help(bin: &std::path::Path) -> String {
     use std::process::{Command, Stdio};
     let Ok(mut child) = Command::new(bin)
         .arg("--help")
@@ -537,7 +684,8 @@ fn ask_help(bin: &str) -> String {
 fn show_help(ui: &mut Ui, i: usize, cols: u16, rows: u16) {
     let app = &APPS[i];
     let body = if ui.installed[i] {
-        let text = ask_help(app.bin);
+        let bin = bin_path(app.bin).unwrap_or_else(|| PathBuf::from(app.bin));
+        let text = ask_help(&bin);
         // Help text is plain. An escape sequence means the app ignored
         // --help and started drawing itself into the pipe, and a
         // complaint about the terminal means it refused outright — in
@@ -556,10 +704,10 @@ fn show_help(ui: &mut Ui, i: usize, cols: u16, rows: u16) {
         }
     } else {
         format!(
-            "{} is not installed.\n\n\
-             curl -L https://github.com/isene/{}/releases/latest/download/{}-linux-x86_64 \\\n  \
-             -o ~/bin/{} && chmod +x ~/bin/{}",
-            app.name, app.repo, app.bin, app.bin, app.bin
+            "{} is not installed.\n\nPress i to fetch the latest release into {}/,\n\
+             or I to fetch every missing app at once.",
+            app.name,
+            install_dir().display()
         )
     };
     let text = format!(
@@ -599,11 +747,18 @@ fn unpack_logos() -> PathBuf {
     dir
 }
 
-/// Is this binary somewhere on PATH?
-fn on_path(bin: &str) -> bool {
-    let Ok(path) = std::env::var("PATH") else { return false };
-    path.split(':').any(|dir| {
-        let p = std::path::Path::new(dir).join(bin);
-        std::fs::metadata(&p).map(|m| m.is_file()).unwrap_or(false)
-    })
+/// Where this binary is, if anywhere: PATH first, then the directory the
+/// launcher installs into — a fetched app is usable right away even on a
+/// machine whose `~/.local/bin` is not on PATH yet.
+fn bin_path(bin: &str) -> Option<PathBuf> {
+    let here = |dir: &std::path::Path| {
+        let p = dir.join(bin);
+        std::fs::metadata(&p).ok().filter(|m| m.is_file()).map(|_| p)
+    };
+    if let Ok(path) = std::env::var("PATH") {
+        if let Some(p) = path.split(':').find_map(|d| here(std::path::Path::new(d))) {
+            return Some(p);
+        }
+    }
+    here(&install_dir())
 }

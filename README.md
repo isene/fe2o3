@@ -15,8 +15,12 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 This repo also holds `fe2o3` itself: the suite as a grid of cards, one per
 app, with its logo, what it is and one line on why. Arrow keys move, Enter
 runs it **in the same terminal**, `?` shows that app's own help, `w` opens
-its repo, `/` filters. Apps you have not installed stay on the grid,
-dimmed, with the command to fetch them.
+its repo, `/` filters.
+
+It is also the installer. Apps you do not have stay on the grid, dimmed;
+`i` fetches the one under the cursor, `I` fetches every missing one in
+view. Binaries land in `~/bin` if you have it, else `~/.local/bin`. A
+`~/bin/<tool>` that is a symlink to a local build is left alone.
 
 ![the fe2o3 launcher](docs/img/fe2o3-launcher.png)
 
@@ -110,17 +114,27 @@ no cloud middleman.
 
 ## Install everything
 
+Get the launcher, then let it fetch the rest: press `I` in the grid and
+every app you do not have is downloaded.
+
 ```bash
-# Linux x86_64 — one-liner to grab every Fe₂O₃ binary
-for app in fe2o3 pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo elements stars particles; do
-  curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
-    -o ~/bin/$app && chmod +x ~/bin/$app
-done
+curl -L "https://github.com/isene/fe2o3/releases/latest/download/fe2o3-linux-x86_64" \
+  -o ~/bin/fe2o3 && chmod +x ~/bin/fe2o3
+fe2o3          # then press I
 
 # Other platforms: replace -linux-x86_64 with:
 #   -linux-aarch64   (Raspberry Pi, ARM64 Linux)
 #   -macos-x86_64    (Intel Mac)
 #   -macos-aarch64   (Apple Silicon)
+```
+
+Or grab them all straight from the shell:
+
+```bash
+for app in pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo elements stars particles; do
+  curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
+    -o ~/bin/$app && chmod +x ~/bin/$app
+done
 ```
 
 ## Why "Fe₂O₃"?
