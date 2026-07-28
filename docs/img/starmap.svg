@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0a0a14"/>
+    </linearGradient>
+    <linearGradient id="rust" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f74c00"/>
+      <stop offset="100%" style="stop-color:#b7410e"/>
+    </linearGradient>
+    <radialGradient id="dome" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" style="stop-color:#141634"/>
+      <stop offset="70%" style="stop-color:#0b0c1e"/>
+      <stop offset="100%" style="stop-color:#07070f"/>
+    </radialGradient>
+  </defs>
+  <style>
+    @keyframes twinkle { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    @keyframes hunt    { 0%,100% { opacity: 1; } 50% { opacity: 0.45; } }
+    .t1 { animation: twinkle 3.1s ease-in-out infinite; }
+    .t2 { animation: twinkle 3.1s ease-in-out 1.0s infinite; }
+    .t3 { animation: twinkle 3.1s ease-in-out 2.0s infinite; }
+    .mk { animation: hunt 1.6s ease-in-out infinite; }
+  </style>
+
+  <circle cx="128" cy="128" r="120" fill="url(#bg)" stroke="url(#rust)" stroke-width="3"/>
+
+  <!-- The sky disc: zenith at the centre, horizon at the rim -->
+  <circle cx="128" cy="112" r="86" fill="url(#dome)" stroke="#4a4a63" stroke-width="1.5"/>
+
+  <!-- Cardinal points on the horizon, north up and east to the LEFT,
+       which is what you get looking up rather than at a map -->
+  <g font-family="monospace" font-size="12" font-weight="bold" fill="#ffbe5a">
+    <text x="128" y="32"  text-anchor="middle">N</text>
+    <text x="34"  y="117" text-anchor="middle">E</text>
+    <text x="128" y="204" text-anchor="middle">S</text>
+    <text x="222" y="117" text-anchor="middle">W</text>
+  </g>
+
+  <!-- Constellation figure: the Plough, the one everybody finds first -->
+  <g stroke="#4d648e" stroke-width="1.6" fill="none" stroke-linecap="round">
+    <path d="M 92 84 L 90 108 L 118 118 L 120 94 Z"/>
+    <path d="M 120 94 L 145 88 L 167 86 L 188 76"/>
+  </g>
+  <g fill="#dfe7ff">
+    <circle cx="92"  cy="84"  r="3.2" class="t1"/>
+    <circle cx="90"  cy="108" r="2.8"/>
+    <circle cx="118" cy="118" r="2.6" class="t3"/>
+    <circle cx="120" cy="94"  r="2.4"/>
+    <circle cx="145" cy="88"  r="3.0" class="t2"/>
+    <circle cx="167" cy="86"  r="2.8"/>
+    <circle cx="188" cy="76"  r="3.2" class="t1"/>
+  </g>
+
+  <!-- The pole star, and the crosshair sitting on it -->
+  <circle cx="140" cy="150" r="3.4" fill="#fff6c8"/>
+  <g class="mk" stroke="#ffdc78" stroke-width="1.8" stroke-linecap="round">
+    <path d="M 140 139 L 140 144"/>
+    <path d="M 140 156 L 140 161"/>
+    <path d="M 129 150 L 134 150"/>
+    <path d="M 146 150 L 151 150"/>
+  </g>
+
+  <!-- The rest of the sky, coloured the way real stars are -->
+  <g>
+    <circle cx="64"  cy="140" r="2.4" fill="#9bb0ff" class="t2"/>
+    <circle cx="76"  cy="160" r="1.8" fill="#dfe7ff"/>
+    <circle cx="104" cy="180" r="2.6" fill="#ffd34d" class="t3"/>
+    <circle cx="148" cy="184" r="2.0" fill="#ff8a5a"/>
+    <circle cx="176" cy="160" r="2.8" fill="#ff5a3c" class="t1"/>
+    <circle cx="196" cy="128" r="2.0" fill="#dfe7ff" class="t3"/>
+    <circle cx="184" cy="106" r="1.6" fill="#9bb0ff"/>
+    <circle cx="160" cy="122" r="1.8" fill="#fff6c8" class="t2"/>
+    <circle cx="112" cy="148" r="1.6" fill="#dfe7ff"/>
+    <circle cx="70"  cy="104" r="1.8" fill="#ffd34d" class="t1"/>
+    <circle cx="86"  cy="60"  r="1.6" fill="#dfe7ff"/>
+    <circle cx="152" cy="56"  r="2.2" fill="#9bb0ff" class="t3"/>
+    <circle cx="204" cy="90"  r="1.6" fill="#ff8a5a"/>
+    <circle cx="56"  cy="86"  r="1.4" fill="#dfe7ff" class="t2"/>
+    <circle cx="128" cy="70"  r="1.6" fill="#fff6c8"/>
+    <circle cx="200" cy="148" r="1.4" fill="#dfe7ff"/>
+    <circle cx="60"  cy="122" r="1.4" fill="#ffd34d"/>
+  </g>
+
+  <text x="128" y="224" font-family="monospace" font-size="21" font-weight="bold"
+        fill="url(#rust)" text-anchor="middle" letter-spacing="2">starmap</text>
+  <text x="128" y="238" font-family="monospace" font-size="8" fill="#888"
+        text-anchor="middle">the sky in braille</text>
+</svg>
