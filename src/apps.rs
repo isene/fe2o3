@@ -32,7 +32,7 @@ pub const APPS: &[App] = &[
     App { name: "cc-sessions", bin: "cl", repo: "CC-sessions", kind: "Claude Code session manager", blurb: "Bookmark and resume Claude Code sessions with tags", group: "Desk" },
     App { name: "rpnx", bin: "rpnx", repo: "rpnx", kind: "RPN / XRPN Calculator", blurb: "A terminal RPN scientific calculator in the HP…", group: "Desk" },
     App { name: "astro", bin: "astro", repo: "astro", kind: "Astronomy Panel + Telescope Catalog", blurb: "Single amateur-astronomy app", group: "Science" },
-    App { name: "stars", bin: "stars", repo: "stars", kind: "HR Diagram Explorer", blurb: "The Hertzsprung-Russell diagram in the terminal", group: "Science" },
+    App { name: "stars", bin: "stars", repo: "stars", kind: "HR Diagram Explorer", blurb: "The HR diagram, and a sky to pick stars off", group: "Science" },
     App { name: "particles", bin: "particles", repo: "particles", kind: "Standard Model Explorer", blurb: "The Standard Model chart with every particle's PDG…", group: "Science" },
     App { name: "elements", bin: "elements", repo: "elements", kind: "Periodic Table Explorer", blurb: "The periodic table in your terminal", group: "Science" },
     App { name: "gazette", bin: "gazette", repo: "gazette", kind: "News Reader", blurb: "Reader for your personal daily news digest", group: "Media" },

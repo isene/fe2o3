@@ -46,6 +46,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | `fe2o3-glow`  | `glow`  | <https://github.com/isene/glow>  | Inline images (kitty / sixel / w3m / chafa / braille) |
 | `fe2o3-orbit` | `orbit` | <https://github.com/isene/orbit> | Moon phases, ephemeris, sun/planet positions |
 | `fe2o3-highlight` | `highlight` | <https://github.com/isene/highlight> | Theme-aware syntax highlighter (~18 langs + HL/MD/LaTeX/email) |
+| `fe2o3-starmap` | `starmap` | <https://github.com/isene/starmap> | The naked-eye sky in braille: 9,096 stars (Yale BSC + Hipparcos distances), constellation figures, horizon + hemisphere projections, interactive star picker |
 | `plot` | `plot` | <https://github.com/isene/plot> | Terminal charts (sparkline / line / candle / bar) |
 | `fe2o3-rpnx-core` | `rpnx_core` | <https://github.com/isene/rpnx-core> | RPN / XRPN calculator engine (shared by rpnx TUI + RPNx phone app; optional `uniffi` feature) |
 

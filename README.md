@@ -64,7 +64,7 @@ Adding an app to the grid is one line in `src/apps.rs` plus its logo in
 | [rpnx](https://github.com/isene/rpnx) | ![rpnx](https://badgen.net/github/release/isene/rpnx) | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs) | [T-REX](https://github.com/isene/T-REX) |
 | [typo](https://github.com/isene/typo) | ![typo](https://badgen.net/github/release/isene/typo) | Touch-typing tutor (strict drills, live WPM/accuracy, US + Norwegian layouts) | — |
 | [elements](https://github.com/isene/elements) | ![elements](https://badgen.net/github/release/isene/elements) | Periodic table explorer (118 elements + hypothesized 119–126, full Wikipedia article per element, offline) | — |
-| [stars](https://github.com/isene/stars) | ![stars](https://badgen.net/github/release/isene/stars) | Hertzsprung-Russell diagram explorer (461 named stars, evolutionary tracks, full Wikipedia article per star) | — |
+| [stars](https://github.com/isene/stars) | ![stars](https://badgen.net/github/release/isene/stars) | Hertzsprung-Russell diagram explorer (461 named stars, evolutionary tracks, full Wikipedia article per star, and a sky map to pick from) | — |
 | [particles](https://github.com/isene/particles) | ![particles](https://badgen.net/github/release/isene/particles) | Standard Model explorer (17 fundamental particles + proton/neutron, and a rotatable zoom from atom to quark) | — |
 
 ### Retired
@@ -86,6 +86,7 @@ Superseded by the assembly tools in [CHasm](https://github.com/isene/chasm), whi
 | [glow](https://github.com/isene/glow) | ![glow](https://badgen.net/github/release/isene/glow) | Inline images (kitty / sixel / w3m / braille) | [termpix](https://github.com/isene/termpix) |
 | [highlight](https://github.com/isene/highlight) | ![highlight](https://badgen.net/github/release/isene/highlight) | Theme-aware syntax highlighter (~18 source langs + HL / Markdown / LaTeX / email) | — |
 | [orbit](https://github.com/isene/orbit) | ![orbit](https://badgen.net/github/release/isene/orbit) | Moon phases, ephemeris, sun / planet positions | [ephemeris](https://github.com/isene/ephemeris) |
+| [starmap](https://github.com/isene/starmap) | ![starmap](https://badgen.net/github/release/isene/starmap) | The naked-eye sky in braille (9,096 stars with distances, constellation figures, star picker) | — |
 | [plot](https://github.com/isene/plot) | ![plot](https://badgen.net/github/release/isene/plot) | Terminal charts (sparkline / line / candle / bar) with Unicode + ANSI | [termchart](https://github.com/isene/termchart) |
 | [fe2o3-rpnx-core](https://github.com/isene/rpnx-core) | ![rpnx-core](https://badgen.net/github/release/isene/rpnx-core) | RPN / XRPN calculator engine shared by rpnx (TUI) + the RPNx phone app | — |
 
