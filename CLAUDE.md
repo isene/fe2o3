@@ -29,6 +29,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | library | <https://github.com/isene/library> | Generative personal library (curate a shelf of books that should exist, then have them written; pairs with nomad `books`) |
 | rpnx    | <https://github.com/isene/rpnx>    | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs; shares fe2o3-rpnx-core with the nomad rpnx app; scribe `=` inserts its result) |
 | elements | <https://github.com/isene/elements> | Periodic table explorer (118 + hypothesized 119–126, full Wikipedia article per element, cached at ~/.elements/) |
+| isotopes | <https://github.com/isene/isotopes> | Chart of the nuclides (3,386 isotopes from the IAEA table, decay modes, half-lives, decay chains, braille overview) |
 | stars   | <https://github.com/isene/stars>   | Hertzsprung-Russell diagram explorer (461 named stars from HYG + Wikidata, schematic evolutionary tracks, article per star, cached at ~/.stars/) |
 | particles | <https://github.com/isene/particles> | Standard Model explorer (17 fundamental particles + proton/neutron with PDG values, and a braille 3D zoom atom → nucleus → nucleon → quark) |
 
