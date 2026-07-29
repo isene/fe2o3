@@ -32,6 +32,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | isotopes | <https://github.com/isene/isotopes> | Chart of the nuclides (3,386 isotopes from the IAEA table, decay modes, half-lives, decay chains, braille overview) |
 | stars   | <https://github.com/isene/stars>   | Hertzsprung-Russell diagram explorer (461 named stars from HYG + Wikidata, schematic evolutionary tracks, article per star, cached at ~/.stars/) |
 | particles | <https://github.com/isene/particles> | Standard Model explorer (17 fundamental particles + proton/neutron with PDG values, and a braille 3D zoom atom → nucleus → nucleon → quark) |
+| exoplanets | <https://github.com/isene/exoplanets> | The known exoplanets (6,309 worlds by orbit and size, systems, habitable zones) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |

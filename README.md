@@ -78,6 +78,7 @@ what it would do; running it twice changes nothing the second time.
 | [isotopes](https://github.com/isene/isotopes) | ![isotopes](https://badgen.net/github/release/isene/isotopes) | Chart of the nuclides (3,386 isotopes, decay modes, half-lives, decay chains) | — |
 | [stars](https://github.com/isene/stars) | ![stars](https://badgen.net/github/release/isene/stars) | Hertzsprung-Russell diagram explorer (461 named stars, evolutionary tracks, full Wikipedia article per star, and a sky map to pick from) | — |
 | [particles](https://github.com/isene/particles) | ![particles](https://badgen.net/github/release/isene/particles) | Standard Model explorer (17 fundamental particles + proton/neutron, and a rotatable zoom from atom to quark) | — |
+| [exoplanets](https://github.com/isene/exoplanets) | ![exoplanets](https://badgen.net/github/release/isene/exoplanets) | The known exoplanets (6,309 worlds by orbit and size, systems, habitable zones) | — |
 
 ### Retired
 
@@ -146,7 +147,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo elements isotopes stars particles; do
+for app in pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo elements isotopes exoplanets stars particles; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
