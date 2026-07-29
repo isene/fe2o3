@@ -1,0 +1,240 @@
+#!/usr/bin/env python3
+"""add-app — wire a new Fe2O3 app into the suite, everywhere at once.
+
+Adding an app used to mean six edits in three repos, and forgetting one
+of them meant a card with no logo or a landing page that never mentioned
+the thing. This does the lot:
+
+  * a row in the launcher's catalog (src/apps.rs) and its LOGOS table
+  * the launcher logo, rendered from the app's own SVG
+  * a row in the suite README's binaries table
+  * a row in the suite CLAUDE.md's app table
+  * a card on the landing page, in the right group, with the app count
+    on the page bumped
+  * a release workflow in the app's repo, if it has none
+
+Run it from anywhere:
+
+    fe2o3/tools/add-app isotopes \\
+        --kind "Chart of the Nuclides" \\
+        --blurb "3,386 isotopes, how they decay and what into" \\
+        --group Science \\
+        --desc "Neutrons across, protons up, coloured by how each one
+                comes apart. Enter follows a decay chain to its stable
+                end." \\
+        --role "Chart of the nuclides (3,386 isotopes, decay modes,
+                half-lives, decay chains)"
+
+`--kind` is the one-phrase label on the card, `--blurb` the single line
+under it in the launcher, `--desc` the paragraph on the landing page,
+and `--role` the sentence in the two tables. Everything but the name has
+a sensible fallback, and re-running for an app that is already wired is
+a no-op, so it is safe to run twice.
+
+Add `--check` to see what it would do without touching anything.
+"""
+
+import argparse
+import re
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+SUITE = Path(__file__).resolve().parent.parent
+TREE = SUITE.parent
+GROUPS = ["Daily drivers", "Desk", "Science", "Media", "Play", "System", "Retired"]
+
+
+def say(msg, done=True):
+    print(f"  {'✓' if done else '·'} {msg}")
+
+
+def read(p):
+    return p.read_text()
+
+
+def write(p, s, check):
+    if check:
+        return
+    p.write_text(s)
+
+
+def apps_rs(name, bin_, repo, kind, blurb, group, check):
+    """One row in the catalog, one in the logo table."""
+    p = SUITE / "src/apps.rs"
+    s = read(p)
+    if f'name: "{name}"' in s:
+        say(f"apps.rs already has {name}", done=False)
+        return
+    row = (f'    App {{ name: "{name}", bin: "{bin_}", repo: "{repo}", '
+           f'kind: "{kind}", blurb: "{blurb}", group: "{group}" }},\n')
+    # Land it at the end of its own group so the grid stays sorted.
+    lines = s.splitlines(keepends=True)
+    last = None
+    for i, line in enumerate(lines):
+        if f'group: "{group}" }},' in line:
+            last = i
+    if last is None:
+        sys.exit(f"add-app: no group {group!r} in apps.rs (have: {', '.join(GROUPS)})")
+    lines.insert(last + 1, row)
+    s = "".join(lines)
+    s = s.replace('    ("gazette", include_bytes!("../img/logos/gazette.png")),',
+                  f'    ("{name}", include_bytes!("../img/logos/{name}.png")),\n'
+                  '    ("gazette", include_bytes!("../img/logos/gazette.png")),')
+    write(p, s, check)
+    say(f"apps.rs: row in {group}, logo embedded")
+
+
+def logo(name, check):
+    """Render the app's SVG into the launcher's PNG logo."""
+    svg = TREE / name / "img" / f"{name}.svg"
+    png = SUITE / "img/logos" / f"{name}.png"
+    if png.exists():
+        say(f"logo already at img/logos/{name}.png", done=False)
+        return
+    if not svg.exists():
+        say(f"no {svg.relative_to(TREE)} — draw one, then re-run", done=False)
+        return
+    if check:
+        say(f"would render {svg.name} → img/logos/{name}.png")
+        return
+    if not shutil.which("rsvg-convert"):
+        say("rsvg-convert not on PATH, skipping the logo", done=False)
+        return
+    subprocess.run(["rsvg-convert", "-w", "96", "-h", "96", str(svg), "-o", str(png)],
+                   check=True)
+    say(f"logo rendered from {name}/img/{name}.svg")
+
+
+def readme_table(name, repo, role, check):
+    p = SUITE / "README.md"
+    s = read(p)
+    if f"github.com/isene/{repo})" in s:
+        say("README already lists it", done=False)
+        return
+    row = (f"| [{name}](https://github.com/isene/{repo}) | "
+           f"![{name}](https://badgen.net/github/release/isene/{repo}) | {role} | — |\n")
+    anchor = "\n### Retired\n"
+    s = s.replace(anchor, row + anchor, 1)
+    # and the install one-liner
+    s = re.sub(r"(for app in [^;]*?)( elements)", rf"\1 {name}\2", s, count=1) \
+        if f" {name} " not in s else s
+    s = s.replace("for app in ", "for app in ", 1)
+    if f" {name};" not in s and f" {name} " not in s.split("for app in ", 1)[-1][:400]:
+        s = s.replace(" stars particles; do", f" {name} stars particles; do", 1)
+    write(p, s, check)
+    say("README: table row and install line")
+
+
+def claude_md(name, repo, role, check):
+    p = SUITE / "CLAUDE.md"
+    s = read(p)
+    if f"| {name} " in s:
+        say("CLAUDE.md already lists it", done=False)
+        return
+    row = f"| {name} | <https://github.com/isene/{repo}> | {role} |\n"
+    anchor = "\n### Archived (don't modify)\n"
+    s = s.replace(anchor, row + anchor, 1)
+    write(p, s, check)
+    say("CLAUDE.md: app table row")
+
+
+def landing(name, repo, kind, desc, group, check):
+    p = SUITE / "docs/index.html"
+    s = read(p)
+    if f'href="https://github.com/isene/{repo}"' in s:
+        say("landing page already has a card", done=False)
+        return
+    card = f'''        <div class="card">
+          <div class="card-head">
+            <img class="card-logo" src="https://raw.githubusercontent.com/isene/{repo}/master/img/{name}.svg" alt="{name} logo" onerror="this.style.visibility='hidden'">
+            <div>
+              <h3 class="card-title"><a class="card-link" href="https://github.com/isene/{repo}">{name}</a></h3>
+              <div class="card-kind">{kind} (binary)</div>
+            </div>
+          </div>
+          <p class="card-desc">
+            {desc}
+          </p>
+          <div class="card-meta">
+            <span class="repo">isene/{repo}</span>
+            <img src="https://badgen.net/github/release/isene/{repo}" alt="release">
+          </div>
+        </div>
+'''
+    # Land the card at the end of its group: the next divider, or the
+    # end of the grid if it is the last group on the page.
+    marker = f'<span class="grid-divider-label">{group}</span>'
+    if marker not in s:
+        sys.exit(f"add-app: no {group!r} divider on the landing page")
+    after = s.index(marker)
+    nxt = s.find('<div class="grid-divider', after)
+    end = nxt if nxt != -1 else s.index("</div>\n\n      <p class=\"archived-note\"", after)
+    cut = s.rindex("        </div>\n", after, end) + len("        </div>\n")
+    s = s[:cut] + card + s[cut:]
+    # The intro counts the binaries; keep it honest.
+    m = re.search(r"([A-Z][a-z]+(?:-[a-z]+)?) binaries and", s)
+    if m:
+        words = ["Twenty", "Twenty-one", "Twenty-two", "Twenty-three", "Twenty-four",
+                 "Twenty-five", "Twenty-six", "Twenty-seven", "Twenty-eight",
+                 "Twenty-nine", "Thirty", "Thirty-one", "Thirty-two", "Thirty-three"]
+        if m.group(1) in words:
+            s = s.replace(f"{m.group(1)} binaries and",
+                          f"{words[words.index(m.group(1)) + 1]} binaries and", 1)
+    write(p, s, check)
+    say(f"landing page: card in {group}, count bumped")
+
+
+def workflow(name, check):
+    """Copy a release workflow into the app repo if it has none."""
+    dst = TREE / name / ".github/workflows/release.yml"
+    if dst.exists():
+        say("app has a release workflow", done=False)
+        return
+    src = TREE / "particles/.github/workflows/release.yml"
+    if not src.exists():
+        say("no template workflow to copy", done=False)
+        return
+    if check:
+        say(f"would write {name}/.github/workflows/release.yml")
+        return
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_text(read(src).replace("particles", name))
+    say("release workflow written (four platforms, crust checked out)")
+
+
+def main():
+    ap = argparse.ArgumentParser(description="Wire a new Fe2O3 app into the suite.")
+    ap.add_argument("name", help="the app, as its binary and logo are named")
+    ap.add_argument("--bin", help="the binary, if not the same as the name")
+    ap.add_argument("--repo", help="the GitHub repo, if not the same as the name")
+    ap.add_argument("--kind", default="", help='one phrase: "Chart of the Nuclides"')
+    ap.add_argument("--blurb", default="", help="one line, for the launcher card")
+    ap.add_argument("--desc", default="", help="a paragraph, for the landing page")
+    ap.add_argument("--role", default="", help="a sentence, for the two tables")
+    ap.add_argument("--group", default="Desk", choices=GROUPS)
+    ap.add_argument("--check", action="store_true", help="say what it would do, change nothing")
+    a = ap.parse_args()
+
+    name = a.name
+    bin_ = a.bin or name
+    repo = a.repo or name
+    kind = a.kind or name.capitalize()
+    blurb = a.blurb or kind
+    role = " ".join((a.role or blurb).split())
+    desc = " ".join((a.desc or role).split())
+
+    print(f"{'checking' if a.check else 'wiring'} {name} into the suite:")
+    apps_rs(name, bin_, repo, kind, blurb, a.group, a.check)
+    logo(name, a.check)
+    readme_table(name, repo, role, a.check)
+    claude_md(name, repo, role, a.check)
+    landing(name, repo, kind, desc, a.group, a.check)
+    workflow(name, a.check)
+    if not a.check:
+        print("\nnow: cargo build --release in fe2o3, then commit both repos.")
+
+
+if __name__ == "__main__":
+    main()

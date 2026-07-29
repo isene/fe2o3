@@ -159,6 +159,26 @@ git push origin vX.Y.Z
 Apps without `release.yml` (currently: glow, crust): tag + push, then
 manual `gh release create` only if a binary asset is needed.
 
+## Adding an app to the suite
+
+Do not hand-edit the six places an app has to appear. Run:
+
+```bash
+tools/add-app <name> --kind "<one phrase>" --group <Daily drivers|Desk|Science|Media|Play|System> \
+  --blurb "<one line for the launcher>" --desc "<a paragraph for the landing page>" \
+  --role "<a sentence for the two tables>"
+```
+
+It writes: the row in `src/apps.rs` (at the end of its group) plus the
+`LOGOS` entry, `img/logos/<name>.png` rendered from `<app>/img/<name>.svg`,
+the binaries-table row in `README.md`, the app-table row in this file,
+the landing-page card in the right group with the app count bumped, and
+`<app>/.github/workflows/release.yml` if the app repo has none.
+
+It is idempotent, so re-running after drawing the logo picks up only
+what is missing. `--check` is a dry run. Afterwards: `cargo build
+--release` here, then commit the umbrella repo and the app repo.
+
 ## Editing this repo
 
 - README.md is the public landing page (rendered at the GitHub Pages URL

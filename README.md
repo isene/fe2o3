@@ -32,8 +32,19 @@ fe2o3                        # the grid
 fe2o3 -l                     # the suite as plain text
 ```
 
-Adding an app to the grid is one line in `src/apps.rs` plus its logo in
-`img/logos/<name>.png`.
+Adding an app to the suite is one command:
+
+```bash
+tools/add-app isotopes --kind "Chart of the Nuclides" --group Science \
+  --blurb "3,386 isotopes, how they decay and what into" \
+  --desc "Neutrons across, protons up, coloured by how each one comes apart."
+```
+
+That writes the launcher row, renders the card logo from the app's own
+SVG, adds the table rows here and in `CLAUDE.md`, puts a card on the
+landing page in the right group with the count bumped, and drops a
+release workflow into the app's repo if it has none. `--check` shows
+what it would do; running it twice changes nothing the second time.
 
 ## The tools
 
