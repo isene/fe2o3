@@ -1,6 +1,6 @@
 [package]
 name = "fe2o3"
-version = "0.1.12"
+version = "0.1.13"
 edition = "2021"
 authors = ["Geir Isene <g@isene.com>"]
 description = "The Fe2O3 suite as a card grid: pick an app, press Enter, it runs in this terminal."
