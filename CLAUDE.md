@@ -52,6 +52,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | `fe2o3-starmap` | `starmap` | <https://github.com/isene/starmap> | The naked-eye sky in braille: 9,096 stars (Yale BSC + Hipparcos distances), constellation figures, horizon + hemisphere projections, interactive star picker |
 | `plot` | `plot` | <https://github.com/isene/plot> | Terminal charts (sparkline / line / candle / bar) |
 | `fe2o3-rpnx-core` | `rpnx_core` | <https://github.com/isene/rpnx-core> | RPN / XRPN calculator engine (shared by rpnx TUI + RPNx phone app; optional `uniffi` feature) |
+| `fe2o3-mail` | `mail` | <https://github.com/isene/mail> | Email plumbing: MIME (QP, base64, RFC 2047, multipart walk), HTML-to-text, and cross-device read state. Shared by kastrup + the nomad mail app |
 
 Local clones live under `/home/geir/Main/G/GIT-isene/<name>/`.
 

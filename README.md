@@ -103,6 +103,7 @@ Superseded by the assembly tools in [CHasm](https://github.com/isene/chasm), whi
 | [starmap](https://github.com/isene/starmap) | ![starmap](https://badgen.net/github/release/isene/starmap) | The naked-eye sky in braille (9,096 stars with distances, constellation figures, star picker) | — |
 | [plot](https://github.com/isene/plot) | ![plot](https://badgen.net/github/release/isene/plot) | Terminal charts (sparkline / line / candle / bar) with Unicode + ANSI | [termchart](https://github.com/isene/termchart) |
 | [fe2o3-rpnx-core](https://github.com/isene/rpnx-core) | ![rpnx-core](https://badgen.net/github/release/isene/rpnx-core) | RPN / XRPN calculator engine shared by rpnx (TUI) + the RPNx phone app | — |
+| [mail](https://github.com/isene/mail) | ![mail](https://badgen.net/github/release/isene/mail) | Email plumbing (MIME, HTML-to-text, read state across devices) shared by kastrup + the nomad mail app | — |
 
 ## Companion apps — [nomad](https://github.com/isene/nomad)
 
@@ -128,6 +129,7 @@ no cloud middleman.
 | **gazette** | [gazette](https://github.com/isene/gazette) | Daily news digest reader — browse the last 7 issues (and PDF) synced into `~/.news` |
 | **books** | [library](https://github.com/isene/library) | The library on your phone, read-only: only the books you have made, grouped by shelf, with inline figures |
 | **onepage** | — | Minimal Android home launcher (one screen, freely-placed widgets, zero idle cost) |
+| **mail** | [kastrup](https://github.com/isene/kastrup) | Your Gmail inboxes on the phone — same decoder as kastrup, bodies on demand, an explicit Mark READ that reaches the laptop |
 
 ## Install everything
 
