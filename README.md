@@ -129,7 +129,7 @@ no cloud middleman.
 | **gazette** | [gazette](https://github.com/isene/gazette) | Daily news digest reader — browse the last 7 issues (and PDF) synced into `~/.news` |
 | **books** | [library](https://github.com/isene/library) | The library on your phone, read-only: only the books you have made, grouped by shelf, with inline figures |
 | **onepage** | — | Minimal Android home launcher (one screen, freely-placed widgets, zero idle cost) |
-| **mail** | [kastrup](https://github.com/isene/kastrup) | Your Gmail inboxes on the phone — same decoder as kastrup, bodies on demand, an explicit Mark READ that reaches the laptop |
+| **kastrup** | [kastrup](https://github.com/isene/kastrup) | Your Gmail inboxes on the phone — same decoder as kastrup, bodies on demand, an explicit Mark READ that reaches the laptop |
 
 ## Install everything
 
