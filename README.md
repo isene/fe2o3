@@ -80,6 +80,7 @@ what it would do; running it twice changes nothing the second time.
 | [particles](https://github.com/isene/particles) | ![particles](https://badgen.net/github/release/isene/particles) | Standard Model explorer (17 fundamental particles + proton/neutron, and a rotatable zoom from atom to quark) | — |
 | [exoplanets](https://github.com/isene/exoplanets) | ![exoplanets](https://badgen.net/github/release/isene/exoplanets) | The known exoplanets (6,309 worlds by orbit and size, systems, habitable zones) | — |
 | [fractal](https://github.com/isene/fractal) | ![fractal](https://badgen.net/github/release/isene/fractal) | Chaos and fractals in braille (Mandelbrot, Julia, logistic map, Lorenz, Hénon) | — |
+| [fleet](https://github.com/isene/fleet) | ![fleet](https://badgen.net/github/release/isene/fleet) | Claude Code mission control (session states, workspace jump, inbox watch, message bus) | — |
 
 ### Retired
 
@@ -151,7 +152,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fractal elements isotopes exoplanets stars particles; do
+for app in pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fractal fleet elements isotopes exoplanets stars particles; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
