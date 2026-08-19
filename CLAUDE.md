@@ -35,6 +35,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | exoplanets | <https://github.com/isene/exoplanets> | The known exoplanets (6,309 worlds by orbit and size, systems, habitable zones) |
 | fractal | <https://github.com/isene/fractal> | Chaos and fractals in braille (Mandelbrot, Julia, logistic map, Lorenz, Hénon) |
 | fleet | <https://github.com/isene/fleet> | Claude Code mission control (session states, workspace jump, inbox watch, message bus) |
+| hl2web | <https://github.com/isene/hl2web> | HyperList to interactive HTML (folding, search, references) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
