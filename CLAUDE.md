@@ -36,6 +36,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | fractal | <https://github.com/isene/fractal> | Chaos and fractals in braille (Mandelbrot, Julia, logistic map, Lorenz, Hénon) |
 | fleet | <https://github.com/isene/fleet> | Claude Code mission control (session states, workspace jump, inbox watch, message bus) |
 | hl2web | <https://github.com/isene/hl2web> | HyperList to interactive HTML (folding, search, references) |
+| hypergraph | <https://github.com/isene/hypergraph> | HyperList to graph (Graphviz; states or transitions, themes, PNG/SVG/PDF/HTML) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
