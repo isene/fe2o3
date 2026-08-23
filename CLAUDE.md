@@ -37,6 +37,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | fleet | <https://github.com/isene/fleet> | Claude Code mission control (session states, workspace jump, inbox watch, message bus) |
 | hl2web | <https://github.com/isene/hl2web> | HyperList to interactive HTML (folding, search, references) |
 | hypergraph | <https://github.com/isene/hypergraph> | HyperList to graph (Graphviz; states or transitions, themes, PNG/SVG/PDF/HTML) |
+| beam | <https://github.com/isene/beam> | Remote control for the presentation workspace (shows any window on WS10) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |

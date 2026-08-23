@@ -83,6 +83,7 @@ what it would do; running it twice changes nothing the second time.
 | [fleet](https://github.com/isene/fleet) | ![fleet](https://badgen.net/github/release/isene/fleet) | Claude Code mission control (session states, workspace jump, inbox watch, message bus) | — |
 | [hl2web](https://github.com/isene/hl2web) | ![hl2web](https://badgen.net/github/release/isene/hl2web) | HyperList to interactive HTML (folding, search, references) | — |
 | [hypergraph](https://github.com/isene/hypergraph) | ![hypergraph](https://badgen.net/github/release/isene/hypergraph) | HyperList to graph (Graphviz; states or transitions, themes, PNG/SVG/PDF/HTML) | — |
+| [beam](https://github.com/isene/beam) | ![beam](https://badgen.net/github/release/isene/beam) | Remote control for the presentation workspace (shows any window on WS10) | — |
 
 ### Retired
 
@@ -154,7 +155,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fractal fleet hl2web elements isotopes exoplanets stars particles; do
+for app in pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fractal fleet hl2web beam elements isotopes exoplanets stars particles; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done

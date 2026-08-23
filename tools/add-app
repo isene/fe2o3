@@ -178,7 +178,9 @@ def landing(name, repo, kind, desc, group, check):
     if m:
         words = ["Twenty", "Twenty-one", "Twenty-two", "Twenty-three", "Twenty-four",
                  "Twenty-five", "Twenty-six", "Twenty-seven", "Twenty-eight",
-                 "Twenty-nine", "Thirty", "Thirty-one", "Thirty-two", "Thirty-three"]
+                 "Twenty-nine", "Thirty", "Thirty-one", "Thirty-two", "Thirty-three",
+                 "Thirty-four", "Thirty-five", "Thirty-six", "Thirty-seven",
+                 "Thirty-eight", "Thirty-nine", "Forty"]
         if m.group(1) in words:
             s = s.replace(f"{m.group(1)} binaries and",
                           f"{words[words.index(m.group(1)) + 1]} binaries and", 1)
