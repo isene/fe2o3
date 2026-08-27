@@ -15,6 +15,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | pointer | <https://github.com/isene/pointer> | File manager |
 | kastrup | <https://github.com/isene/kastrup> | Messaging hub (email, RSS, chat) |
 | scribe  | <https://github.com/isene/scribe>  | Modal text editor for writers |
+| folio | <https://github.com/isene/folio> | Terminal PDF reader (text / page / split modes, source-aware editing, corpus search) |
 | scroll  | <https://github.com/isene/scroll>  | Terminal web browser |
 | gazette | <https://github.com/isene/gazette> | Daily news digest reader (server-side Claude → ~/.news → TUI) |
 | tock    | <https://github.com/isene/tock>    | Calendar with ephemeris |
@@ -38,7 +39,6 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | hl2web | <https://github.com/isene/hl2web> | HyperList to interactive HTML (folding, search, references) |
 | hypergraph | <https://github.com/isene/hypergraph> | HyperList to graph (Graphviz; states or transitions, themes, PNG/SVG/PDF/HTML) |
 | beam | <https://github.com/isene/beam> | Remote control for the presentation workspace (shows any window on WS10) |
-| folio | <https://github.com/isene/folio> | Terminal PDF reader (text / page / split modes, source-aware editing, corpus search) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
