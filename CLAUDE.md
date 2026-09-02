@@ -39,6 +39,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | hl2web | <https://github.com/isene/hl2web> | HyperList to interactive HTML (folding, search, references) |
 | hypergraph | <https://github.com/isene/hypergraph> | HyperList to graph (Graphviz; states or transitions, themes, PNG/SVG/PDF/HTML) |
 | beam | <https://github.com/isene/beam> | Remote control for the presentation workspace (shows any window on WS10) |
+| yank | <https://github.com/isene/yank> | Clipboard history that pastes back into the previous window (replaces copyq) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
