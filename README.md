@@ -69,7 +69,7 @@ what it would do; running it twice changes nothing the second time.
 | [tune](https://github.com/isene/tune) | ![tune](https://badgen.net/github/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
 | [melody](https://github.com/isene/melody) | ![melody](https://badgen.net/github/release/isene/melody) | Melody maker — piano-roll play / record / edit, metronome, WAV export | — |
 | [petri](https://github.com/isene/petri) | ![petri](https://badgen.net/github/release/isene/petri) | Petri net player — load a net, fire transitions, watch conflicts, find deadlocks | — |
-| [library](https://github.com/isene/library) | ![library](https://badgen.net/github/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written on demand) | — |
+| [library](https://github.com/isene/library) | ![library](https://badgen.net/github/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written and read aloud on demand) | — |
 | [grid](https://github.com/isene/grid) | ![grid](https://badgen.net/github/release/isene/grid) | AI-native spreadsheet (csv/xlsx/ods, formula engine, Claude editing) | — |
 | [viewer](https://github.com/isene/viewer) | ![viewer](https://badgen.net/github/release/isene/viewer) | Universal file viewer (tables, docs, slides, pdf, images, code; launches the right editor) | — |
 | [CC-sessions](https://github.com/isene/CC-sessions) | ![CC-sessions](https://badgen.net/github/release/isene/CC-sessions) | Claude Code session manager (`cc`/`cl`: bookmark + resume sessions with tags, `/bm` command) | CC-sessions ≤1.5 (Ruby) |
@@ -134,7 +134,7 @@ no cloud middleman.
 | **ref** | — | Offline, searchable reference reader (glossaries, books, personal writings) |
 | **vox** | — | Voice quick-capture — pocket version of the laptop `Win+a` voice-to-text |
 | **gazette** | [gazette](https://github.com/isene/gazette) | Daily news digest reader — browse the last 7 issues (and PDF) synced into `~/.news` |
-| **books** | [library](https://github.com/isene/library) | The library on your phone, read-only: only the books you have made, grouped by shelf, with inline figures |
+| **books** | [library](https://github.com/isene/library) | The library on your phone, read-only: only the books you have made, grouped by shelf, with inline figures and spoken tracks |
 | **onepage** | — | Minimal Android home launcher (one screen, freely-placed widgets, zero idle cost) |
 | **kastrup** | [kastrup](https://github.com/isene/kastrup) | Your Gmail inboxes and RSS feeds on the phone — same decoder as kastrup, bodies on demand, an explicit Mark READ that reaches the laptop |
 

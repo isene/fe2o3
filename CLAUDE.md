@@ -27,7 +27,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | fonts   | <https://github.com/isene/fonts>   | TUI font picker with live previews (via glyph); returns family + size — used by scribe `\F` |
 | amar    | <https://github.com/isene/amar>    | Amar RPG companion (5-tab TUI: Inspire, Forge, Campaign, Session, Lore — honors d6gaming.org canon) |
 | tune    | <https://github.com/isene/tune>    | Spotify Connect controller (search, library, queue, devices, transport) |
-| library | <https://github.com/isene/library> | Generative personal library (curate a shelf of books that should exist, then have them written; pairs with nomad `books`) |
+| library | <https://github.com/isene/library> | Generative personal library (curate a shelf of books that should exist, then have them written and read aloud; pairs with nomad `books`) |
 | rpnx    | <https://github.com/isene/rpnx>    | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs; shares fe2o3-rpnx-core with the nomad rpnx app; scribe `=` inserts its result) |
 | elements | <https://github.com/isene/elements> | Periodic table explorer (118 + hypothesized 119–126, full Wikipedia article per element, cached at ~/.elements/) |
 | isotopes | <https://github.com/isene/isotopes> | Chart of the nuclides (3,386 isotopes from the IAEA table, decay modes, half-lives, decay chains, braille overview) |
