@@ -86,7 +86,7 @@ what it would do; running it twice changes nothing the second time.
 | [hypergraph](https://github.com/isene/hypergraph) | ![hypergraph](https://badgen.net/github/release/isene/hypergraph) | HyperList to graph (Graphviz; states or transitions, themes, PNG/SVG/PDF/HTML) | — |
 | [beam](https://github.com/isene/beam) | ![beam](https://badgen.net/github/release/isene/beam) | Remote control for the presentation workspace (shows any window on WS10) | — |
 | [yank](https://github.com/isene/yank) | ![yank](https://badgen.net/github/release/isene/yank) | Clipboard history that pastes back into the previous window (replaces copyq) | — |
-| [moon](https://github.com/isene/moon) | ![moon](https://badgen.net/github/release/isene/moon) | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, with a strip of the days around it) | — |
+| [moon](https://github.com/isene/moon) | ![moon](https://badgen.net/github/release/isene/moon) | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, a strip of the days around it, and a zoomable braille map with the features named) | — |
 
 ### Retired
 
