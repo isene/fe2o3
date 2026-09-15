@@ -86,6 +86,7 @@ what it would do; running it twice changes nothing the second time.
 | [hypergraph](https://github.com/isene/hypergraph) | ![hypergraph](https://badgen.net/github/release/isene/hypergraph) | HyperList to graph (Graphviz; states or transitions, themes, PNG/SVG/PDF/HTML) | — |
 | [beam](https://github.com/isene/beam) | ![beam](https://badgen.net/github/release/isene/beam) | Remote control for the presentation workspace (shows any window on WS10) | — |
 | [yank](https://github.com/isene/yank) | ![yank](https://badgen.net/github/release/isene/yank) | Clipboard history that pastes back into the previous window (replaces copyq) | — |
+| [moon](https://github.com/isene/moon) | ![moon](https://badgen.net/github/release/isene/moon) | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, with a strip of the days around it) | — |
 
 ### Retired
 
@@ -157,7 +158,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fractal fleet hl2web beam yank elements isotopes exoplanets stars particles; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fractal fleet hl2web beam yank moon elements isotopes exoplanets stars particles; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
