@@ -75,18 +75,18 @@ what it would do; running it twice changes nothing the second time.
 | [CC-sessions](https://github.com/isene/CC-sessions) | ![CC-sessions](https://badgen.net/github/release/isene/CC-sessions) | Claude Code session manager (`cc`/`cl`: bookmark + resume sessions with tags, `/bm` command) | CC-sessions ≤1.5 (Ruby) |
 | [rpnx](https://github.com/isene/rpnx) | ![rpnx](https://badgen.net/github/release/isene/rpnx) | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs) | [T-REX](https://github.com/isene/T-REX) |
 | [typo](https://github.com/isene/typo) | ![typo](https://badgen.net/github/release/isene/typo) | Touch-typing tutor (strict drills, live WPM/accuracy, US + Norwegian layouts) | — |
+| [moon](https://github.com/isene/moon) | ![moon](https://badgen.net/github/release/isene/moon) | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, a strip of the days around it, a zoomable braille map with the features named, and the real photo through glow) | — |
+| [stars](https://github.com/isene/stars) | ![stars](https://badgen.net/github/release/isene/stars) | Hertzsprung-Russell diagram explorer (461 named stars, evolutionary tracks, full Wikipedia article per star, and a sky map to pick from) | — |
+| [exoplanets](https://github.com/isene/exoplanets) | ![exoplanets](https://badgen.net/github/release/isene/exoplanets) | The known exoplanets (6,309 worlds by orbit and size, systems, habitable zones) | — |
 | [elements](https://github.com/isene/elements) | ![elements](https://badgen.net/github/release/isene/elements) | Periodic table explorer (118 elements + hypothesized 119–126, full Wikipedia article per element, offline) | — |
 | [isotopes](https://github.com/isene/isotopes) | ![isotopes](https://badgen.net/github/release/isene/isotopes) | Chart of the nuclides (3,386 isotopes, decay modes, half-lives, decay chains) | — |
-| [stars](https://github.com/isene/stars) | ![stars](https://badgen.net/github/release/isene/stars) | Hertzsprung-Russell diagram explorer (461 named stars, evolutionary tracks, full Wikipedia article per star, and a sky map to pick from) | — |
 | [particles](https://github.com/isene/particles) | ![particles](https://badgen.net/github/release/isene/particles) | Standard Model explorer (17 fundamental particles + proton/neutron, and a rotatable zoom from atom to quark) | — |
-| [exoplanets](https://github.com/isene/exoplanets) | ![exoplanets](https://badgen.net/github/release/isene/exoplanets) | The known exoplanets (6,309 worlds by orbit and size, systems, habitable zones) | — |
 | [fractal](https://github.com/isene/fractal) | ![fractal](https://badgen.net/github/release/isene/fractal) | Chaos and fractals in braille (Mandelbrot, Julia, logistic map, Lorenz, Hénon) | — |
 | [fleet](https://github.com/isene/fleet) | ![fleet](https://badgen.net/github/release/isene/fleet) | Claude Code mission control (session states, workspace jump, inbox watch, message bus) | — |
 | [hl2web](https://github.com/isene/hl2web) | ![hl2web](https://badgen.net/github/release/isene/hl2web) | HyperList to interactive HTML (folding, search, references) | — |
 | [hypergraph](https://github.com/isene/hypergraph) | ![hypergraph](https://badgen.net/github/release/isene/hypergraph) | HyperList to graph (Graphviz; states or transitions, themes, PNG/SVG/PDF/HTML) | — |
 | [beam](https://github.com/isene/beam) | ![beam](https://badgen.net/github/release/isene/beam) | Remote control for the presentation workspace (shows any window on WS10) | — |
 | [yank](https://github.com/isene/yank) | ![yank](https://badgen.net/github/release/isene/yank) | Clipboard history that pastes back into the previous window (replaces copyq) | — |
-| [moon](https://github.com/isene/moon) | ![moon](https://badgen.net/github/release/isene/moon) | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, a strip of the days around it, a zoomable braille map with the features named, and the real photo through glow) | — |
 
 ### Retired
 
@@ -158,7 +158,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fractal fleet hl2web beam yank moon elements isotopes exoplanets stars particles; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets elements isotopes particles fractal; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done

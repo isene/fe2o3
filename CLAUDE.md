@@ -29,18 +29,18 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | tune    | <https://github.com/isene/tune>    | Spotify Connect controller (search, library, queue, devices, transport) |
 | library | <https://github.com/isene/library> | Generative personal library (curate a shelf of books that should exist, then have them written and read aloud; pairs with nomad `books`) |
 | rpnx    | <https://github.com/isene/rpnx>    | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs; shares fe2o3-rpnx-core with the nomad rpnx app; scribe `=` inserts its result) |
+| moon | <https://github.com/isene/moon> | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, a strip of the days around it, a zoomable braille map with the features named, and the real photo through glow) |
+| stars   | <https://github.com/isene/stars>   | Hertzsprung-Russell diagram explorer (461 named stars from HYG + Wikidata, schematic evolutionary tracks, article per star, cached at ~/.stars/) |
+| exoplanets | <https://github.com/isene/exoplanets> | The known exoplanets (6,309 worlds by orbit and size, systems, habitable zones) |
 | elements | <https://github.com/isene/elements> | Periodic table explorer (118 + hypothesized 119–126, full Wikipedia article per element, cached at ~/.elements/) |
 | isotopes | <https://github.com/isene/isotopes> | Chart of the nuclides (3,386 isotopes from the IAEA table, decay modes, half-lives, decay chains, braille overview) |
-| stars   | <https://github.com/isene/stars>   | Hertzsprung-Russell diagram explorer (461 named stars from HYG + Wikidata, schematic evolutionary tracks, article per star, cached at ~/.stars/) |
 | particles | <https://github.com/isene/particles> | Standard Model explorer (17 fundamental particles + proton/neutron with PDG values, and a braille 3D zoom atom → nucleus → nucleon → quark) |
-| exoplanets | <https://github.com/isene/exoplanets> | The known exoplanets (6,309 worlds by orbit and size, systems, habitable zones) |
 | fractal | <https://github.com/isene/fractal> | Chaos and fractals in braille (Mandelbrot, Julia, logistic map, Lorenz, Hénon) |
 | fleet | <https://github.com/isene/fleet> | Claude Code mission control (session states, workspace jump, inbox watch, message bus) |
 | hl2web | <https://github.com/isene/hl2web> | HyperList to interactive HTML (folding, search, references) |
 | hypergraph | <https://github.com/isene/hypergraph> | HyperList to graph (Graphviz; states or transitions, themes, PNG/SVG/PDF/HTML) |
 | beam | <https://github.com/isene/beam> | Remote control for the presentation workspace (shows any window on WS10) |
 | yank | <https://github.com/isene/yank> | Clipboard history that pastes back into the previous window (replaces copyq) |
-| moon | <https://github.com/isene/moon> | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, a strip of the days around it, a zoomable braille map with the features named, and the real photo through glow) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
