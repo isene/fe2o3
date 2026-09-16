@@ -35,7 +35,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | elements | <https://github.com/isene/elements> | Periodic table explorer (118 + hypothesized 119–126, full Wikipedia article per element, cached at ~/.elements/) |
 | isotopes | <https://github.com/isene/isotopes> | Chart of the nuclides (3,386 isotopes from the IAEA table, decay modes, half-lives, decay chains, braille overview) |
 | particles | <https://github.com/isene/particles> | Standard Model explorer (17 fundamental particles + proton/neutron with PDG values, and a braille 3D zoom atom → nucleus → nucleon → quark) |
-| circuit | <https://github.com/isene/circuit> | Electronics bench (wire up batteries, resistors, capacitors, LEDs, switches and transistors, watch every voltage live, with challenges up to a blinker) |
+| circuit | <https://github.com/isene/circuit> | Electronics bench (wire up batteries, resistors, capacitors, LEDs, switches, transistors and logic chips, watch every voltage live, with challenges from an LED to a stopwatch) |
 | fractal | <https://github.com/isene/fractal> | Chaos and fractals in braille (Mandelbrot, Julia, logistic map, Lorenz, Hénon) |
 | fleet | <https://github.com/isene/fleet> | Claude Code mission control (session states, workspace jump, inbox watch, message bus) |
 | hl2web | <https://github.com/isene/hl2web> | HyperList to interactive HTML (folding, search, references) |
