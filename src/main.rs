@@ -158,7 +158,7 @@ fn main() {
     loop {
         let Some(key) = Input::getchr(None) else { continue };
         match key.as_str() {
-            "q" | "ESC" => break,
+            "q" => break,
             "RIGHT" | "l" => step(&mut ui, 1, &mut status, cols, rows),
             "LEFT" | "h" => step(&mut ui, -1, &mut status, cols, rows),
             "DOWN" | "j" => {
