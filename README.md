@@ -81,6 +81,7 @@ what it would do; running it twice changes nothing the second time.
 | [elements](https://github.com/isene/elements) | ![elements](https://badgen.net/github/release/isene/elements) | Periodic table explorer (118 elements + hypothesized 119–126, full Wikipedia article per element, offline) | — |
 | [isotopes](https://github.com/isene/isotopes) | ![isotopes](https://badgen.net/github/release/isene/isotopes) | Chart of the nuclides (3,386 isotopes, decay modes, half-lives, decay chains) | — |
 | [particles](https://github.com/isene/particles) | ![particles](https://badgen.net/github/release/isene/particles) | Standard Model explorer (17 fundamental particles + proton/neutron, and a rotatable zoom from atom to quark) | — |
+| [circuit](https://github.com/isene/circuit) | ![circuit](https://badgen.net/github/release/isene/circuit) | Electronics bench (wire up batteries, resistors, capacitors, LEDs, switches and transistors, watch every voltage live, with challenges up to a blinker) | — |
 | [fractal](https://github.com/isene/fractal) | ![fractal](https://badgen.net/github/release/isene/fractal) | Chaos and fractals in braille (Mandelbrot, Julia, logistic map, Lorenz, Hénon) | — |
 | [fleet](https://github.com/isene/fleet) | ![fleet](https://badgen.net/github/release/isene/fleet) | Claude Code mission control (session states, workspace jump, inbox watch, message bus) | — |
 | [hl2web](https://github.com/isene/hl2web) | ![hl2web](https://badgen.net/github/release/isene/hl2web) | HyperList to interactive HTML (folding, search, references) | — |
@@ -158,7 +159,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets elements isotopes particles fractal; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets elements isotopes particles circuit fractal; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
