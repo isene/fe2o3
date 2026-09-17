@@ -48,7 +48,7 @@ pub const APPS: &[App] = &[
     App { name: "fractal", bin: "fractal", repo: "fractal", kind: "Chaos in the Terminal", blurb: "Mandelbrot, Julia, the logistic map, Lorenz and Hénon", group: "Science" },
     App { name: "gazette", bin: "gazette", repo: "gazette", kind: "News Reader", blurb: "Reader for your personal daily news digest", group: "Media" },
     App { name: "watchit", bin: "watchit", repo: "watchit", kind: "Movie & Series Browser", blurb: "IMDb Top 250 browser with inline posters, TMDb…", group: "Media" },
-    App { name: "tune", bin: "tune", repo: "tune", kind: "Spotify Connect Controller", blurb: "Terminal Spotify controller", group: "Media" },
+    App { name: "tune", bin: "tune", repo: "tune", kind: "Music Player", blurb: "Spotify, music files and internet radio", group: "Media" },
     App { name: "library", bin: "library", repo: "library", kind: "Generative Library", blurb: "A personal library of the books that should exist", group: "Media" },
     App { name: "amar", bin: "amar", repo: "amar", kind: "RPG Companion", blurb: "Five-tab terminal companion for the Amar RPG", group: "Play" },
     App { name: "melody", bin: "melody", repo: "melody", kind: "Melody Maker", blurb: "Terminal melody maker", group: "Play" },

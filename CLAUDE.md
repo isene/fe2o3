@@ -26,7 +26,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | prism   | <https://github.com/isene/prism>   | TUI color picker (FG/BG slots, RGB+HSV, WCAG contrast) |
 | fonts   | <https://github.com/isene/fonts>   | TUI font picker with live previews (via glyph); returns family + size — used by scribe `\F` |
 | amar    | <https://github.com/isene/amar>    | Amar RPG companion (5-tab TUI: Inspire, Forge, Campaign, Session, Lore — honors d6gaming.org canon) |
-| tune    | <https://github.com/isene/tune>    | Spotify Connect controller (search, library, queue, devices, transport) |
+| tune    | <https://github.com/isene/tune>    | Spotify Connect controller (search, library, queue, devices, transport), plus local music files and internet radio through mpv |
 | library | <https://github.com/isene/library> | Generative personal library (curate a shelf of books that should exist, then have them written and read aloud; pairs with nomad `books`) |
 | rpnx    | <https://github.com/isene/rpnx>    | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs; shares fe2o3-rpnx-core with the nomad rpnx app; scribe `=` inserts its result) |
 | moon | <https://github.com/isene/moon> | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, a strip of the days around it, a zoomable braille map with the features named, and the real photo through glow) |

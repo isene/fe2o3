@@ -66,7 +66,7 @@ what it would do; running it twice changes nothing the second time.
 | [fonts](https://github.com/isene/fonts) | ![fonts](https://badgen.net/github/release/isene/fonts) | TUI font picker with live previews (enumerates installed fonts via glyph); returns family + size | — |
 | [drain](https://github.com/isene/drain) | ![drain](https://badgen.net/github/release/isene/drain) | Battery-drain triage TUI (top wakers, per-WS attribution) | — |
 | [amar](https://github.com/isene/amar) | ![amar](https://badgen.net/github/release/isene/amar) | Amar RPG companion (NPC / encounter / town / weather forge, campaign tracker, lore, AI inspire) | [Amar-Tools](https://github.com/isene/Amar-Tools) |
-| [tune](https://github.com/isene/tune) | ![tune](https://badgen.net/github/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport) | — |
+| [tune](https://github.com/isene/tune) | ![tune](https://badgen.net/github/release/isene/tune) | Spotify Connect controller (search, library, queue, devices, transport), plus local music files and internet radio through mpv | — |
 | [melody](https://github.com/isene/melody) | ![melody](https://badgen.net/github/release/isene/melody) | Melody maker — piano-roll play / record / edit, metronome, WAV export | — |
 | [petri](https://github.com/isene/petri) | ![petri](https://badgen.net/github/release/isene/petri) | Petri net player — load a net, fire transitions, watch conflicts, find deadlocks | — |
 | [library](https://github.com/isene/library) | ![library](https://badgen.net/github/release/isene/library) | Generative personal library (curate a shelf of books that should exist, then have them written and read aloud on demand) | — |
