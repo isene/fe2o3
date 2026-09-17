@@ -42,6 +42,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | hypergraph | <https://github.com/isene/hypergraph> | HyperList to graph (Graphviz; states or transitions, themes, PNG/SVG/PDF/HTML) |
 | beam | <https://github.com/isene/beam> | Remote control for the presentation workspace (shows any window on WS10) |
 | yank | <https://github.com/isene/yank> | Clipboard history that pastes back into the previous window (replaces copyq) |
+| gambit | <https://github.com/isene/gambit> | Chess against a language model (claude -p by default, or any API key; the rules in full, proven by perft counts) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
