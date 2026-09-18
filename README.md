@@ -115,6 +115,7 @@ Superseded by the assembly tools in [CHasm](https://github.com/isene/chasm), whi
 | [fe2o3-rpnx-core](https://github.com/isene/rpnx-core) | ![rpnx-core](https://badgen.net/github/release/isene/rpnx-core) | RPN / XRPN calculator engine shared by rpnx (TUI) + the RPNx phone app | — |
 | [mail](https://github.com/isene/mail) | ![mail](https://badgen.net/github/release/isene/mail) | Email plumbing (MIME, HTML-to-text, read state across devices) shared by kastrup + the nomad mail app | — |
 | [feed](https://github.com/isene/feed) | ![feed](https://badgen.net/github/release/isene/feed) | RSS / Atom parsing shared by kastrup + the nomad kastrup app | — |
+| [ferrite](https://github.com/isene/ferrite) | ![ferrite](https://badgen.net/github/release/isene/ferrite) | Embedded SQL database that keeps its tables in memory: five times SQLite on reads, ahead on writes, a log and a snapshot on disk ([the comparison](https://isene.github.io/ferrite/)) | — |
 
 ## Companion apps — [nomad](https://github.com/isene/nomad)
 

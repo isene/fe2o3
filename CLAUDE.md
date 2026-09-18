@@ -64,6 +64,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | `fe2o3-rpnx-core` | `rpnx_core` | <https://github.com/isene/rpnx-core> | RPN / XRPN calculator engine (shared by rpnx TUI + RPNx phone app; optional `uniffi` feature) |
 | `fe2o3-mail` | `mail` | <https://github.com/isene/mail> | Email plumbing: MIME (QP, base64, RFC 2047, multipart walk), HTML-to-text, and cross-device read state. Shared by kastrup + the nomad mail app |
 | `fe2o3-feed` | `feed` | <https://github.com/isene/feed> | RSS / Atom parsing, no I/O. Shared by kastrup + the nomad kastrup app |
+| `fe2o3-ferrite` | `ferrite` | <https://github.com/isene/ferrite> | Embedded SQL database, tables in memory, log + snapshot on disk. Built to beat SQLite on small reads and writes; the bench in its repo is the authority. Not a launcher app: it is a library. First user is tock |
 
 Local clones live under `/home/geir/Main/G/GIT-isene/<name>/`.
 
