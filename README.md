@@ -117,7 +117,7 @@ Superseded by the assembly tools in [CHasm](https://github.com/isene/chasm), whi
 | [mail](https://github.com/isene/mail) | ![mail](https://badgen.net/github/release/isene/mail) | Email plumbing (MIME, HTML-to-text, read state across devices) shared by kastrup + the nomad mail app | — |
 | [feed](https://github.com/isene/feed) | ![feed](https://badgen.net/github/release/isene/feed) | RSS / Atom parsing shared by kastrup + the nomad kastrup app | — |
 | [ferrite](https://github.com/isene/ferrite) | ![ferrite](https://badgen.net/github/release/isene/ferrite) | Embedded SQL database that keeps its tables in memory: five times SQLite on reads, ahead on writes, a log and a snapshot on disk ([the comparison](https://isene.github.io/ferrite/)) | — |
-| [funkey](https://github.com/isene/funkey) | ![funkey](https://badgen.net/github/release/isene/funkey) | Game engine for the terminal: a pixel frame shown two pixels a cell or as real pixels, held keys, a fixed-step loop, sprites, tiles, platformer physics, sound, a 3D rasterizer and a Doom renderer; `climb`, `jumpman`, `invaders`, `drive` and the full `doom` run on it | — |
+| [funkey](https://github.com/isene/funkey) | ![funkey](https://badgen.net/github/release/isene/funkey) | Game engine for the terminal: a pixel frame shown two pixels a cell or as real pixels, held keys, a fixed-step loop, sprites, tiles, platformer physics, sound, a 3D rasterizer and a Doom renderer; `climb`, `jumpman`, `invaders`, `drive`, `soar` and the full `doom` run on it | — |
 
 ## Companion apps — [nomad](https://github.com/isene/nomad)
 
