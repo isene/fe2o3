@@ -90,6 +90,7 @@ what it would do; running it twice changes nothing the second time.
 | [yank](https://github.com/isene/yank) | ![yank](https://badgen.net/github/release/isene/yank) | Clipboard history that pastes back into the previous window (replaces copyq) | — |
 | [gambit](https://github.com/isene/gambit) | ![gambit](https://badgen.net/github/release/isene/gambit) | Chess against a language model (claude -p by default, or any API key; the rules in full, proven by perft counts) | — |
 | [alchemy](https://github.com/isene/alchemy) | ![alchemy](https://badgen.net/github/release/isene/alchemy) | Chemistry bench (pour reagents together and watch the colour, the precipitate, the gas and the salt left behind; flame tests and the iodine clock) | — |
+| [gaze](https://github.com/isene/gaze) | ![gaze](https://badgen.net/github/release/isene/gaze) | Web browser around WebKitGTK (qutebrowser keys, Firefox-style tab groups, saved logins in one encrypted file) | — |
 
 ### Retired
 
@@ -162,7 +163,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy elements isotopes particles circuit fractal; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze elements isotopes particles circuit fractal; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
