@@ -44,7 +44,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | yank | <https://github.com/isene/yank> | Clipboard history that pastes back into the previous window (replaces copyq) |
 | gambit | <https://github.com/isene/gambit> | Chess against a language model (claude -p by default, or any API key; the rules in full, proven by perft counts) |
 | funkeys | <https://github.com/isene/funkey> | Game picker: the funkey games as cards with screenshots, Enter plays one (lives in the funkey repo beside the games; a release there carries the picker and all six games) |
-| alchemy | <https://github.com/isene/alchemy> | Chemistry bench (pour reagents together and watch the colour, the precipitate, the gas and the salt left behind; flame tests and the iodine clock) |
+| alchemy | <https://github.com/isene/alchemy> | Chemistry bench (pour reagents together and watch the colour, the precipitate, the gas and the salt left behind; flame tests and the iodine clock; the bench in real pixels where the terminal shows images) |
 | gaze | <https://github.com/isene/gaze> | Web browser around WebKitGTK (qutebrowser keys, Firefox-style tab groups, saved logins in one encrypted file) |
 
 ### Archived (don't modify)

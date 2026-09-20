@@ -89,7 +89,7 @@ what it would do; running it twice changes nothing the second time.
 | [beam](https://github.com/isene/beam) | ![beam](https://badgen.net/github/release/isene/beam) | Remote control for the presentation workspace (shows any window on WS10) | — |
 | [yank](https://github.com/isene/yank) | ![yank](https://badgen.net/github/release/isene/yank) | Clipboard history that pastes back into the previous window (replaces copyq) | — |
 | [gambit](https://github.com/isene/gambit) | ![gambit](https://badgen.net/github/release/isene/gambit) | Chess against a language model (claude -p by default, or any API key; the rules in full, proven by perft counts) | — |
-| [alchemy](https://github.com/isene/alchemy) | ![alchemy](https://badgen.net/github/release/isene/alchemy) | Chemistry bench (pour reagents together and watch the colour, the precipitate, the gas and the salt left behind; flame tests and the iodine clock) | — |
+| [alchemy](https://github.com/isene/alchemy) | ![alchemy](https://badgen.net/github/release/isene/alchemy) | Chemistry bench (pour reagents together and watch the colour, the precipitate, the gas and the salt left behind; flame tests and the iodine clock; the bench in real pixels where the terminal shows images) | — |
 | [gaze](https://github.com/isene/gaze) | ![gaze](https://badgen.net/github/release/isene/gaze) | Web browser around WebKitGTK (qutebrowser keys, Firefox-style tab groups, saved logins in one encrypted file) | — |
 | [funkeys](https://github.com/isene/funkey) | ![funkey](https://badgen.net/github/release/isene/funkey) | Game picker: the games on funkey as cards with screenshots, Enter plays one; ships from the funkey repo with `climb`, `jumpman`, `invaders`, `drive`, `soar`, `castle` and `doom` | — |
 
