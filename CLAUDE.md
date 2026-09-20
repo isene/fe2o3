@@ -30,7 +30,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | library | <https://github.com/isene/library> | Generative personal library (curate a shelf of books that should exist, then have them written and read aloud; pairs with nomad `books`) |
 | rpnx    | <https://github.com/isene/rpnx>    | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs; shares fe2o3-rpnx-core with the nomad rpnx app; scribe `=` inserts its result) |
 | moon | <https://github.com/isene/moon> | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, a strip of the days around it, and a zoomable map with the features named; all in real pixels through glow where the terminal shows images, braille and half-blocks elsewhere) |
-| stars   | <https://github.com/isene/stars>   | Hertzsprung-Russell diagram explorer (461 named stars from HYG + Wikidata, schematic evolutionary tracks, article per star, cached at ~/.stars/) |
+| stars   | <https://github.com/isene/stars>   | Hertzsprung-Russell diagram explorer (461 named stars from HYG + Wikidata in their black-body colours, schematic evolutionary tracks, article per star, real pixels where the terminal shows images, cached at ~/.stars/) |
 | exoplanets | <https://github.com/isene/exoplanets> | The known exoplanets (6,309 worlds by orbit and size, systems, habitable zones) |
 | elements | <https://github.com/isene/elements> | Periodic table explorer (118 + hypothesized 119–126, full Wikipedia article per element, cached at ~/.elements/) |
 | isotopes | <https://github.com/isene/isotopes> | Chart of the nuclides (3,386 isotopes from the IAEA table, decay modes, half-lives, decay chains, braille overview) |
