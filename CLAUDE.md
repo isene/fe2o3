@@ -29,7 +29,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | tune    | <https://github.com/isene/tune>    | Spotify Connect controller (search, library, queue, devices, transport), plus local music files and internet radio through mpv |
 | library | <https://github.com/isene/library> | Generative personal library (curate a shelf of books that should exist, then have them written and read aloud; pairs with nomad `books`) |
 | rpnx    | <https://github.com/isene/rpnx>    | RPN / XRPN scientific calculator (HP-41 stack, cycling shift pages, runs XRPN programs; shares fe2o3-rpnx-core with the nomad rpnx app; scribe `=` inserts its result) |
-| moon | <https://github.com/isene/moon> | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, a strip of the days around it, a zoomable braille map with the features named, and the real photo through glow) |
+| moon | <https://github.com/isene/moon> | The Moon as it looks tonight (near side from NASA's LRO map, lit for the phase, a strip of the days around it, and a zoomable map with the features named; all in real pixels through glow where the terminal shows images, braille and half-blocks elsewhere) |
 | stars   | <https://github.com/isene/stars>   | Hertzsprung-Russell diagram explorer (461 named stars from HYG + Wikidata, schematic evolutionary tracks, article per star, cached at ~/.stars/) |
 | exoplanets | <https://github.com/isene/exoplanets> | The known exoplanets (6,309 worlds by orbit and size, systems, habitable zones) |
 | elements | <https://github.com/isene/elements> | Periodic table explorer (118 + hypothesized 119–126, full Wikipedia article per element, cached at ~/.elements/) |
