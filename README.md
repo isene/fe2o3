@@ -91,6 +91,7 @@ what it would do; running it twice changes nothing the second time.
 | [gambit](https://github.com/isene/gambit) | ![gambit](https://badgen.net/github/release/isene/gambit) | Chess against a language model (claude -p by default, or any API key; the rules in full, proven by perft counts) | — |
 | [alchemy](https://github.com/isene/alchemy) | ![alchemy](https://badgen.net/github/release/isene/alchemy) | Chemistry bench (pour reagents together and watch the colour, the precipitate, the gas and the salt left behind; flame tests and the iodine clock) | — |
 | [gaze](https://github.com/isene/gaze) | ![gaze](https://badgen.net/github/release/isene/gaze) | Web browser around WebKitGTK (qutebrowser keys, Firefox-style tab groups, saved logins in one encrypted file) | — |
+| [funkeys](https://github.com/isene/funkey) | ![funkey](https://badgen.net/github/release/isene/funkey) | Game picker: the games on funkey as cards with screenshots, Enter plays one; ships from the funkey repo with `climb`, `jumpman`, `invaders`, `drive`, `soar` and `doom` | — |
 
 ### Retired
 
@@ -117,7 +118,7 @@ Superseded by the assembly tools in [CHasm](https://github.com/isene/chasm), whi
 | [mail](https://github.com/isene/mail) | ![mail](https://badgen.net/github/release/isene/mail) | Email plumbing (MIME, HTML-to-text, read state across devices) shared by kastrup + the nomad mail app | — |
 | [feed](https://github.com/isene/feed) | ![feed](https://badgen.net/github/release/isene/feed) | RSS / Atom parsing shared by kastrup + the nomad kastrup app | — |
 | [ferrite](https://github.com/isene/ferrite) | ![ferrite](https://badgen.net/github/release/isene/ferrite) | Embedded SQL database that keeps its tables in memory: five times SQLite on reads, ahead on writes, a log and a snapshot on disk ([the comparison](https://isene.github.io/ferrite/)) | — |
-| [funkey](https://github.com/isene/funkey) | ![funkey](https://badgen.net/github/release/isene/funkey) | Game engine for the terminal: a pixel frame shown two pixels a cell or as real pixels, held keys, a fixed-step loop, sprites, tiles, platformer physics, sound, a 3D rasterizer and a Doom renderer; `climb`, `jumpman`, `invaders`, `drive`, `soar` and the full `doom` run on it | — |
+| [funkey](https://github.com/isene/funkey) | ![funkey](https://badgen.net/github/release/isene/funkey) | Game engine for the terminal: a pixel frame shown two pixels a cell or as real pixels, held keys, a fixed-step loop, sprites, tiles, platformer physics, sound, a 3D rasterizer and a Doom renderer; `climb`, `jumpman`, `invaders`, `drive`, `soar` and the full `doom` run on it; `funkeys` picks one | — |
 
 ## Companion apps — [nomad](https://github.com/isene/nomad)
 
@@ -172,6 +173,9 @@ done
 
 `hypergraph` is the one Ruby member: clone it and symlink the script,
 since it ships a `lib/` next to the executable rather than one binary.
+
+`funkeys` and the six games come from one repo; the loop for them is on
+[funkey's release page](https://github.com/isene/funkey/releases/latest).
 
 ## Why "Fe₂O₃"?
 

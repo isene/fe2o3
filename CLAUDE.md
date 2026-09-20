@@ -43,6 +43,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | beam | <https://github.com/isene/beam> | Remote control for the presentation workspace (shows any window on WS10) |
 | yank | <https://github.com/isene/yank> | Clipboard history that pastes back into the previous window (replaces copyq) |
 | gambit | <https://github.com/isene/gambit> | Chess against a language model (claude -p by default, or any API key; the rules in full, proven by perft counts) |
+| funkeys | <https://github.com/isene/funkey> | Game picker: the funkey games as cards with screenshots, Enter plays one (lives in the funkey repo beside the games; a release there carries the picker and all six games) |
 | alchemy | <https://github.com/isene/alchemy> | Chemistry bench (pour reagents together and watch the colour, the precipitate, the gas and the salt left behind; flame tests and the iodine clock) |
 | gaze | <https://github.com/isene/gaze> | Web browser around WebKitGTK (qutebrowser keys, Firefox-style tab groups, saved logins in one encrypted file) |
 

@@ -566,8 +566,11 @@ fn asset_suffix() -> Option<&'static str> {
 }
 
 /// Apps that ship more than one command: what `i` fetches beside the one
-/// the card names. Everything else is a single binary.
-const EXTRA_BINS: &[(&str, &[&str])] = &[("cc-sessions", &["cc", "cc-bookmark"])];
+/// the card names. funkey's card runs the picker; the games come along.
+const EXTRA_BINS: &[(&str, &[&str])] = &[
+    ("cc-sessions", &["cc", "cc-bookmark"]),
+    ("funkey", &["climb", "jumpman", "invaders", "drive", "soar", "doom"]),
+];
 
 /// Download one app's latest release, plus any sibling commands it ships.
 /// Returns where the app's own binary landed.
