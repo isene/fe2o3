@@ -47,6 +47,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | alchemy | <https://github.com/isene/alchemy> | Chemistry bench (pour reagents together and watch the colour, the precipitate, the gas and the salt left behind; flame tests and the iodine clock; the bench in real pixels where the terminal shows images) |
 | gaze | <https://github.com/isene/gaze> | Web browser around WebKitGTK (qutebrowser keys, Firefox-style tab groups, saved logins in one encrypted file, dark pages, Ctrl-f for the page alone) |
 | universe | <https://github.com/isene/universe> | Every scale of the universe (37 rungs from the quantum foam to the cosmic web, each drawn in real pixels, with a ruler from 10⁻³⁵ to 10²⁷ metres) |
+| hush | <https://github.com/isene/hush> | A call that sends nothing while you are quiet (Opus for the voice, H.264 on the graphics chip for the picture, both gated) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
