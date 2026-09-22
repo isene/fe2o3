@@ -46,6 +46,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | funkeys | <https://github.com/isene/funkey> | Game picker: the funkey games as cards with screenshots, Enter plays one (lives in the funkey repo beside the games; a release there carries the picker and all six games) |
 | alchemy | <https://github.com/isene/alchemy> | Chemistry bench (pour reagents together and watch the colour, the precipitate, the gas and the salt left behind; flame tests and the iodine clock; the bench in real pixels where the terminal shows images) |
 | gaze | <https://github.com/isene/gaze> | Web browser around WebKitGTK (qutebrowser keys, Firefox-style tab groups, saved logins in one encrypted file, dark pages, Ctrl-f for the page alone) |
+| universe | <https://github.com/isene/universe> | Every scale of the universe (37 rungs from the quantum foam to the cosmic web, each drawn in real pixels, with a ruler from 10⁻³⁵ to 10²⁷ metres) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
