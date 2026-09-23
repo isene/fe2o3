@@ -94,6 +94,7 @@ what it would do; running it twice changes nothing the second time.
 | [funkeys](https://github.com/isene/funkey) | ![funkey](https://badgen.net/github/release/isene/funkey) | Game picker: the games on funkey as cards with screenshots, Enter plays one; ships from the funkey repo with `climb`, `jumpman`, `invaders`, `drive`, `soar`, `castle` and `doom` | — |
 | [universe](https://github.com/isene/universe) | ![universe](https://badgen.net/github/release/isene/universe) | Every scale of the universe (37 rungs from the quantum foam to the cosmic web, each drawn in real pixels, with a ruler from 10⁻³⁵ to 10²⁷ metres) | — |
 | [hush](https://github.com/isene/hush) | ![hush](https://badgen.net/github/release/isene/hush) | A call that sends nothing while you are quiet (Opus for the voice, H.264 on the graphics chip for the picture, both gated) | — |
+| [roam](https://github.com/isene/roam) | ![roam](https://badgen.net/github/release/isene/roam) | Wi-Fi and VPN in the terminal (join, leave, forget, rescan, radio, VPNs), straight to NetworkManager over D-Bus; replaces nm-applet | — |
 
 ### Retired
 
@@ -167,7 +168,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush elements isotopes particles circuit fractal; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam elements isotopes particles circuit fractal; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
