@@ -300,16 +300,17 @@ fn step(ui: &mut Ui, delta: i32, status: &mut Pane, cols: u16, rows: u16) {
         return;
     }
     let old_page = ui.sel / per_page(cols, rows);
+    let old_sel = ui.sel;
     ui.sel = next as usize;
     if ui.sel / per_page(cols, rows) != old_page {
         // New page: the images all move, so everything is redrawn.
         draw_all(ui, status, cols, rows);
     } else {
-        // Same page: only two cards changed, so only their frames
-        // repaint. On a console the repaint wipes the logos with it,
-        // since text and picture share one screen there.
-        let again = needs_pictures_again(ui);
-        draw_cards(ui, cols, rows, again);
+        // Same page: two cards changed and nothing else, so those two
+        // are all that repaint. On a console each takes its logo with
+        // it, so each gets its logo back.
+        draw_one(ui, old_sel, cols, rows);
+        draw_one(ui, ui.sel, cols, rows);
         status.say(&help_line(ui));
     }
 }
@@ -408,15 +409,44 @@ fn draw_legend(ui: &Ui, cols: u16) {
     print!("{}{}", Cursor::at(1, 2), crust::truncate_ansi(&line, cols as usize));
 }
 
-/// Draw the cards of the current page. `with_images` is false when only
-/// the selection moved: the logos have not moved, and re-sending them
-/// would make every keypress a graphics-protocol round trip.
 /// True where a repaint takes the logos with it, so they have to be
 /// drawn again: a bare console, where text and picture share a screen.
 fn needs_pictures_again(ui: &Ui) -> bool {
     ui.images.as_ref().map(|d| !d.keeps_pictures()).unwrap_or(false)
 }
 
+/// One card redrawn where it stands, with its logo if the repaint took
+/// it. Moving the selection touches two cards and no others, so this is
+/// what a key press costs.
+fn draw_one(ui: &mut Ui, at: usize, cols: u16, rows: u16) {
+    let page = per_page(cols, rows);
+    let (cols_n, card_w) = grid(cols);
+    if at < ui.top || at >= ui.top + page {
+        return;
+    }
+    let Some(&app_i) = ui.shown.get(at) else {
+        return;
+    };
+    let slot = at - ui.top;
+    let x = 1 + (slot % cols_n) as u16 * card_w;
+    let y = GRID_Y + (slot / cols_n) as u16 * CARD_H;
+    print!("{}", card(&APPS[app_i], x, y, card_w, at == ui.sel, ui.installed[app_i]));
+    std::io::stdout().flush().ok();
+    if !needs_pictures_again(ui) {
+        return;
+    }
+    let logo = ui.logos.join(format!("{}.png", APPS[app_i].name));
+    if !logo.exists() {
+        return;
+    }
+    if let Some(d) = ui.images.as_mut() {
+        d.show(&logo.display().to_string(), x + 1, y + 1, LOGO_W - 1, CARD_H - 2);
+    }
+}
+
+/// Draw the cards of the current page. `with_images` is false when only
+/// the selection moved: the logos have not moved, and re-sending them
+/// would make every keypress a graphics-protocol round trip.
 fn draw_cards(ui: &mut Ui, cols: u16, rows: u16, with_images: bool) {
     let page = per_page(cols, rows);
     let (cols_n, card_w) = grid(cols);
