@@ -199,7 +199,8 @@ fn main() {
             "i" => {
                 let Some(&i) = ui.shown.get(ui.sel) else { continue };
                 fetch_one(&mut ui, i, &mut status);
-                draw_cards(&mut ui, cols, rows, false);
+                let again = needs_pictures_again(&ui);
+                draw_cards(&mut ui, cols, rows, again);
                 draw_header(&ui, cols);
             }
             "I" => {
@@ -304,8 +305,11 @@ fn step(ui: &mut Ui, delta: i32, status: &mut Pane, cols: u16, rows: u16) {
         // New page: the images all move, so everything is redrawn.
         draw_all(ui, status, cols, rows);
     } else {
-        // Same page: only two cards changed, so only their frames repaint.
-        draw_cards(ui, cols, rows, false);
+        // Same page: only two cards changed, so only their frames
+        // repaint. On a console the repaint wipes the logos with it,
+        // since text and picture share one screen there.
+        let again = needs_pictures_again(ui);
+        draw_cards(ui, cols, rows, again);
         status.say(&help_line(ui));
     }
 }
@@ -407,6 +411,12 @@ fn draw_legend(ui: &Ui, cols: u16) {
 /// Draw the cards of the current page. `with_images` is false when only
 /// the selection moved: the logos have not moved, and re-sending them
 /// would make every keypress a graphics-protocol round trip.
+/// True where a repaint takes the logos with it, so they have to be
+/// drawn again: a bare console, where text and picture share a screen.
+fn needs_pictures_again(ui: &Ui) -> bool {
+    ui.images.as_ref().map(|d| !d.keeps_pictures()).unwrap_or(false)
+}
+
 fn draw_cards(ui: &mut Ui, cols: u16, rows: u16, with_images: bool) {
     let page = per_page(cols, rows);
     let (cols_n, card_w) = grid(cols);
