@@ -49,6 +49,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | universe | <https://github.com/isene/universe> | Every scale of the universe (37 rungs from the quantum foam to the cosmic web, each drawn in real pixels, with a ruler from 10⁻³⁵ to 10²⁷ metres) |
 | hush | <https://github.com/isene/hush> | A call that sends nothing while you are quiet (Opus for the voice, H.264 on the graphics chip for the picture, both gated) |
 | roam | <https://github.com/isene/roam> | Wi-Fi and VPN in the terminal (join, leave, forget, rescan, radio, VPNs), straight to NetworkManager over D-Bus; replaces nm-applet |
+| launch | <https://github.com/isene/launch> | App launcher: your helpers from ~/.launch above, every program below, one search for both; replaces rofi |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
