@@ -96,6 +96,7 @@ what it would do; running it twice changes nothing the second time.
 | [hush](https://github.com/isene/hush) | ![hush](https://badgen.net/github/release/isene/hush) | A call that sends nothing while you are quiet (Opus for the voice, H.264 on the graphics chip for the picture, both gated) | — |
 | [roam](https://github.com/isene/roam) | ![roam](https://badgen.net/github/release/isene/roam) | Wi-Fi and VPN in the terminal (join, leave, forget, rescan, radio, VPNs), straight to NetworkManager over D-Bus; replaces nm-applet | — |
 | [launch](https://github.com/isene/launch) | ![launch](https://badgen.net/github/release/isene/launch) | App launcher: your helpers from ~/.launch above, every program below, one search for both; replaces rofi | — |
+| [herald](https://github.com/isene/herald) | ![herald](https://badgen.net/github/release/isene/herald) | Desktop notifications over D-Bus: boxes at the top right, coloured by urgency, closed by timeout, click or Ctrl+Space; replaces dunst | — |
 
 ### Retired
 
@@ -169,7 +170,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch elements isotopes particles circuit fractal; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald elements isotopes particles circuit fractal; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done

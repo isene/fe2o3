@@ -66,6 +66,7 @@ pub const APPS: &[App] = &[
     App { name: "torii", bin: "torii", repo: "torii", kind: "Captive-portal listener", blurb: "Replaces Firefox's removed network-login banner", group: "System" },
     App { name: "roam", bin: "roam", repo: "roam", kind: "Wi-Fi and VPN", blurb: "Wi-Fi and VPN, straight to NetworkManager", group: "System" },
     App { name: "launch", bin: "launch", repo: "launch", kind: "App launcher", blurb: "Your helpers above, every program below, one search for both", group: "System" },
+    App { name: "herald", bin: "herald", repo: "herald", kind: "Desktop notifications", blurb: "Notification boxes at the top right; replaces dunst", group: "System" },
     App { name: "rush", bin: "rush", repo: "rush", kind: "Shell (retired)", blurb: "Superseded by bare, the assembly shell", group: "Retired" },
     App { name: "crush", bin: "crush", repo: "crush", kind: "Rush Config (retired)", blurb: "Superseded by bareconf", group: "Retired" },
 ];
@@ -107,6 +108,7 @@ pub const LOGOS: &[(&str, &[u8])] = &[
     ("hush", include_bytes!("../img/logos/hush.png")),
     ("roam", include_bytes!("../img/logos/roam.png")),
     ("launch", include_bytes!("../img/logos/launch.png")),
+    ("herald", include_bytes!("../img/logos/herald.png")),
     ("gazette", include_bytes!("../img/logos/gazette.png")),
     ("watchit", include_bytes!("../img/logos/watchit.png")),
     ("tune", include_bytes!("../img/logos/tune.png")),

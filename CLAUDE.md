@@ -50,6 +50,7 @@ Public landing page: <https://isene.github.io/fe2o3/>
 | hush | <https://github.com/isene/hush> | A call that sends nothing while you are quiet (Opus for the voice, H.264 on the graphics chip for the picture, both gated) |
 | roam | <https://github.com/isene/roam> | Wi-Fi and VPN in the terminal (join, leave, forget, rescan, radio, VPNs), straight to NetworkManager over D-Bus; replaces nm-applet |
 | launch | <https://github.com/isene/launch> | App launcher: your helpers from ~/.launch above, every program below, one search for both; replaces rofi |
+| herald | <https://github.com/isene/herald> | Desktop notifications over D-Bus: boxes at the top right, coloured by urgency, closed by timeout, click or Ctrl+Space; replaces dunst |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
