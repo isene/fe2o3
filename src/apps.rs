@@ -67,15 +67,12 @@ pub const APPS: &[App] = &[
     App { name: "roam", bin: "roam", repo: "roam", kind: "Wi-Fi and VPN", blurb: "Wi-Fi and VPN, straight to NetworkManager", group: "System" },
     App { name: "launch", bin: "launch", repo: "launch", kind: "App launcher", blurb: "Your helpers above, every program below, one search for both", group: "System" },
     App { name: "herald", bin: "herald", repo: "herald", kind: "Desktop notifications", blurb: "Notification boxes at the top right; replaces dunst", group: "System" },
-    App { name: "rush", bin: "rush", repo: "rush", kind: "Shell (retired)", blurb: "Superseded by bare, the assembly shell", group: "Retired" },
-    App { name: "crush", bin: "crush", repo: "crush", kind: "Rush Config (retired)", blurb: "Superseded by bareconf", group: "Retired" },
 ];
 
 /// Logos, embedded so a downloaded binary needs nothing beside it. They
 /// are written out to ~/.fe2o3/logos/ on first run, because the image
 /// protocols all take a path.
 pub const LOGOS: &[(&str, &[u8])] = &[
-    ("rush", include_bytes!("../img/logos/rush.png")),
     ("pointer", include_bytes!("../img/logos/pointer.png")),
     ("kastrup", include_bytes!("../img/logos/kastrup.png")),
     ("scribe", include_bytes!("../img/logos/scribe.png")),
@@ -117,7 +114,6 @@ pub const LOGOS: &[(&str, &[u8])] = &[
     ("melody", include_bytes!("../img/logos/melody.png")),
     ("petri", include_bytes!("../img/logos/petri.png")),
     ("typo", include_bytes!("../img/logos/typo.png")),
-    ("crush", include_bytes!("../img/logos/crush.png")),
     ("prism", include_bytes!("../img/logos/prism.png")),
     ("fonts", include_bytes!("../img/logos/fonts.png")),
     ("drain", include_bytes!("../img/logos/drain.png")),
