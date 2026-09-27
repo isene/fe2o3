@@ -123,6 +123,16 @@ for byte-level input matching and parsers that skip over SGR runs.
 
 See the tree-wide `../CLAUDE.md` for the full helper map.
 
+## Claude in an app: Ctrl+A
+
+Every app that talks to Claude opens a full `claude` session about what
+is on screen on **Ctrl+A**, through `crust::claude_session(app, intro,
+context)`: the context goes to a file only the user can read, the
+terminal comes back afterwards, the caller repaints. A quick in-app
+question (`c`) or a one-shot answer (`I`) may sit beside it. An app
+without Claude leaves Ctrl+A unbound. In scribe, vim's increment moved
+from Ctrl+A to Alt+X.
+
 ## Build pattern (every project)
 
 ```bash
