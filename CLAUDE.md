@@ -129,7 +129,8 @@ Every app that talks to Claude opens a full `claude` session about what
 is on screen on **Ctrl+A**, through `crust::claude_session(app, intro,
 context)`: the context goes to a file only the user can read, the
 terminal comes back afterwards, the caller repaints. A quick in-app
-question (`c`) or a one-shot answer (`I`) may sit beside it. An app
+question (`c`) or a one-shot answer (`I`) may sit beside it. gaze, a window app, opens the session in a new terminal window (`terminal`
+in its config). An app
 without Claude leaves Ctrl+A unbound. In scribe, vim's increment moved
 from Ctrl+A to Alt+X.
 
