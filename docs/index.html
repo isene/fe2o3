@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fe2O3 - Rust Terminal Suite</title>
-  <meta name="description" content="Fe2O3 is a suite of fast, Rust-powered terminal tools for daily work: shell, file manager, messaging, web browser, calendar, astronomy panel, and movie browser. All built on one TUI library.">
+  <meta name="description" content="Fe2O3 is a suite of fast Rust terminal tools for daily work. Mail, files, a web browser, a calendar, astronomy and more, on one TUI library.">
   <link rel="icon" href="img/fe2o3.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <!-- OpenGraph -->
-  <meta property="og:title" content="Fe2O3 — Rust Terminal Suite">
+  <meta property="og:title" content="Fe2O3: Rust Terminal Suite">
   <meta property="og:description" content="Fast, opinionated terminal tools in Rust. Shell, file manager, email, browser, calendar, astronomy, movies.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="img/fe2o3.svg">
@@ -66,7 +66,7 @@
           </p>
         </div>
         <div class="feature">
-          <h3>Ported from Ruby — but better</h3>
+          <h3>Ported from Ruby, but better</h3>
           <p>
             Every Fe2O3 tool is a feature port of a long-running Ruby
             original. Same UX, dramatically faster, and with async
@@ -77,8 +77,8 @@
           <h3>Inline images via glow</h3>
           <p>
             <a href="https://github.com/isene/glow" style="color:var(--rust-glow)">glow</a>
-            renders images inline using kitty, sixel, w3m, or — as a
-            graphics-free fallback — colored Unicode braille (works over
+            renders images inline using kitty, sixel, w3m, or, as a
+            graphics-free fallback, colored Unicode braille (works over
             SSH and in tmux without passthrough). PDFs preview as
             thumbnails, videos as extracted frames, emails as rendered
             pictures, astronomy as starcharts.
@@ -93,7 +93,7 @@
       <h2>The tools</h2>
       <p class="section-intro">
         Forty-seven binaries and eight libraries that together cover most
-        of what a keyboard-bound terminal user does in a day — plus a phone
+        of what a keyboard-bound terminal user does in a day, plus a phone
         companion that bridges one of those workflows off the laptop.
       </p>
       <div class="launcher">
@@ -114,7 +114,7 @@
             green <code>✓</code>; what you do not have is dashed with an
             amber <code>↓</code>. <code>i</code> fetches the one under the
             cursor, <code>I</code> fetches every missing one in view. So one
-            binary is all you need — take the whole suite, or only the apps
+            binary is all you need: take the whole suite, or only the apps
             you fancy.
           </p>
           <pre><span class="cmd">fe2o3       <span class="comment"># the grid</span>
@@ -177,7 +177,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
           <p class="card-desc">
             Vim-flavoured modal editor for writers. Soft-wrap, reading mode,
             spellcheck, persistent registers, Claude Code in the prompt.
-            Native HyperList editing (full hyperlist.vim parity — replaces
+            Native HyperList editing (full hyperlist.vim parity; it replaces
             the retired <em>hyper</em>).
           </p>
           <div class="card-meta">
@@ -194,7 +194,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            A PDF is two documents in one: the words, and the page they were set on. folio shows either, or both side by side. Text comes out of the text layer, pages render as real images in the terminal, and a scan says so rather than showing you an empty screen. Where a document has its source beside it, a .md or a .tex, one key edits that source, rebuilds the PDF and reloads the page. It also searches every indexed PDF you own, not just the one that is open, and yanks a page with its citation attached.
+            A PDF is two documents in one: the words, and the page they were set on. folio shows either, or both side by side. Text comes out of the text layer, and pages render as real images in the terminal. A scan says so rather than showing you an empty screen. Where a document has its source beside it, a .md or a .tex, one key edits that source, rebuilds the PDF and reloads the page. It also searches every indexed PDF you own, not just the open one. It yanks a page with its citation attached.
           </p>
           <div class="card-meta">
             <span class="repo">isene/folio</span>
@@ -226,7 +226,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Two people join a room by name and talk. Each end sends twenty milliseconds of Opus while someone is speaking, and nothing at all in the pauses. The camera works the same way: frames that look like the last one never reach the encoder, so a still scene costs a few hundred bytes. The screen shows what share of the line your voice used. Neither home router accepts a call from outside, so a relay with a real address passes the packets on.
+            Two people join a room by name and talk. Each end sends twenty milliseconds of Opus while someone is speaking, and nothing at all in the pauses. The camera works the same way. Frames that look like the last one never reach the encoder, so a still scene costs a few hundred bytes. The screen shows what share of the line your voice used. Neither home router accepts a call from outside, so a relay with a real address passes the packets on.
           </p>
           <div class="card-meta">
             <span class="repo">isene/hush</span>
@@ -367,7 +367,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Which session waits for you, on which workspace, with how much context. Enter jumps to it or resumes it in a new glass, m messages another session, and the inbox pane shows what just arrived from the phone or as screenshots.
+            Which session waits for you, on which workspace, with how much context. Enter jumps to it or resumes it in a new glass, and m messages another session. The inbox pane shows what just arrived from the phone or as screenshots.
           </p>
           <div class="card-meta">
             <span class="repo">isene/fleet</span>
@@ -510,7 +510,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            How far out a planet orbits runs across, how big it is runs up, and our own eight are drawn in white for scale. Enter unfolds the whole system with the band where water could stay liquid.
+            How far out a planet orbits runs across, and how big it is runs up. Our own eight are drawn in white for scale. Enter unfolds the whole system with the band where water could stay liquid.
           </p>
           <div class="card-meta">
             <span class="repo">isene/exoplanets</span>
@@ -529,7 +529,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
           <p class="card-desc">
             The periodic table in your terminal. All 118 elements plus the
             hypothesized 119–126, category-colored, with structured
-            properties and the complete Wikipedia article per element —
+            properties and the complete Wikipedia article per element,
             fetched once, then fully offline.
           </p>
           <div class="card-meta">
@@ -585,7 +585,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Batteries, resistors, capacitors, LEDs, switches and transistors on a grid. Wire them up and power on: wires glow with voltage, LEDs light with their current, and an LED without a resistor burns out. Then logic chips: gates, a clock, a counter, a digit display and the 555 timer. Challenges teach one idea at a time, from lighting an LED to a stopwatch.
+            Batteries, resistors, capacitors, LEDs, switches and transistors on a grid. Wire them up and power on. Wires glow with voltage, LEDs light with their current, and an LED without a resistor burns out. Then logic chips: gates, a clock, a counter, a digit display and the 555 timer. Challenges teach one idea at a time, from lighting an LED to a stopwatch.
           </p>
           <div class="card-meta">
             <span class="repo">isene/circuit</span>
@@ -601,7 +601,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Five pictures of one idea: repeat something simple and watch what it settles into. Zoom the Mandelbrot set, step into the Julia set of the point you are standing on, or turn the knob on a Lorenz attractor until the butterfly collapses.
+            Five pictures of one idea: repeat something simple and watch what it settles into. Zoom the Mandelbrot set, or step into the Julia set of the point you are standing on. Turn the knob on a Lorenz attractor until the butterfly collapses.
           </p>
           <div class="card-meta">
             <span class="repo">isene/fractal</span>
@@ -633,7 +633,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Opens on a human body and steps outwards or inwards, thirty-seven rungs from the quantum foam to the web of galaxies. Each rung is a picture of what that scale holds, painted in real pixels where the terminal shows them. A ruler along the bottom marks where you stand, and you are almost exactly halfway.
+            Opens on a human body and steps outwards or inwards, thirty-seven rungs from the quantum foam to the web of galaxies. Each rung is a picture of what that scale contains, painted in real pixels where the terminal shows them. A ruler along the bottom marks where you stand, and you are almost exactly halfway.
           </p>
           <div class="card-meta">
             <span class="repo">isene/universe</span>
@@ -653,7 +653,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             <div>
               <h3 class="card-title"><a class="card-link" href="https://github.com/isene/gazette">gazette</a></h3>
               <div class="card-kind">News Reader (binary)</div>
-              <div class="card-ruby">—</div>
+              <div class="card-ruby">&nbsp;</div>
             </div>
           </div>
           <p class="card-desc">
@@ -746,7 +746,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
           </div>
           <p class="card-desc">
             Five-tab terminal companion for the
-            <a href="https://d6gaming.org">Amar RPG</a> — a 3-tier d6
+            <a href="https://d6gaming.org">Amar RPG</a>, a 3-tier d6
             system. NPC / encounter / town / weather forge, persistent
             campaign tracker with adventure import + inline scene
             images, live combat HUD, browsable canon (187 wiki entries
@@ -824,7 +824,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Chess in the terminal, played against a language model. You move with the cursor keys or by typing moves the way you write them (e4, Nf3, O-O). The other side is the claude command by default, or any API you hold a key for: Anthropic, OpenAI, an OpenAI-shaped service like OpenRouter, a model on your own machine, or a command of your own. gambit knows the rules, down to en passant, the fifty move rule and a threefold repetition, and it tells the model every legal move so the answer is one of them.
+            Chess in the terminal, played against a language model. You move with the cursor keys or by typing moves the way you write them (e4, Nf3, O-O). The other side is the claude command by default. It can also be any API you hold a key for: Anthropic, OpenAI, OpenRouter, a local model or your own command. gambit knows the rules, down to en passant, the fifty move rule and threefold repetition. It tells the model every legal move, so the answer is one of them.
           </p>
           <div class="card-meta">
             <span class="repo">isene/gambit</span>
@@ -840,7 +840,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            The games on funkey as cards with screenshots: Doom, Space Invaders, a Jumpman Junior kind of game, a car over the hills, a flight over fractal mountains, a walk to a castle and the first platformer. Enter plays one in this terminal, with real pixels where the terminal has them. The games have their own page:
+            The games on funkey as cards with screenshots: Doom, Space Invaders and a Jumpman Junior kind of game. Then a car over the hills, a flight over fractal mountains, a walk to a castle and the first platformer. Enter plays one in this terminal, with real pixels where the terminal has them. The games have their own page:
             <a href="https://isene.org/funkey/" style="color:var(--rust-glow)">isene.org/funkey</a>.
           </p>
           <div class="card-meta">
@@ -867,7 +867,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
           <p class="card-desc">
             TUI color picker with FG/BG slots, R/G/B and H/S/V sliders,
             hex input, live sample-text preview, and WCAG 2.x contrast
-            ratio. Pure ANSI 24-bit truecolor — no kitty graphics
+            ratio. Pure ANSI 24-bit truecolor, no kitty graphics
             dependency.
           </p>
           <div class="card-meta">
@@ -888,7 +888,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             TUI font picker with live previews. Enumerates every installed
             font via glyph, previews the highlighted family in its own
             typeface (drawn with glow), and returns the chosen family and
-            point size. Launchable as a picker like prism — scribe binds
+            point size. Launchable as a picker like prism; scribe binds
             <code>\F</code> to it.
           </p>
           <div class="card-meta">
@@ -923,7 +923,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             <div>
               <h3 class="card-title"><a class="card-link" href="https://github.com/isene/torii">torii</a></h3>
               <div class="card-kind">Captive-portal listener (binary)</div>
-              <div class="card-ruby">—</div>
+              <div class="card-ruby">&nbsp;</div>
             </div>
           </div>
           <p class="card-desc">
@@ -962,7 +962,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Your everyday helpers (volume, brightness, Bluetooth, the apps you open daily) in columns across the window, and below them every program on the PATH. One search field filters both halves as you type, and Enter runs the one under the cursor. The same key opens and closes it, and between keys it does nothing. Replaces rofi.
+            Your everyday helpers (volume, brightness, Bluetooth, the apps you open daily) sit in columns across the window. Below them is every program on the PATH. One search field filters both halves as you type, and Enter runs the one under the cursor. The same key opens and closes it, and between keys it does nothing. Replaces rofi.
           </p>
           <div class="card-meta">
             <span class="repo">isene/launch</span>
@@ -978,7 +978,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            herald is the desktop's notification service: every notify-send and every program's notice shows as a small box at the top right, coloured by how urgent it is. A box closes on its own, on a click, or with Ctrl+Space. It holds 5 MB and wakes only when a notification arrives. Replaces dunst.
+            herald is the desktop's notification service. Every notify-send and every program's notice shows as a small box at the top right, coloured by how urgent it is. A box closes on its own, on a click, or with Ctrl+Space. It uses 5 MB of memory and wakes only when a notification arrives. Replaces dunst.
           </p>
           <div class="card-meta">
             <span class="repo">isene/herald</span>
@@ -1271,12 +1271,12 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
       </div>
       <p class="section-intro" style="margin-top:-0.5rem;font-size:0.92rem;opacity:0.85;">
         <a href="https://isene.org/nomad/">nomad</a> is the mobile half of
-        the family — a single Android monorepo with a shared <strong>Rust
+        the family: a single Android monorepo with a shared <strong>Rust
         core</strong> (the same logic as the desktop, via
         <a href="https://mozilla.github.io/uniffi-rs/">UniFFI</a>) under thin
         <strong>Kotlin / Compose</strong> shells. Each app carries one
         Fe<sub>2</sub>O<sub>3</sub> workflow off the laptop and syncs over
-        <a href="https://syncthing.net">Syncthing</a> — no Google account, no
+        <a href="https://syncthing.net">Syncthing</a>, with no Google account and no
         cloud middleman.
       </p>
 
@@ -1306,7 +1306,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            General <a href="https://isene.org/hyperlist/">HyperList</a> editor —
+            General <a href="https://isene.org/hyperlist/">HyperList</a> editor:
             full syntax highlighting, fold, drag-reorder across depth, and
             auto-renumber.
           </p>
@@ -1323,7 +1323,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
           </div>
           <p class="card-desc">
             Notification gateway: relays WhatsApp / Messenger / Instagram / SMS /
-            Discord (and photos) into kastrup and fires replies — replacing the
+            Discord (and photos) into kastrup and fires replies, replacing the
             laptop's Marionette bridge.
           </p>
           <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
@@ -1354,7 +1354,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            TMDB movie / series browser — top-rated &amp; popular lists, your own
+            TMDB movie / series browser: top-rated &amp; popular lists, your own
             wish/dump lists, posters, full detail, and search-to-add.
           </p>
           <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
@@ -1384,7 +1384,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Pocket HP-41 RPN scientific calculator — full stack/registers/modes,
+            Pocket HP-41 RPN scientific calculator: full stack/registers/modes,
             an HP-41-style multi-shift keypad, and a FOCAL program runner. Same
             Rust engine as the rpnx terminal calculator.
           </p>
@@ -1400,7 +1400,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Distraction-free notes pad — the touch companion to the
+            Distraction-free notes pad, the touch companion to the
             <strong>scribe</strong> editor, syncing the same plain-text notes
             over Syncthing.
           </p>
@@ -1415,7 +1415,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Offline, searchable reference reader — glossaries, books, and your
+            Offline, searchable reference reader: glossaries, books, and your
             own writings in your pocket, with no network needed.
           </p>
           <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
@@ -1430,7 +1430,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Voice quick-capture — hold, talk, and file a transcribed note; the
+            Voice quick-capture: hold, talk, and file a transcribed note; the
             pocket version of the laptop's <code>Win+a</code> VTT.
           </p>
           <div class="card-meta"><span class="repo">isene/nomad</span><img src="https://img.shields.io/badge/sideload-APK-7f52ff" alt="sideload APK"></div>
@@ -1444,7 +1444,7 @@ fe2o3 -l    <span class="comment"># the suite as text</span></span></pre>
             </div>
           </div>
           <p class="card-desc">
-            Reader for your personal daily news digest — browse the last 7 daily
+            Reader for your personal daily news digest: browse the last 7 daily
             issues (and the typeset PDF) synced into <code>~/.news</code>, open
             source links. Touch companion to the gazette TUI.
           </p>
@@ -1563,7 +1563,10 @@ fe2o3</span>          <span class="comment"># then press I</span>
       <p class="section-intro" style="margin-top:1.5rem;">
         Or take them straight from the shell:
       </p>
-      <pre><span class="cmd">for app in pointer kastrup scribe scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo elements stars particles; do
+      <pre><span class="cmd">for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii \
+    prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet \
+    hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch \
+    herald elements isotopes particles circuit fractal universe; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app &amp;&amp; chmod +x ~/bin/$app
 done</span></pre>
@@ -1577,7 +1580,7 @@ done</span></pre>
         The same author also maintains
         <a href="https://github.com/isene/chasm" style="color:var(--rust-glow);">CHasm</a>
         (<a href="https://isene.org/chasm/" style="color:var(--rust-glow);">isene.org/chasm/</a>),
-        a desktop suite in pure x86_64 assembly. It holds the display
+        a desktop suite in pure x86_64 assembly. It has its own display
         server, shell, terminal, window manager, status bar, file viewer,
         font rasterizer and screen locker. Where Fe2O3 asks what the UX
         looks like with a real type system, CHasm asks how little it can
