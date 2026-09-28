@@ -150,6 +150,8 @@ no cloud middleman.
 | **books** | [library](https://github.com/isene/library) | The library on your phone, read-only: only the books you have made, grouped by shelf, with inline figures and spoken tracks |
 | **onepage** | — | Minimal Android home launcher (one screen, freely-placed widgets, zero idle cost) |
 | **kastrup** | [kastrup](https://github.com/isene/kastrup) | Your Gmail inboxes and RSS feeds on the phone — same decoder as kastrup, bodies on demand, an explicit Mark READ that reaches the laptop |
+| **gaze** | [gaze](https://github.com/isene/gaze) | Web browser around Android's WebView: tabs sent to and from the laptop, the laptop's encrypted passwords and bookmarks, ad blocking, dark pages |
+| **fresh** | — | The ten most recently installed apps, newest first: tap opens one, long-press for app info or uninstall |
 
 ## Install everything
 
@@ -170,7 +172,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald elements isotopes particles circuit fractal; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald elements isotopes particles circuit fractal universe; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
