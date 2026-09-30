@@ -79,6 +79,20 @@
     // Big enough to read, small enough for 80 columns where the page is narrow.
     term.options.fontSize = Math.max(9, Math.min(15, Math.floor(el.clientWidth / (80 * 0.62))));
     fit.fit();
+    // Pictures in real pixels: xterm.js's image addon shows iTerm2's
+    // inline images, and glow sends those when told so, sized to a cell
+    // in the screen's own pixels (FE2O3_CELL_PX).
+    const more = [];
+    if (window.ImageAddon) {
+      try {
+        term.loadAddon(new ImageAddon.ImageAddon({ sixelSupport: false, iipSupport: true }));
+        const screen = el.querySelector(".xterm-screen");
+        // In the page's own pixels: on a sharp screen, twice as many each
+        // way would cost four times the time a frame.
+        const cw = Math.round(screen.clientWidth / term.cols), ch = Math.round(screen.clientHeight / term.rows);
+        if (cw > 0 && ch > 0) more.push("FE2O3_IMAGES=iip", "FE2O3_CELL_PX=" + cw + " " + ch);
+      } catch (e) { console.warn("no pictures: " + e.message); }
+    }
 
     // Keys wait here until the app asks.
     const queue = [];
@@ -153,7 +167,7 @@
     for (;;) {
       let note;
       try {
-        await start(mod, term, name, queue, w => { wake = w; }, () => { wake = null; }, files);
+        await start(mod, term, name, queue, w => { wake = w; }, () => { wake = null; }, files, more);
         note = name + " has ended.";
       } catch (e) {
         console.error(e);
@@ -168,7 +182,7 @@
   }
 
   // One run of the app, from start to exit.
-  async function start(mod, term, name, queue, setWake, clearWake, files) {
+  async function start(mod, term, name, queue, setWake, clearWake, files, more) {
     let inst, state = NORMAL, pending = null, result = 0, data = 0;
     const mem = () => inst.exports.memory.buffer;
     const view = () => new DataView(mem());
@@ -215,7 +229,7 @@
     // FE2O3_TZ_OFFSET: the visitor's time zone, in seconds east of UTC,
     // since a WebAssembly program has no time zone database of its own.
     const env = ["TERM=xterm-256color", "COLORTERM=truecolor", "LANG=en_US.UTF-8", "HOME=/home/web", "FE2O3_WEB=1",
-      "FE2O3_TZ_OFFSET=" + -new Date().getTimezoneOffset() * 60];
+      "FE2O3_TZ_OFFSET=" + -new Date().getTimezoneOffset() * 60, ...more];
 
     // The page's files, read-only. With any at all, "/" is shared with
     // the app as descriptor 3, and each file it opens gets the next number
