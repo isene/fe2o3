@@ -60,6 +60,18 @@
   .game:fullscreen .keys { grid-area: keys; }
 }
 
+/* A terminal app: xterm.js in a box most of the window high. */
+.app { margin: 1rem 0 0; }
+/* The padding sits on xterm's own element and the edge is a shadow, so
+   the fit addon counts only room for text. */
+.app .screen { height: min(72vh, 46rem); background: #0a0910; box-shadow: 0 0 0 1px #26263a; border-radius: 8px; }
+.app .screen .xterm { padding: 6px; }
+.pad.keybar { justify-content: flex-start; gap: 0.3rem; }
+.pad.keybar button { min-width: 3rem; height: 2.6rem; padding: 0 0.6rem; font-size: 1rem; }
+.app:fullscreen { background: #0a0910; box-sizing: border-box; padding: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.app:fullscreen .screen { flex: 1; height: auto; border: 0; }
+.app:fullscreen .bar, .app:fullscreen .help { display: none; }
+
 @media (max-width: 600px) {
   .try-head h1 { font-size: 1.9rem; }
   .pad .move { grid-template-columns: repeat(3, 3rem); grid-auto-rows: 3rem; }
