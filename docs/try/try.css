@@ -1,0 +1,67 @@
+/* The try pages: apps and games that run in the browser. Built on the
+   landing page's style.css (colours, cards, grid). */
+
+.try-head { padding: 3rem 0 1.5rem; }
+.try-head h1 { font-size: 2.4rem; color: var(--yellow); line-height: 1.2; }
+.try-head p { color: var(--fg-dim); max-width: 720px; margin-top: 0.6rem; }
+.try-head a, .help a { color: var(--rust-glow); }
+.crumbs { font-size: 0.9rem; color: var(--fg-mute); padding-top: 1.5rem; }
+.crumbs a { color: var(--rust-glow); text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.try-grid { padding-bottom: 2rem; }
+
+/* A card's buttons sit above the stretched title link. */
+.card-meta .go { display: flex; gap: 0.6rem; position: relative; z-index: 2; }
+.card-meta .go a { font-size: 0.85rem; text-decoration: none; padding: 0.2rem 0.75rem; border-radius: 6px;
+  border: 1px solid #3a3a52; color: var(--fg); }
+.card-meta .go a.try { background: var(--rust); border-color: var(--rust); color: #fff; font-weight: 600; }
+.card-meta .go a:hover { border-color: var(--rust-glow); }
+.card-shot { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; background: #000; border-radius: 8px;
+  image-rendering: pixelated; }
+
+/* A game: the canvas, its buttons, the keys on the screen. */
+.game { margin: 1rem auto 0; }
+.game canvas { display: block; width: 100%; background: #000; }
+.game .fk.on canvas { outline: 2px solid var(--yellow); outline-offset: 2px; }
+.bar { margin: 0.6rem 0 0; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.bar button, .bar a, .pad button { font: inherit; color: var(--fg); background: var(--bg-card); border: 1px solid #3a3a52;
+  border-radius: 6px; cursor: pointer; }
+.bar button, .bar a { font-size: 0.9rem; padding: 0.25rem 0.8rem; text-decoration: none; }
+.bar button:hover, .bar a:hover { border-color: var(--rust-glow); }
+.help { color: var(--fg-dim); margin: 1rem 0 3rem; max-width: 760px; }
+.help kbd { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85em; padding: 0.05rem 0.35rem;
+  border: 1px solid #3a3a52; border-radius: 4px; background: var(--bg-card); color: var(--fg); }
+
+.pad { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.8rem; margin: 0.6rem 0 0;
+  user-select: none; -webkit-user-select: none; }
+.pad[hidden] { display: none; }
+.pad .move, .pad .keys { display: grid; gap: 0.3rem; }
+.pad .move { grid-template-columns: repeat(3, 3.4rem); grid-auto-rows: 3.2rem; }
+.pad .keys { grid-template-columns: repeat(3, 4.4rem); grid-auto-rows: 3.2rem; }
+.pad .keys.wide { grid-template-columns: repeat(4, 4rem); }
+.pad button { padding: 0; font-weight: 600; font-size: 1.1rem; line-height: 1.05; touch-action: none;
+  -webkit-touch-callout: none; }
+.pad button.gap { visibility: hidden; }
+.pad button small { display: block; font-size: 0.6rem; font-weight: 400; opacity: 0.7; }
+.pad button.down { background: var(--yellow); color: #000; }
+
+.game:fullscreen { background: #000; box-sizing: border-box; padding: 0.5rem; margin: 0; max-width: none; display: grid;
+  gap: 0.5rem; grid-template: "screen" 1fr "pad" auto / 1fr; }
+.game:fullscreen .fk { grid-area: screen; min-height: 0; }
+.game:fullscreen .fk, .game:fullscreen canvas { width: 100%; height: 100%; }
+.game:fullscreen canvas { aspect-ratio: auto !important; object-fit: contain; }
+.game:fullscreen .fk.on canvas { outline: none; }
+.game:fullscreen .pad { grid-area: pad; margin: 0; }
+.game:fullscreen .bar, .game:fullscreen .help { display: none; }
+@media (orientation: landscape) {
+  .game:fullscreen { grid-template: "move screen keys" 1fr / auto 1fr auto; align-items: center; }
+  .game:fullscreen .pad:not([hidden]) { display: contents; }
+  .game:fullscreen .move { grid-area: move; }
+  .game:fullscreen .keys { grid-area: keys; }
+}
+
+@media (max-width: 600px) {
+  .try-head h1 { font-size: 1.9rem; }
+  .pad .move { grid-template-columns: repeat(3, 3rem); grid-auto-rows: 3rem; }
+  .pad .keys, .pad .keys.wide { grid-template-columns: repeat(3, 3.6rem); grid-auto-rows: 3rem; }
+}

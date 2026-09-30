@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>funkeys · try Fe₂O₃</title>
+  <meta name="description" content="Games built on funkey, the Fe₂O₃ game engine, playing in the browser.">
+  <link rel="icon" href="../../img/fe2o3.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../try.css">
+</head>
+<body>
+  <main class="container">
+    <nav class="crumbs"><a href="../../">Fe₂O₃</a> › <a href="../">Try</a> › funkeys</nav>
+    <header class="try-head">
+      <h1>funkeys</h1>
+      <p>Games on <a href="https://github.com/isene/funkey">funkey</a>, the game engine of Fe₂O₃.
+      In the terminal they draw real pixels; here they play in the page, from the same Rust code.
+      On a phone the keys show under the game.</p>
+    </header>
+    <div class="grid try-grid">
+      <div class="card">
+        <img class="card-shot" src="img/stack.png" alt="stack: the game playing itself, the next five pieces on the right">
+        <div>
+          <h3 class="card-title"><a class="card-link" href="play.html?g=stack">stack</a></h3>
+          <div class="card-kind">Falling blocks</div>
+        </div>
+        <p class="card-desc">Seven pieces of four blocks and a well ten wide. Hold one, see the next five, and make the top ten everyone here shares.</p>
+        <div class="card-meta">
+          <span class="repo">funkey/examples</span>
+          <span class="go"><a class="try" href="play.html?g=stack">Play</a><a href="https://github.com/isene/funkey/blob/master/examples/stack.rs">Source</a></span>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-shot" src="img/eliminator.png" alt="eliminator: a sellsword fights by torchlight, the dice of every roll below the map">
+        <div>
+          <h3 class="card-title"><a class="card-link" href="play.html?g=eliminator">eliminator</a></h3>
+          <div class="card-kind">Dungeon</div>
+        </div>
+        <p class="card-desc">The maze under the royal castle of Amar, fought with Amar's own dice. Five levels up to the Raven Demon.</p>
+        <div class="card-meta">
+          <span class="repo">funkey/examples</span>
+          <span class="go"><a class="try" href="play.html?g=eliminator">Play</a><a href="https://github.com/isene/funkey/blob/master/examples/eliminator.rs">Source</a></span>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-shot" src="img/salvo.png" alt="salvo: the ship flies past a volcano throwing rocks">
+        <div>
+          <h3 class="card-title"><a class="card-link" href="play.html?g=salvo">salvo</a></h3>
+          <div class="card-kind">Space shooter</div>
+        </div>
+        <p class="card-desc">Seven stages with a boss at the end of each. Capsules light the power-up bar: speed, missiles, laser, a shield.</p>
+        <div class="card-meta">
+          <span class="repo">funkey/examples</span>
+          <span class="go"><a class="try" href="play.html?g=salvo">Play</a><a href="https://github.com/isene/funkey/blob/master/examples/salvo.rs">Source</a></span>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-shot" src="img/gems.png" alt="gems: a bear jumps on the wall of a castle lined with gems">
+        <div>
+          <h3 class="card-title"><a class="card-link" href="play.html?g=gems">gems</a></h3>
+          <div class="card-kind">Castles and gems</div>
+        </div>
+        <p class="card-desc">Five castles seen from the corner, their walls lined with gems. Take them all before the gem eaters do.</p>
+        <div class="card-meta">
+          <span class="repo">funkey/examples</span>
+          <span class="go"><a class="try" href="play.html?g=gems">Play</a><a href="https://github.com/isene/funkey/blob/master/examples/gems.rs">Source</a></span>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-shot" src="img/jumpman.png" alt="jumpman: girders, ladders and bombs">
+        <div>
+          <h3 class="card-title"><a class="card-link" href="play.html?g=jumpman">jumpman</a></h3>
+          <div class="card-kind">Platforms</div>
+        </div>
+        <p class="card-desc">Five levels of girders, ladders and ropes. Take every bomb, jump the bullets and dodge the robots.</p>
+        <div class="card-meta">
+          <span class="repo">funkey/examples</span>
+          <span class="go"><a class="try" href="play.html?g=jumpman">Play</a><a href="https://github.com/isene/funkey/blob/master/examples/jumpman.rs">Source</a></span>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-shot" src="img/invaders.png" alt="invaders: five rows of eleven above four shields">
+        <div>
+          <h3 class="card-title"><a class="card-link" href="play.html?g=invaders">invaders</a></h3>
+          <div class="card-kind">Arcade</div>
+        </div>
+        <p class="card-desc">Fifty-five of them, marching down to a beat that speeds up as the rows thin out.</p>
+        <div class="card-meta">
+          <span class="repo">funkey/examples</span>
+          <span class="go"><a class="try" href="play.html?g=invaders">Play</a><a href="https://github.com/isene/funkey/blob/master/examples/invaders.rs">Source</a></span>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-shot" src="img/drive.png" alt="drive: a red car on a road over green hills">
+        <div>
+          <h3 class="card-title"><a class="card-link" href="play.html?g=drive">drive</a></h3>
+          <div class="card-kind">3D driving</div>
+        </div>
+        <p class="card-desc">A car on a winding road over the hills. Fetch the packages before the clock runs out.</p>
+        <div class="card-meta">
+          <span class="repo">funkey/examples</span>
+          <span class="go"><a class="try" href="play.html?g=drive">Play</a><a href="https://github.com/isene/funkey/blob/master/examples/drive.rs">Source</a></span>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-shot" src="img/climb.png" alt="climb: bricks, ladders and coins">
+        <div>
+          <h3 class="card-title"><a class="card-link" href="play.html?g=climb">climb</a></h3>
+          <div class="card-kind">Platforms</div>
+        </div>
+        <p class="card-desc">Ladders, coins and blobs. The smallest game on the engine, and the one to read first.</p>
+        <div class="card-meta">
+          <span class="repo">funkey/examples</span>
+          <span class="go"><a class="try" href="play.html?g=climb">Play</a><a href="https://github.com/isene/funkey/blob/master/examples/climb.rs">Source</a></span>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self'; connect-src 'self' https://isene.com; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Play · try Fe₂O₃</title>
+  <link rel="icon" href="../../img/fe2o3.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../try.css">
+</head>
+<body>
+  <main class="container">
+    <nav class="crumbs"><a href="../">Try Fe₂O₃</a> › <a href="./">funkeys</a> › <span id="name"></span></nav>
+    <div class="game" id="game" hidden>
+      <canvas id="screen"></canvas>
+      <div class="pad" id="pad" hidden></div>
+      <p class="bar">
+        <button type="button" id="full">Full screen</button>
+        <button type="button" id="keys">Keys on screen</button>
+        <a id="src" href="https://github.com/isene/funkey">Source</a>
+      </p>
+      <p class="help" id="help"></p>
+    </div>
+    <p class="help" id="none" hidden>No game by that name. <a href="./">Pick one here.</a></p>
+  </main>
+  <script src="../funkey.js?v=2"></script>
+  <script src="game.js?v=1"></script>
+</body>
+</html>
