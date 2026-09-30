@@ -1,23 +1,27 @@
 // term.js: runs a crust app built for a web page (see ../src/web.rs and
 // build.sh) in a terminal drawn by xterm.js.
 //
-//   crustterm.run(element, "rpnx.wasm", { name: "rpnx", keys: send => … });
+//   crustterm.run(element, "rpnx.wasm", { name: "rpnx", keys: send => …,
+//                  files: { "/home/web/.stars/stars.json": "data/stars.json" } });
 //
 // `keys`, when given, gets a function that sends a key as a button would:
-// send("k0 Escape").
+// send("k0 Escape"). `files`, when given, are the only files the app can
+// open, each fetched from the page's own site first, and only to read.
+// HOME is /home/web.
 //
-// The app gets a terminal to draw in and the keys typed into it, and
-// nothing else. It runs under WASI, the standard way a WebAssembly program
-// asks for things, and this file answers every request for files, a
-// network or other programs with "not supported": the app cannot read or
-// write the visitor's files, reach any server, or start anything.
+// The app gets a terminal to draw in, the keys typed into it and the
+// files the page names, and nothing else. It runs under WASI, the standard
+// way a WebAssembly program asks for things, and this file answers every
+// other request for files, a network or other programs with "no" or "not
+// supported": the app cannot read or write the visitor's files, reach any
+// server, or start anything.
 //
 // A crust app waits for keys; the build runs it through binaryen's
 // asyncify, so while it waits the page gets its thread back and the app
 // costs nothing.
 (function () {
   "use strict";
-  const SUCCESS = 0, EBADF = 8, ENOSYS = 52, ESPIPE = 70;
+  const SUCCESS = 0, EBADF = 8, EINVAL = 28, ENOENT = 44, ENOSYS = 52, EROFS = 69, ESPIPE = 70;
   const NORMAL = 0, UNWINDING = 1, REWINDING = 2;
   const STACK = 1 << 20; // room for the paused app's call stack
   const enc = new TextEncoder(), dec = new TextDecoder();
@@ -107,11 +111,17 @@
     }).observe(el);
 
     const mod = await WebAssembly.compile(await (await fetch(url)).arrayBuffer());
+    // The app's files, by path, each fetched once from the page's site.
+    const files = new Map();
+    for (const [path, src] of Object.entries(opts.files || {})) {
+      const r = await fetch(src);
+      if (r.ok) files.set(path, new Uint8Array(await r.arrayBuffer()));
+    }
     term.focus();
     for (;;) {
       let note;
       try {
-        await start(mod, term, name, queue, w => { wake = w; }, () => { wake = null; });
+        await start(mod, term, name, queue, w => { wake = w; }, () => { wake = null; }, files);
         note = name + " has ended.";
       } catch (e) {
         console.error(e);
@@ -126,7 +136,7 @@
   }
 
   // One run of the app, from start to exit.
-  async function start(mod, term, name, queue, setWake, clearWake) {
+  async function start(mod, term, name, queue, setWake, clearWake, files) {
     let inst, state = NORMAL, pending = null, result = 0, data = 0;
     const mem = () => inst.exports.memory.buffer;
     const view = () => new DataView(mem());
@@ -168,9 +178,28 @@
     const size = () => ((term.cols & 0xffff) << 16) | (term.rows & 0xffff);
 
     // Text lists for the app: its name as the only argument, and a few
-    // settings. HOME names a folder that does not exist here.
+    // settings.
     const args = [name];
-    const env = ["TERM=xterm-256color", "COLORTERM=truecolor", "LANG=en_US.UTF-8", "HOME=/nowhere", "FE2O3_WEB=1"];
+    // FE2O3_TZ_OFFSET: the visitor's time zone, in seconds east of UTC,
+    // since a WebAssembly program has no time zone database of its own.
+    const env = ["TERM=xterm-256color", "COLORTERM=truecolor", "LANG=en_US.UTF-8", "HOME=/home/web", "FE2O3_WEB=1",
+      "FE2O3_TZ_OFFSET=" + -new Date().getTimezoneOffset() * 60];
+
+    // The page's files, read-only. With any at all, "/" is shared with
+    // the app as descriptor 3, and each file it opens gets the next number
+    // free. A folder counts as there when a file lies under it.
+    const ROOT = 3;
+    const open = new Map(); // descriptor → { data, at }
+    let nextFd = ROOT + 1;
+    const pathAt = (p, n) => "/" + dec.decode(bytes(p, n)).replace(/^\/+/, "").replace(/^\.\//, "");
+    const isDir = path => { const d = path.endsWith("/") ? path : path + "/"; return path === "/" || [...files.keys()].some(f => f.startsWith(d)); };
+    const filestat = (p, type, size) => {
+      new Uint8Array(mem(), p, 64).fill(0);
+      view().setUint8(p + 16, type);
+      view().setBigUint64(p + 24, 1n, true);
+      view().setBigUint64(p + 32, BigInt(size), true);
+      return SUCCESS;
+    };
     const sizes = (list, countP, sizeP) => {
       view().setUint32(countP, list.length, true);
       view().setUint32(sizeP, list.reduce((a, s) => a + enc.encode(s).length + 1, 0), true);
@@ -214,23 +243,87 @@
         view().setUint32(outP, total, true);
         return SUCCESS;
       },
-      fd_read: (fd, _iovs, _n, outP) => {
-        if (fd !== 0) return EBADF;
-        view().setUint32(outP, 0, true); // keys come through crust, never stdin
+      fd_read: (fd, iovs, n, outP) => {
+        if (fd === 0) { view().setUint32(outP, 0, true); return SUCCESS; } // keys come through crust
+        const f = open.get(fd);
+        if (!f) return EBADF;
+        let total = 0;
+        for (let i = 0; i < n; i++) {
+          const p = view().getUint32(iovs + i * 8, true), len = view().getUint32(iovs + i * 8 + 4, true);
+          const part = f.data.subarray(f.at, f.at + len);
+          bytes(p, part.length).set(part);
+          f.at += part.length; total += part.length;
+          if (part.length < len) break;
+        }
+        view().setUint32(outP, total, true);
         return SUCCESS;
       },
       fd_fdstat_get: (fd, p) => {
-        if (fd > 2) return EBADF;
+        const type = fd <= 2 ? 2 : fd === ROOT && files.size ? 3 : open.has(fd) ? 4 : 0;
+        if (!type) return EBADF;
         new Uint8Array(mem(), p, 24).fill(0);
-        view().setUint8(p, 2); // a character device, like a terminal
+        view().setUint8(p, type); // 2 a terminal, 3 a folder, 4 a file
+        // A terminal has no rights to seek: that is how WASI's isatty
+        // tells it from a file, and an app not on a terminal prints and quits.
+        if (type !== 2) {
+          view().setBigUint64(p + 8, 0xffffffffffffffffn, true);
+          view().setBigUint64(p + 16, 0xffffffffffffffffn, true);
+        }
         return SUCCESS;
       },
-      fd_fdstat_set_flags: fd => (fd > 2 ? EBADF : SUCCESS),
-      fd_prestat_get: () => EBADF, // no folders are shared with the app
-      fd_prestat_dir_name: () => EBADF,
-      fd_close: fd => (fd > 2 ? EBADF : SUCCESS),
-      fd_seek: fd => (fd > 2 ? EBADF : ESPIPE),
-      fd_filestat_get: () => EBADF,
+      fd_fdstat_set_flags: fd => (fd <= 2 || open.has(fd) ? SUCCESS : EBADF),
+      fd_prestat_get: (fd, p) => {
+        if (fd !== ROOT || !files.size) return EBADF; // the one shared folder, when there are files
+        view().setUint8(p, 0);
+        view().setUint32(p + 4, 1, true);
+        return SUCCESS;
+      },
+      fd_prestat_dir_name: (fd, p, n) => {
+        if (fd !== ROOT || !files.size || n < 1) return EBADF;
+        bytes(p, 1)[0] = 47; // "/"
+        return SUCCESS;
+      },
+      fd_close: fd => (fd <= 2 || fd === ROOT ? SUCCESS : open.delete(fd) ? SUCCESS : EBADF),
+      fd_seek: (fd, offset, whence, outP) => {
+        const f = open.get(fd);
+        if (!f) return fd <= 2 ? ESPIPE : EBADF;
+        const to = Number(offset) + (whence === 1 ? f.at : whence === 2 ? f.data.length : 0);
+        if (to < 0) return EINVAL;
+        f.at = to;
+        view().setBigUint64(outP, BigInt(to), true);
+        return SUCCESS;
+      },
+      fd_tell: (fd, outP) => {
+        const f = open.get(fd);
+        if (!f) return EBADF;
+        view().setBigUint64(outP, BigInt(f.at), true);
+        return SUCCESS;
+      },
+      fd_filestat_get: (fd, p) => {
+        const f = open.get(fd);
+        if (f) return filestat(p, 4, f.data.length);
+        if (fd === ROOT && files.size) return filestat(p, 3, 0);
+        return EBADF;
+      },
+      path_filestat_get: (fd, _flags, pathP, pathN, p) => {
+        if (fd !== ROOT || !files.size) return EBADF;
+        const path = pathAt(pathP, pathN);
+        if (files.has(path)) return filestat(p, 4, files.get(path).length);
+        return isDir(path) ? filestat(p, 3, 0) : ENOENT;
+      },
+      // Open a file the page gave, to read. Anything that would make,
+      // empty or write a file is refused: nothing here can be changed.
+      path_open: (fd, _dirflags, pathP, pathN, oflags, rights, _inherit, _fdflags, outP) => {
+        if (fd !== ROOT || !files.size) return EBADF;
+        if (oflags & 0b1101 || BigInt(rights) & (1n << 6n)) return EROFS; // create, excl, trunc; write
+        const path = pathAt(pathP, pathN);
+        const data = files.get(path);
+        if (!data) return isDir(path) ? ENOSYS : ENOENT;
+        const n = nextFd++;
+        open.set(n, { data, at: 0 });
+        view().setUint32(outP, n, true);
+        return SUCCESS;
+      },
       sched_yield: () => SUCCESS,
       proc_exit: code => { throw new Exit(code); },
       // A sleep: the one kind of wait a crust app asks for here.
