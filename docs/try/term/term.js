@@ -95,15 +95,47 @@
       }
       return !handled;
     });
-    term.onData(d => {
+    // Text that comes without a key of its own: a phone's keyboard, a
+    // dead key, an input method, a paste.
+    const typed = d => {
       if (SEQ[d]) { push("k0 " + SEQ[d]); return; }
       for (const ch of d) {
-        if (ch === "\r") push("k0 Enter");
+        if (ch === "\r" || ch === "\n") push("k0 Enter");
         else if (ch === "\x7f" || ch === "\b") push("k0 Backspace");
         else if (ch === "\t") push("k0 Tab");
         else if (ch >= " ") push("k0 " + ch);
       }
+    };
+    term.onData(typed);
+
+    // The keys come through a clear text field laid over the terminal, as
+    // in funkey.js. Browsers with keys of their own (gaze, qutebrowser,
+    // Vimium) pass keys to a page only while a text field has the focus,
+    // and gaze and qutebrowser judge that by what a click lands on. A
+    // phone shows its keyboard for the field.
+    el.style.position = "relative";
+    const field = document.createElement("textarea");
+    field.setAttribute("aria-label", name);
+    field.setAttribute("autocapitalize", "off");
+    field.autocomplete = "off";
+    field.spellcheck = false;
+    field.style.cssText = "position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;"
+      + "opacity:0;resize:none;cursor:text;caret-color:transparent;z-index:5";
+    el.append(field);
+    field.addEventListener("keydown", e => {
+      const m = keyMessage(e);
+      if (m === null) return;
+      e.preventDefault();
+      push(m);
     });
+    field.addEventListener("input", e => {
+      if (e.isComposing) return;
+      typed(field.value);
+      field.value = "";
+    });
+    field.addEventListener("compositionend", () => { typed(field.value); field.value = ""; });
+    field.addEventListener("focus", () => el.classList.add("on"));
+    field.addEventListener("blur", () => el.classList.remove("on"));
     let cols = term.cols, rows = term.rows;
     new ResizeObserver(() => {
       fit.fit();
@@ -117,7 +149,7 @@
       const r = await fetch(src);
       if (r.ok) files.set(path, new Uint8Array(await r.arrayBuffer()));
     }
-    term.focus();
+    field.focus();
     for (;;) {
       let note;
       try {
