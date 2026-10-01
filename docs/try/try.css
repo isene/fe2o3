@@ -74,7 +74,22 @@
 .app:fullscreen .screen { flex: 1; height: auto; border: 0; }
 .app:fullscreen .bar, .app:fullscreen .help { display: none; }
 
+/* rpnx's program library: a shelf of buttons per category, the F-keys, the notes. */
+.library { margin: -1.5rem 0 3rem; max-width: 760px; }
+.library h2 { font-size: 1.1rem; color: var(--yellow); margin-bottom: 0.6rem; }
+.library .shelf, .library .run { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin-bottom: 0.4rem; }
+.library .shelf span, .library .run span { color: var(--fg-mute); font-size: 0.85rem; min-width: 8rem; }
+.library button { font: inherit; font-size: 0.9rem; color: var(--fg); background: var(--bg-card); border: 1px solid #3a3a52;
+  border-radius: 6px; padding: 0.25rem 0.8rem; cursor: pointer; touch-action: manipulation; }
+.library button:hover { border-color: var(--rust-glow); }
+.library .shelf button.on { border-color: var(--yellow); color: var(--yellow); }
+.library .run { margin-top: 0.8rem; }
+.library .about { color: var(--fg-dim); margin-top: 0.8rem; }
+.library .about a { color: var(--rust-glow); }
+.app:fullscreen .library { display: none; }
+
 @media (max-width: 600px) {
+  .library .shelf span, .library .run span { min-width: 100%; }
   .try-head h1 { font-size: 1.9rem; }
   .pad .move { grid-template-columns: repeat(3, 3rem); grid-auto-rows: 3rem; }
   .pad .keys, .pad .keys.wide { grid-template-columns: repeat(3, 3.6rem); grid-auto-rows: 3rem; }
