@@ -49,12 +49,15 @@
 
   // A key as crust's web.rs reads it: "k<mods> <key>". Null for keys the
   // browser should keep, or that come as text through xterm.js instead
-  // (a phone's keyboard, a dead key, an input method).
+  // (a phone's keyboard, a dead key, an input method). Empty for a key
+  // that stops here: Ctrl+A, which opens Claude in the apps. A web page
+  // has no Claude, so no app ever sees that key.
   function keyMessage(e) {
     if (e.isComposing || e.metaKey || BROWSER.has(e.key)) return null;
     const k = e.key;
     if (!NAMED.has(k) && [...k].length !== 1) return null;
     if (e.ctrlKey && !e.altKey && (k === "v" || k === "V")) return null; // paste
+    if (e.ctrlKey && (k === "a" || k === "A")) return "";
     const altgr = e.getModifierState && e.getModifierState("AltGraph");
     const mods = (e.shiftKey ? 1 : 0) | (e.altKey && !altgr ? 2 : 0) | (e.ctrlKey && !altgr ? 4 : 0);
     return "k" + mods + " " + k;
@@ -105,7 +108,7 @@
       if (e.type === "keydown") {
         const m = keyMessage(e);
         handled = m !== null;
-        if (handled) { e.preventDefault(); push(m); }
+        if (handled) { e.preventDefault(); if (m) push(m); }
       }
       return !handled;
     });
@@ -140,7 +143,7 @@
       const m = keyMessage(e);
       if (m === null) return;
       e.preventDefault();
-      push(m);
+      if (m) push(m);
     });
     field.addEventListener("input", e => {
       if (e.isComposing) return;
