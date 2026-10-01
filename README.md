@@ -159,6 +159,7 @@ Get the launcher, then let it fetch the rest: press `I` in the grid and
 every app you do not have is downloaded.
 
 ```bash
+mkdir -p ~/bin    # and have ~/bin on your PATH
 curl -L "https://github.com/isene/fe2o3/releases/latest/download/fe2o3-linux-x86_64" \
   -o ~/bin/fe2o3 && chmod +x ~/bin/fe2o3
 fe2o3          # then press I
@@ -177,6 +178,18 @@ for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii 
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
 ```
+
+The Linux binaries need glibc 2.39 or newer: Ubuntu 24.04, Debian 13,
+Arch. Three apps also need a system library to start:
+
+```bash
+# gaze (WebKitGTK 6.0, GTK 4), hush (Opus), tune (PulseAudio)
+sudo apt install libwebkitgtk-6.0-4 libgtk-4-1 libopus0 libpulse0   # Debian, Ubuntu
+sudo pacman -S webkitgtk-6.0 gtk4 opus libpulse                     # Arch
+```
+
+This install is tried on clean Ubuntu, Debian and Arch machines every
+week by `test/install-check.sh`.
 
 `hypergraph` is the one Ruby member: clone it and symlink the script,
 since it ships a `lib/` next to the executable rather than one binary.
