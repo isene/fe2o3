@@ -156,13 +156,35 @@
       if (term.cols !== cols || term.rows !== rows) { cols = term.cols; rows = term.rows; push("r"); }
     }).observe(el);
 
-    const mod = await WebAssembly.compile(await (await fetch(url)).arrayBuffer());
-    // The app's files, by path, each fetched once from the page's site.
-    const files = new Map();
-    for (const [path, src] of Object.entries(opts.files || {})) {
+    // The app itself, with a line in the terminal counting while it comes:
+    // some are a few megabytes, and a blank box reads as broken.
+    const fetched = async src => {
       const r = await fetch(src);
-      if (r.ok) files.set(path, new Uint8Array(await r.arrayBuffer()));
+      if (!r.ok) throw new Error(src + ": " + r.status);
+      if (!r.body) return new Uint8Array(await r.arrayBuffer());
+      const reader = r.body.getReader(), parts = [];
+      let n = 0;
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        parts.push(value);
+        n += value.length;
+        term.write("\r\x1b[2K Loading " + name + "… " + (n / 1048576).toFixed(1) + " MB");
+      }
+      return new Uint8Array(await new Blob(parts).arrayBuffer());
+    };
+    let mod;
+    const files = new Map();
+    try {
+      mod = await WebAssembly.compile(await fetched(url));
+      // The app's files, by path, each fetched once from the page's site.
+      for (const [path, src] of Object.entries(opts.files || {})) files.set(path, await fetched(src));
+    } catch (e) {
+      console.error(e);
+      term.write("\r\x1b[2K \x1b[33m" + name + " could not be loaded. Reload the page to try again.\x1b[0m");
+      return;
     }
+    term.reset();
     field.focus();
     for (;;) {
       let note;

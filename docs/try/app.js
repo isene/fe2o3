@@ -22,27 +22,27 @@
         "habitable zone, <kbd>1</kbd> to <kbd>6</kbd> change the colours, <kbd>/</kbd> finds a planet or star.",
     },
     fractal: {
-      file: "apps/fractal.wasm?v=0.1.4", repo: "fractal",
+      file: "apps/fractal.wasm?v=0.1.5", repo: "fractal",
       help: "Arrows pan, <kbd>+</kbd> <kbd>-</kbd> zoom, <kbd>1</kbd> to <kbd>5</kbd> pick Mandelbrot, Julia, " +
         "the logistic map, Lorenz or Hénon. <kbd>J</kbd> goes from a point to its Julia set.",
     },
     alchemy: {
-      file: "apps/alchemy.wasm?v=0.1.5", repo: "alchemy",
+      file: "apps/alchemy.wasm?v=0.1.5-2", repo: "alchemy",
       help: "<kbd>Space</kbd> opens the shelf to pour something in, <kbd>h</kbd> lights the burner, " +
         "<kbd>t</kbd> makes a flame test, <kbd>x</kbd> lists the experiments, <kbd>?</kbd> every key.",
     },
     isotopes: {
-      file: "apps/isotopes.wasm?v=0.1.9", repo: "isotopes",
+      file: "apps/isotopes.wasm?v=0.1.9-2", repo: "isotopes",
       help: "Arrows walk the chart of 3,386 nuclides, <kbd>Enter</kbd> follows a decay chain to its end, " +
         "<kbd>z</kbd> shows the whole chart, <kbd>/</kbd> finds one: <kbd>U-238</kbd>, <kbd>14C</kbd>.",
     },
     moon: {
-      file: "apps/moon.wasm?v=0.1.12", repo: "moon",
+      file: "apps/moon.wasm?v=0.1.12-2", repo: "moon",
       help: "The Moon as it looks tonight. <kbd>←</kbd> <kbd>→</kbd> step a day, <kbd>Tab</kbd> opens the map, " +
         "<kbd>/</kbd> finds a crater or a sea, <kbd>f</kbd> shows it as in a telescope.",
     },
     universe: {
-      file: "apps/universe.wasm?v=0.3.2", repo: "universe",
+      file: "apps/universe.wasm?v=0.3.2-2", repo: "universe",
       help: "<kbd>↑</kbd> steps out, <kbd>↓</kbd> steps in, from the quantum foam to the cosmic web. " +
         "<kbd>PgUp</kbd> <kbd>PgDn</kbd> go five rungs at a time, <kbd>H</kbd> goes back to the human body.",
     },
@@ -54,14 +54,14 @@
         "<a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>.",
     },
     particles: {
-      file: "apps/particles.wasm?v=0.1.6", repo: "particles",
+      file: "apps/particles.wasm?v=0.1.6-2", repo: "particles",
       files: { "/home/web/.particles/particles.json": "data/particles.json?v=1" },
       help: "Arrows walk the Standard Model, <kbd>Tab</kbd> switches to the zoom into a carbon atom, <kbd>+</kbd> " +
         "<kbd>-</kbd> go down and up it. Articles from <a href=\"https://en.wikipedia.org\">Wikipedia</a>, " +
         "<a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>.",
     },
     stars: {
-      file: "apps/stars.wasm?v=0.2.6", repo: "stars",
+      file: "apps/stars.wasm?v=0.2.6-2", repo: "stars",
       files: { "/home/web/.stars/stars.json": "data/stars.json?v=1" },
       help: "Arrows walk the Hertzsprung-Russell diagram, <kbd>1</kbd> to <kbd>7</kbd> colour it, <kbd>t</kbd> lays " +
         "the paths stars take over it, <kbd>M</kbd> shows the sky. Stars from the HYG catalog and Wikidata, articles " +
@@ -69,7 +69,7 @@
         "<a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>.",
     },
     sky: {
-      file: "apps/sky.wasm?v=0.1.10", repo: "starmap",
+      file: "apps/sky.wasm?v=0.1.10-2", repo: "starmap",
       help: "Give your latitude and longitude, then the sky over you now: zenith in the middle, the horizon " +
         "at the rim. Arrows move the crosshair, <kbd>+</kbd> <kbd>-</kbd> zoom, <kbd>c</kbd> <kbd>n</kbd> turn the " +
         "figures and names on and off, <kbd>Enter</kbd> names a star, <kbd>Esc</kbd> goes back to the place.",
