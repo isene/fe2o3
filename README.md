@@ -179,8 +179,10 @@ for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii 
 done
 ```
 
-The Linux binaries need glibc 2.39 or newer: Ubuntu 24.04, Debian 13,
-Arch. Three apps also need a system library to start:
+The Linux binaries are static: they run on any distribution, old or new.
+Four are not. scroll, tune, hush and gaze need glibc 2.39 or newer (Ubuntu
+24.04, Debian 13, Arch), and so do kastrup and tock on ARM. Three of the
+four also need a system library to start:
 
 ```bash
 # gaze (WebKitGTK 6.0, GTK 4), hush (Opus), tune (PulseAudio)
@@ -189,7 +191,8 @@ sudo pacman -S webkitgtk-6.0 gtk4 opus libpulse                     # Arch
 ```
 
 This install is tried on clean Ubuntu, Debian and Arch machines every
-week by `test/install-check.sh`.
+week by `test/install-check.sh`. Debian 12 is among them, for the static
+binaries.
 
 `hypergraph` is the one Ruby member: clone it and symlink the script,
 since it ships a `lib/` next to the executable rather than one binary.

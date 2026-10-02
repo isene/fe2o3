@@ -21,10 +21,18 @@ VERSION="pointer kastrup scribe folio hush tock grid fleet hl2web beam yank astr
          exoplanets elements isotopes particles circuit fractal alchemy universe watchit tune
          amar melody typo gambit drain torii roam launch herald"
 HELP="scroll rpnx gazette library prism fonts"
+# The rest are static and run anywhere. These are not: they need glibc 2.39
+# or newer, so on an older system the check names them and moves on.
+DYNAMIC="scroll tune gaze hush"
+glibc=$(ldd --version 2>/dev/null | head -1 | grep -oE '[0-9]+\.[0-9]+$')
+old=""
+[ -n "$glibc" ] && [ "$(printf '%s\n2.39\n' "$glibc" | sort -V | head -1)" != 2.39 ] && old=yes
 
 echo "== libraries three of the apps need"
 # gaze is a GTK 4 and WebKit browser, hush speaks Opus, tune plays through PulseAudio.
-if command -v apt-get >/dev/null; then
+if [ -n "$old" ]; then
+    echo "  glibc $glibc: the apps that are not static are left out ($DYNAMIC)"
+elif command -v apt-get >/dev/null; then
     sudo apt-get install -y libwebkitgtk-6.0-4 libgtk-4-1 libopus0 libpulse0 >/dev/null || bad "apt could not install the libraries"
 elif command -v pacman >/dev/null; then
     sudo pacman -S --noconfirm --needed webkitgtk-6.0 gtk4 opus libpulse >/dev/null || bad "pacman could not install the libraries"
@@ -44,6 +52,7 @@ echo "== programs start"
 case $(fe2o3 --version 2>&1) in "fe2o3 "*) ok "fe2o3 --version" ;; *) bad "fe2o3 --version" ;; esac
 for app in $apps; do
     [ -x "$BIN/$app" ] || continue
+    if [ -n "$old" ]; then case " $DYNAMIC " in *" $app "*) ok "$app left out: needs glibc 2.39"; continue ;; esac; fi
     missing=$(ldd "$BIN/$app" 2>&1 | grep 'not found' | tr -s ' \t\n' ' ')
     if [ -n "$missing" ]; then bad "$app misses a library: $missing"; continue; fi
     case " $(echo $VERSION) " in *" $app "*)
