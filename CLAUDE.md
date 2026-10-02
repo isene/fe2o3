@@ -193,6 +193,15 @@ git push origin vX.Y.Z
 Apps without `release.yml` (currently: glow, crust): tag + push, then
 manual `gh release create` only if a binary asset is needed.
 
+The Linux release binaries are static (musl targets), so they run on any
+distribution. `gh workflow run release.yml -R isene/<app>` builds the
+latest release's binaries again, from its tag, with no new version.
+Exceptions that stay dynamic: gaze, hush, tune (system libraries) and
+scroll (BoringSSL). kastrup and tock are static on x86_64 only, since
+SQLite's C code needs a musl C compiler, and there is none for ARM on the
+runner. Code that must build three ways (glibc, musl, macOS) cannot name
+C types that differ between them: cast an ioctl request with `as _`.
+
 ## Adding an app to the suite
 
 Do not hand-edit the six places an app has to appear. Run:
