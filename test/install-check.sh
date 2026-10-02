@@ -19,7 +19,7 @@ bad(){ printf '  FAIL  %s\n' "$1"; fail=1; }
 # loads (every library found).
 VERSION="pointer kastrup scribe folio hush tock grid fleet hl2web beam yank astro moon stars
          exoplanets elements isotopes particles circuit fractal alchemy universe watchit tune
-         amar melody typo gambit drain torii roam launch herald"
+         amar melody typo gambit drain torii roam launch herald gaze"
 HELP="scroll rpnx gazette library prism fonts"
 # The rest are static and run anywhere. These are not: they need glibc 2.39
 # or newer, so on an older system the check names them and moves on.
