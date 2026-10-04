@@ -152,6 +152,8 @@ no cloud middleman.
 | **kastrup** | [kastrup](https://github.com/isene/kastrup) | Your Gmail inboxes and RSS feeds on the phone — same decoder as kastrup, bodies on demand, an explicit Mark READ that reaches the laptop |
 | **gaze** | [gaze](https://github.com/isene/gaze) | Web browser around Android's WebView: tabs sent to and from the laptop, the laptop's encrypted passwords and bookmarks, ad blocking, dark pages |
 | **fresh** | — | The ten most recently installed apps, newest first: tap opens one, long-press for app info or uninstall |
+| **outside** | — | Three weather forecasts side by side (Yr, Storm, GFS) for up to sixteen days, with the hours per day, a mark for how well they agree, and the best stretch for being outside |
+| **pointer** | [pointer](https://github.com/isene/pointer) | File manager: tag items, walk to another folder, copy or move them there; a trash, undo for every step, tabs, archives that open as folders, search inside files, and marked folders that other apps can save into |
 
 ## Install everything
 
