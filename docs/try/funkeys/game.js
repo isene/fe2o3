@@ -9,6 +9,14 @@
 
   // title, picture size, file, keys help, the pad: moves and keys.
   const GAMES = {
+    vector: {
+      size: [640, 400], file: "wasm/vector.wasm?v=1.0",
+      help: "<kbd>←</kbd> <kbd>→</kbd> move the claw along the rim, <kbd>Space</kbd> fires down the lane (hold it). " +
+        "<kbd>Z</kbd> is the superzapper: once a web it clears the web, a second time it kills one. <kbd>P</kbd> pauses. " +
+        "On the title, <kbd>←</kbd> <kbd>→</kbd> pick the web to start at.",
+      move: [gap, gap, gap, K("ArrowLeft", "←"), gap, K("ArrowRight", "→")],
+      keys: [K(" ", "Space", "fire"), K("z", "Z", "zap"), K("p", "P", "pause"), QUIT],
+    },
     stack: {
       size: [480, 270], file: "wasm/stack.wasm?v=1.1",
       help: "<kbd>←</kbd> <kbd>→</kbd> move, <kbd>↑</kbd> turns, <kbd>Z</kbd> turns back, <kbd>↓</kbd> drops soft, " +
