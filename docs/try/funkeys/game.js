@@ -9,6 +9,15 @@
 
   // title, picture size, file, keys help, the pad: moves and keys.
   const GAMES = {
+    marble: {
+      size: [640, 400], file: "wasm/marble.wasm?v=1.0",
+      help: "The arrows roll the marble along the tiles: <kbd>→</kbd> is down to the right, <kbd>↓</kbd> is down to the left. " +
+        "Two at once roll it straight. <kbd>Space</kbd> starts, <kbd>P</kbd> pauses. " +
+        "The buttons under the game roll it the way their arrows point.",
+      move: [K("ArrowLeft", "↖"), K("ArrowLeft|ArrowUp", "↑"), K("ArrowUp", "↗"), K("ArrowLeft|ArrowDown", "←"), gap,
+        K("ArrowRight|ArrowUp", "→"), K("ArrowDown", "↙"), K("ArrowRight|ArrowDown", "↓"), K("ArrowRight", "↘")],
+      keys: [K(" ", "Space", "start"), K("p", "P", "pause"), QUIT],
+    },
     vector: {
       size: [640, 400], file: "wasm/vector.wasm?v=1.0",
       help: "<kbd>←</kbd> <kbd>→</kbd> move the claw along the rim, <kbd>Space</kbd> fires down the lane (hold it). " +
