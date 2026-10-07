@@ -9,6 +9,15 @@
 
   // title, picture size, file, keys help, the pad: moves and keys.
   const GAMES = {
+    again: {
+      size: [480, 270], file: "wasm/again.wasm?v=1.0",
+      help: "Arrows step, <kbd>Space</kbd> waits a step. <kbd>Enter</kbd> lets the rest of the life run out: " +
+        "then time starts over, and the self you just were walks beside you. " +
+        "<kbd>U</kbd> takes back a step, <kbd>Backspace</kbd> the life, <kbd>R</kbd> the room. <kbd>N</kbd> and <kbd>P</kbd> change rooms.",
+      move: ARROWS,
+      keys: [K(" ", "Space", "wait"), K("Enter", "Enter", "run on"), K("u", "U", "undo"), K("Backspace", "⌫", "life"),
+        K("r", "R", "room"), K("n", "N", "next"), K("p", "P", "back"), QUIT],
+    },
     marble: {
       size: [640, 400], file: "wasm/marble.wasm?v=1.0",
       help: "The arrows roll the marble along the tiles: <kbd>→</kbd> is down to the right, <kbd>↓</kbd> is down to the left. " +
