@@ -60,7 +60,7 @@
       wide: true,
     },
     salvo: {
-      size: [480, 270], file: "wasm/salvo.wasm?v=1.1",
+      size: [480, 270], file: "wasm/salvo.wasm?v=1.2",
       help: "Arrows fly, <kbd>Space</kbd> fires (hold it), <kbd>Z</kbd> takes the lit power-up, <kbd>P</kbd> pauses.",
       move: ARROWS,
       keys: [K(" ", "Space", "fire"), K("z", "Z", "power"), K("p", "P", "pause"), K("Enter", "Enter", "start"), QUIT],
