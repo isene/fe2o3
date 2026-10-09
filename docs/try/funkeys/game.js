@@ -9,6 +9,14 @@
 
   // title, picture size, file, keys help, the pad: moves and keys.
   const GAMES = {
+    kart: {
+      size: [640, 400], file: "wasm/kart.wasm?v=1.0",
+      help: "<kbd>↑</kbd> is the gas, <kbd>↓</kbd> the brake, <kbd>←</kbd> <kbd>→</kbd> steer. " +
+        "<kbd>Space</kbd> hops, and held through a bend it drifts: let go when the sparks turn blue or orange for a push. " +
+        "<kbd>X</kbd> uses the item from a box, <kbd>P</kbd> pauses. On the title, <kbd>←</kbd> <kbd>→</kbd> pick the class.",
+      move: ARROWS,
+      keys: [K(" ", "Space", "hop"), K("x", "X", "item"), K("p", "P", "pause"), QUIT],
+    },
     again: {
       size: [480, 270], file: "wasm/again.wasm?v=1.0",
       help: "Arrows step, <kbd>Space</kbd> waits a step. <kbd>Enter</kbd> lets the rest of the life run out: " +
