@@ -10,7 +10,7 @@
   // title, picture size, file, keys help, the pad: moves and keys.
   const GAMES = {
     kart: {
-      size: [640, 400], file: "wasm/kart.wasm?v=1.2",
+      size: [640, 400], file: "wasm/kart.wasm?v=1.2-0.8",
       help: "<kbd>↑</kbd> is the gas, <kbd>↓</kbd> the brake, <kbd>←</kbd> <kbd>→</kbd> steer. " +
         "<kbd>Space</kbd> hops, and held through a bend it drifts: let go when the sparks turn blue or orange for a push. " +
         "<kbd>X</kbd> uses the item from a box, <kbd>P</kbd> pauses. On the title, <kbd>←</kbd> <kbd>→</kbd> pick the class.",
@@ -18,7 +18,7 @@
       keys: [K(" ", "Space", "hop"), K("x", "X", "item"), K("p", "P", "pause"), QUIT],
     },
     again: {
-      size: [480, 270], file: "wasm/again.wasm?v=1.0",
+      size: [480, 270], file: "wasm/again.wasm?v=1.0-0.8",
       help: "Arrows step, <kbd>Space</kbd> waits a step. <kbd>Enter</kbd> lets the rest of the life run out: " +
         "then time starts over, and the self you just were walks beside you. " +
         "<kbd>U</kbd> takes back a step, <kbd>Backspace</kbd> the life, <kbd>R</kbd> the room. <kbd>N</kbd> and <kbd>P</kbd> change rooms.",
@@ -27,24 +27,26 @@
         K("r", "R", "room"), K("n", "N", "next"), K("p", "P", "back"), QUIT],
     },
     marble: {
-      size: [640, 400], file: "wasm/marble.wasm?v=1.0",
+      size: [640, 400], file: "wasm/marble.wasm?v=1.0-0.8",
       help: "The arrows roll the marble along the tiles: <kbd>→</kbd> is down to the right, <kbd>↓</kbd> is down to the left. " +
         "Two at once roll it straight. <kbd>Space</kbd> starts, <kbd>P</kbd> pauses. " +
         "The buttons under the game roll it the way their arrows point.",
       move: [K("ArrowLeft", "↖"), K("ArrowLeft|ArrowUp", "↑"), K("ArrowUp", "↗"), K("ArrowLeft|ArrowDown", "←"), gap,
         K("ArrowRight|ArrowUp", "→"), K("ArrowDown", "↙"), K("ArrowRight|ArrowDown", "↓"), K("ArrowRight", "↘")],
       keys: [K(" ", "Space", "start"), K("p", "P", "pause"), QUIT],
+      scores: true,
     },
     vector: {
-      size: [640, 400], file: "wasm/vector.wasm?v=1.0",
+      size: [640, 400], file: "wasm/vector.wasm?v=1.0-0.8",
       help: "<kbd>←</kbd> <kbd>→</kbd> move the claw along the rim, <kbd>Space</kbd> fires down the lane (hold it). " +
         "<kbd>Z</kbd> is the superzapper: once a web it clears the web, a second time it kills one. <kbd>P</kbd> pauses. " +
         "On the title, <kbd>←</kbd> <kbd>→</kbd> pick the web to start at.",
       move: [gap, gap, gap, K("ArrowLeft", "←"), gap, K("ArrowRight", "→")],
       keys: [K(" ", "Space", "fire"), K("z", "Z", "zap"), K("p", "P", "pause"), QUIT],
+      scores: true,
     },
     stack: {
-      size: [480, 270], file: "wasm/stack.wasm?v=1.1",
+      size: [480, 270], file: "wasm/stack.wasm?v=1.1-0.8",
       help: "<kbd>←</kbd> <kbd>→</kbd> move, <kbd>↑</kbd> turns, <kbd>Z</kbd> turns back, <kbd>↓</kbd> drops soft, " +
         "<kbd>Space</kbd> drops hard, <kbd>C</kbd> holds a piece, <kbd>P</kbd> pauses. " +
         "Make the top ten and your initials join the list everyone who plays here sees.",
@@ -54,7 +56,7 @@
       scores: true,
     },
     eliminator: {
-      size: [640, 360], file: "wasm/eliminator.wasm?v=1.3",
+      size: [640, 360], file: "wasm/eliminator.wasm?v=1.3-0.8",
       help: "<kbd>i</kbd> on the title shows how Amar's dice and fights work, in three pages. " +
         "Arrows or <kbd>y</kbd> <kbd>u</kbd> <kbd>b</kbd> <kbd>n</kbd> move, walk into a foe to fight. " +
         "<kbd>1</kbd> to <kbd>6</kbd> pick how you strike, <kbd>?</kbd> shows all the keys.",
@@ -66,40 +68,46 @@
         K("<", "<", "climb"), K("?", "?", "rules"), K("i", "I", "intro"), QUIT,
         K("Enter", "Enter"), K(" ", "Space"), K("Escape", "Esc"), K("Tab", "Tab")],
       wide: true,
+      scores: true,
     },
     salvo: {
-      size: [480, 270], file: "wasm/salvo.wasm?v=1.2",
+      size: [480, 270], file: "wasm/salvo.wasm?v=1.2-0.8",
       help: "Arrows fly, <kbd>Space</kbd> fires (hold it), <kbd>Z</kbd> takes the lit power-up, <kbd>P</kbd> pauses.",
       move: ARROWS,
       keys: [K(" ", "Space", "fire"), K("z", "Z", "power"), K("p", "P", "pause"), K("Enter", "Enter", "start"), QUIT],
+      scores: true,
     },
     gems: {
-      size: [512, 384], file: "wasm/gems.wasm?v=1.3",
+      size: [512, 384], file: "wasm/gems.wasm?v=1.3-0.8",
       help: "Arrows walk, two at once for the diagonals, <kbd>Space</kbd> jumps.",
       move: [K("ArrowUp|ArrowLeft", "↖"), K("ArrowUp", "↑"), K("ArrowUp|ArrowRight", "↗"), K("ArrowLeft", "←"), gap,
         K("ArrowRight", "→"), K("ArrowDown|ArrowLeft", "↙"), K("ArrowDown", "↓"), K("ArrowDown|ArrowRight", "↘")],
       keys: [K(" ", "Space", "jump"), K("Enter", "Enter", "start"), QUIT],
+      scores: true,
     },
     jumpman: {
-      size: [256, 192], file: "wasm/jumpman.wasm?v=1.1",
+      size: [256, 192], file: "wasm/jumpman.wasm?v=1.1-0.8",
       help: "Arrows run and climb, <kbd>Space</kbd> jumps, <kbd>R</kbd> gives up a life when you are stuck.",
       move: ARROWS,
       keys: [K(" ", "Space", "jump"), K("Enter", "Enter", "start"), K("r", "R", "stuck"), QUIT],
+      scores: true,
     },
     invaders: {
-      size: [224, 256], file: "wasm/invaders.wasm?v=1.0",
+      size: [224, 256], file: "wasm/invaders.wasm?v=1.0-0.8",
       help: "<kbd>←</kbd> <kbd>→</kbd> move, <kbd>Space</kbd> fires.",
       move: [gap, gap, gap, K("ArrowLeft", "←"), gap, K("ArrowRight", "→")],
       keys: [K(" ", "Space", "fire"), K("Enter", "Enter", "start"), QUIT],
+      scores: true,
     },
     drive: {
-      size: [320, 200], file: "wasm/drive.wasm?v=1.0",
+      size: [320, 200], file: "wasm/drive.wasm?v=1.0-0.8",
       help: "<kbd>↑</kbd> speeds up, <kbd>↓</kbd> brakes, <kbd>←</kbd> <kbd>→</kbd> steer. Fetch the packages before the time runs out.",
       move: ARROWS,
       keys: [K(" ", "Space", "start"), QUIT],
+      scores: true,
     },
     climb: {
-      size: [128, 104], file: "wasm/climb.wasm?v=1.0",
+      size: [128, 104], file: "wasm/climb.wasm?v=1.0-0.8",
       help: "Arrows walk and climb, <kbd>Space</kbd> jumps, <kbd>R</kbd> starts over.",
       move: ARROWS,
       keys: [K(" ", "Space", "jump"), K("r", "R", "again"), QUIT],
@@ -148,20 +156,21 @@
   funkey.pad(pad, game);
   if (!g.scores) return;
 
-  // stack's top ten, shared by everyone who plays it, kept on isene.com.
-  // The game asks for the list ("list") and sends a score ("score ABC
-  // 12345 40 5"); the list comes back as "scores" and a line per score.
-  const SCORES = "https://isene.com/cgi-bin/funkey-scores.rb?game=stack";
+  // The game's top ten, shared by everyone who plays it here, kept on
+  // isene.com. The game asks for the list ("list") and sends a score
+  // ("score ABC 12345"; stack adds its rows and level). The list comes
+  // back as "scores" and a line per score. The name is a key of GAMES.
+  const SCORES = "https://isene.com/cgi-bin/funkey-scores.rb?game=" + name;
   const store = (k, v) => { try { return v === undefined ? localStorage.getItem(k) : localStorage.setItem(k, v); } catch (e) { return null; } };
   const answer = r => r.ok ? r.text().then(t => game.send("scores\n" + t)) : null;
   game.listen(m => {
     if (m === "list") {
-      const n = store("stack-name");
+      const n = store("funkey-name") || store("stack-name");
       if (n) game.send("name " + n);
       fetch(SCORES).then(answer).catch(() => {});
     } else if (m.startsWith("score ")) {
       const line = m.slice(6);
-      store("stack-name", line.slice(0, 3));
+      store("funkey-name", line.slice(0, 3));
       fetch(SCORES, { method: "POST", body: line }).then(answer).catch(() => {});
     }
   });
