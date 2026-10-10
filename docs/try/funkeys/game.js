@@ -9,6 +9,14 @@
 
   // title, picture size, file, keys help, the pad: moves and keys.
   const GAMES = {
+    chomp: {
+      size: [224, 288], file: "wasm/chomp.wasm?v=1.0-0.8",
+      help: "The arrows steer: a turn asked for early is taken at the next opening. <kbd>Space</kbd> starts, <kbd>P</kbd> pauses. " +
+        "A power dot turns the hunt around for a few seconds.",
+      move: ARROWS,
+      keys: [K(" ", "Space", "start"), K("p", "P", "pause"), QUIT],
+      scores: true,
+    },
     kart: {
       size: [640, 400], file: "wasm/kart.wasm?v=1.2-0.8",
       help: "<kbd>↑</kbd> is the gas, <kbd>↓</kbd> the brake, <kbd>←</kbd> <kbd>→</kbd> steer. " +
