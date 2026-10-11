@@ -9,6 +9,18 @@
 
   // title, picture size, file, keys help, the pad: moves and keys.
   const GAMES = {
+    blocks: {
+      size: [640, 400], file: "wasm/blocks.wasm?v=0.3-0.8",
+      help: "<kbd>W</kbd> and <kbd>S</kbd> walk, <kbd>A</kbd> and <kbd>D</kbd> sidestep, the arrows look round, <kbd>Space</kbd> jumps and swims. " +
+        "<kbd>F</kbd> digs, <kbd>E</kbd> builds, <kbd>1</kbd> to <kbd>9</kbd> and <kbd>0</kbd> pick the kind, <kbd>C</kbd> lists the things to make. " +
+        "<kbd>P</kbd> pauses. Each visit grows a new world: the page keeps none.",
+      move: ARROWS,
+      keys: [K("w", "W", "walk"), K("s", "S", "back"), K("a", "A", "left"), K("d", "D", "right"), K(" ", "Space", "jump"),
+        K("f", "F", "dig"), K("e", "E", "build"), K("c", "C", "make"), K("Enter", "Enter"),
+        K("1", "1"), K("2", "2"), K("3", "3"), K("4", "4"), K("5", "5"), K("6", "6"), K("7", "7"), K("8", "8"), K("9", "9"), K("0", "0"),
+        K("p", "P", "pause"), QUIT],
+      wide: true,
+    },
     chomp: {
       size: [224, 288], file: "wasm/chomp.wasm?v=1.0-0.8",
       help: "The arrows steer: a turn asked for early is taken at the next opening. <kbd>Space</kbd> starts, <kbd>P</kbd> pauses. " +
