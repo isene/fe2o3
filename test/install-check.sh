@@ -41,7 +41,9 @@ fi
 echo "== install"
 mkdir -p "$BIN"
 export PATH=$BIN:$PATH
-get(){ curl -fsSL --retry 2 "https://github.com/isene/$1/releases/latest/download/$1-linux-x86_64" -o "$BIN/$1" && chmod +x "$BIN/$1"; }
+# Six more tries, a minute in all: GitHub's download server answered 500
+# for three tries in three seconds on 12 October 2026, and the run failed.
+get(){ curl -fsSL --retry 6 "https://github.com/isene/$1/releases/latest/download/$1-linux-x86_64" -o "$BIN/$1" && chmod +x "$BIN/$1"; }
 get fe2o3 || { echo "could not fetch the launcher"; exit 1; }
 # The app list is the README's own loop, so the test follows the README.
 apps=$(sed -n 's/^for app in \(.*\); do$/\1/p' "$HERE/README.md" | head -1)
