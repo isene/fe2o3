@@ -153,6 +153,7 @@ no cloud middleman.
 | **gaze** | [gaze](https://github.com/isene/gaze) | Web browser around Android's WebView: tabs sent to and from the laptop, the laptop's encrypted passwords and bookmarks, ad blocking, dark pages |
 | **fresh** | — | The ten most recently installed apps, newest first: tap opens one, long-press for app info or uninstall |
 | **pointer** | [pointer](https://github.com/isene/pointer) | File manager: tag items, walk to another folder, copy or move them there; a trash, undo for every step, tabs, archives that open as folders, search inside files, and marked folders that other apps can save into |
+| **tock** | [tock](https://github.com/isene/tock) | Calendar: the calendars the phone already syncs as a month and an agenda, with reminders, a home-screen agenda widget, and each calendar in the colour tock has for it on the laptop |
 
 ## Install everything
 
