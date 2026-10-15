@@ -9,6 +9,18 @@
 
   // title, picture size, file, keys help, the pad: moves and keys.
   const GAMES = {
+    raid: {
+      size: [640, 400], file: "wasm/raid.wasm?v=1.2-0.8",
+      help: "<kbd>←</kbd> <kbd>→</kbd> turn, <kbd>↑</kbd> <kbd>↓</kbd> set the speed, <kbd>W</kbd> <kbd>S</kbd> the height over the ground, " +
+        "<kbd>A</kbd> <kbd>D</kbd> slide sideways. <kbd>Space</kbd> fires the gun, <kbd>F</kbd> a rocket, " +
+        "<kbd>E</kbd> a guided missile at the boxed target. <kbd>P</kbd> pauses. " +
+        "Hills are cover: what cannot see you cannot shoot you. Hover low over the pad to rearm and repair.",
+      move: ARROWS,
+      keys: [K("w", "W", "up"), K("s", "S", "down"), K("a", "A", "left"), K("d", "D", "right"), K(" ", "Space", "gun"),
+        K("f", "F", "rocket"), K("e", "E", "missile"), K("Enter", "Enter", "start"), K("p", "P", "pause"), QUIT],
+      wide: true,
+      scores: true,
+    },
     blocks: {
       size: [640, 400], file: "wasm/blocks.wasm?v=0.3-0.8",
       help: "<kbd>W</kbd> and <kbd>S</kbd> walk, <kbd>A</kbd> and <kbd>D</kbd> sidestep, the arrows look round, <kbd>Space</kbd> jumps and swims. " +
@@ -131,6 +143,21 @@
       help: "Arrows walk and climb, <kbd>Space</kbd> jumps, <kbd>R</kbd> starts over.",
       move: ARROWS,
       keys: [K(" ", "Space", "jump"), K("r", "R", "again"), QUIT],
+    },
+    soar: {
+      size: [640, 400], file: "wasm/soar.wasm?v=1.1-0.8",
+      help: "<kbd>←</kbd> <kbd>→</kbd> turn, <kbd>↑</kbd> <kbd>↓</kbd> climb and dive, <kbd>W</kbd> <kbd>S</kbd> change speed. " +
+        "<kbd>Space</kbd> hands the controls back to the autopilot. There is nothing to win.",
+      move: ARROWS,
+      keys: [K("w", "W", "faster"), K("s", "S", "slower"), K(" ", "Space", "autopilot"), QUIT],
+    },
+    castle: {
+      size: [480, 300], file: "wasm/castle.wasm?v=1.1-0.8",
+      help: "<kbd>↑</kbd> <kbd>↓</kbd> walk, <kbd>←</kbd> <kbd>→</kbd> turn, <kbd>A</kbd> <kbd>D</kbd> sidestep, <kbd>W</kbd> <kbd>S</kbd> change the pace. " +
+        "<kbd>Space</kbd> hands the walk back to the autopilot. Stone and the moat stop you. " +
+        "Here the picture is half the size it is in a terminal. There is nothing to win.",
+      move: ARROWS,
+      keys: [K("a", "A", "left"), K("d", "D", "right"), K("w", "W", "faster"), K("s", "S", "slower"), K(" ", "Space", "autopilot"), QUIT],
     },
   };
 
