@@ -9,119 +9,12 @@
 
   // title, picture size, file, keys help, the pad: moves and keys.
   const GAMES = {
-    raid: {
-      size: [640, 400], file: "wasm/raid.wasm?v=1.2-0.8",
-      help: "<kbd>←</kbd> <kbd>→</kbd> turn, <kbd>↑</kbd> <kbd>↓</kbd> set the speed, <kbd>W</kbd> <kbd>S</kbd> the height over the ground, " +
-        "<kbd>A</kbd> <kbd>D</kbd> slide sideways. <kbd>Space</kbd> fires the gun, <kbd>F</kbd> a rocket, " +
-        "<kbd>E</kbd> a guided missile at the boxed target. <kbd>P</kbd> pauses. " +
-        "Hills are cover: what cannot see you cannot shoot you. Hover low over the pad to rearm and repair.",
-      move: ARROWS,
-      keys: [K("w", "W", "up"), K("s", "S", "down"), K("a", "A", "left"), K("d", "D", "right"), K(" ", "Space", "gun"),
-        K("f", "F", "rocket"), K("e", "E", "missile"), K("Enter", "Enter", "start"), K("p", "P", "pause"), QUIT],
-      wide: true,
-      scores: true,
-    },
-    blocks: {
-      size: [640, 400], file: "wasm/blocks.wasm?v=0.3-0.8",
-      help: "<kbd>W</kbd> and <kbd>S</kbd> walk, <kbd>A</kbd> and <kbd>D</kbd> sidestep, the arrows look round, <kbd>Space</kbd> jumps and swims. " +
-        "<kbd>F</kbd> digs, <kbd>E</kbd> builds, <kbd>1</kbd> to <kbd>9</kbd> and <kbd>0</kbd> pick the kind, <kbd>C</kbd> lists the things to make. " +
-        "<kbd>P</kbd> pauses. Each visit grows a new world: the page keeps none.",
-      move: ARROWS,
-      keys: [K("w", "W", "walk"), K("s", "S", "back"), K("a", "A", "left"), K("d", "D", "right"), K(" ", "Space", "jump"),
-        K("f", "F", "dig"), K("e", "E", "build"), K("c", "C", "make"), K("Enter", "Enter"),
-        K("1", "1"), K("2", "2"), K("3", "3"), K("4", "4"), K("5", "5"), K("6", "6"), K("7", "7"), K("8", "8"), K("9", "9"), K("0", "0"),
-        K("p", "P", "pause"), QUIT],
-      wide: true,
-    },
-    chomp: {
-      size: [224, 288], file: "wasm/chomp.wasm?v=1.0-0.8",
-      help: "The arrows steer: a turn asked for early is taken at the next opening. <kbd>Space</kbd> starts, <kbd>P</kbd> pauses. " +
-        "A power dot turns the hunt around for a few seconds.",
-      move: ARROWS,
-      keys: [K(" ", "Space", "start"), K("p", "P", "pause"), QUIT],
-      scores: true,
-    },
-    kart: {
-      size: [640, 400], file: "wasm/kart.wasm?v=1.2-0.8",
-      help: "<kbd>↑</kbd> is the gas, <kbd>↓</kbd> the brake, <kbd>←</kbd> <kbd>→</kbd> steer. " +
-        "<kbd>Space</kbd> hops, and held through a bend it drifts: let go when the sparks turn blue or orange for a push. " +
-        "<kbd>X</kbd> uses the item from a box, <kbd>P</kbd> pauses. On the title, <kbd>←</kbd> <kbd>→</kbd> pick the class.",
-      move: ARROWS,
-      keys: [K(" ", "Space", "hop"), K("x", "X", "item"), K("p", "P", "pause"), QUIT],
-    },
-    again: {
-      size: [480, 270], file: "wasm/again.wasm?v=1.0-0.8",
-      help: "Arrows step, <kbd>Space</kbd> waits a step. <kbd>Enter</kbd> lets the rest of the life run out: " +
-        "then time starts over, and the self you just were walks beside you. " +
-        "<kbd>U</kbd> takes back a step, <kbd>Backspace</kbd> the life, <kbd>R</kbd> the room. <kbd>N</kbd> and <kbd>P</kbd> change rooms.",
-      move: ARROWS,
-      keys: [K(" ", "Space", "wait"), K("Enter", "Enter", "run on"), K("u", "U", "undo"), K("Backspace", "⌫", "life"),
-        K("r", "R", "room"), K("n", "N", "next"), K("p", "P", "back"), QUIT],
-    },
-    marble: {
-      size: [640, 400], file: "wasm/marble.wasm?v=1.0-0.8",
-      help: "The arrows roll the marble along the tiles: <kbd>→</kbd> is down to the right, <kbd>↓</kbd> is down to the left. " +
-        "Two at once roll it straight. <kbd>Space</kbd> starts, <kbd>P</kbd> pauses. " +
-        "The buttons under the game roll it the way their arrows point.",
-      move: [K("ArrowLeft", "↖"), K("ArrowLeft|ArrowUp", "↑"), K("ArrowUp", "↗"), K("ArrowLeft|ArrowDown", "←"), gap,
-        K("ArrowRight|ArrowUp", "→"), K("ArrowDown", "↙"), K("ArrowRight|ArrowDown", "↓"), K("ArrowRight", "↘")],
-      keys: [K(" ", "Space", "start"), K("p", "P", "pause"), QUIT],
-      scores: true,
-    },
-    vector: {
-      size: [640, 400], file: "wasm/vector.wasm?v=1.0-0.8",
-      help: "<kbd>←</kbd> <kbd>→</kbd> move the claw along the rim, <kbd>Space</kbd> fires down the lane (hold it). " +
-        "<kbd>Z</kbd> is the superzapper: once a web it clears the web, a second time it kills one. <kbd>P</kbd> pauses. " +
-        "On the title, <kbd>←</kbd> <kbd>→</kbd> pick the web to start at.",
-      move: [gap, gap, gap, K("ArrowLeft", "←"), gap, K("ArrowRight", "→")],
-      keys: [K(" ", "Space", "fire"), K("z", "Z", "zap"), K("p", "P", "pause"), QUIT],
-      scores: true,
-    },
-    stack: {
-      size: [480, 270], file: "wasm/stack.wasm?v=1.1-0.8",
-      help: "<kbd>←</kbd> <kbd>→</kbd> move, <kbd>↑</kbd> turns, <kbd>Z</kbd> turns back, <kbd>↓</kbd> drops soft, " +
-        "<kbd>Space</kbd> drops hard, <kbd>C</kbd> holds a piece, <kbd>P</kbd> pauses. " +
-        "Make the top ten and your initials join the list everyone who plays here sees.",
-      move: [K("z", "↺", "left"), K("ArrowUp", "↻", "right"), K("c", "C", "hold"),
-        K("ArrowLeft", "←"), K("ArrowDown", "↓", "soft"), K("ArrowRight", "→")],
-      keys: [K(" ", "Space", "drop"), K("Enter", "Enter", "start"), K("p", "P", "pause"), QUIT],
-      scores: true,
-    },
-    eliminator: {
-      size: [640, 360], file: "wasm/eliminator.wasm?v=1.3-0.8",
-      help: "<kbd>i</kbd> on the title shows how Amar's dice and fights work, in three pages. " +
-        "Arrows or <kbd>y</kbd> <kbd>u</kbd> <kbd>b</kbd> <kbd>n</kbd> move, walk into a foe to fight. " +
-        "<kbd>1</kbd> to <kbd>6</kbd> pick how you strike, <kbd>?</kbd> shows all the keys.",
-      move: [K("y", "↖"), K("ArrowUp", "↑"), K("u", "↗"), K("ArrowLeft", "←"), K("s", "wait"),
-        K("ArrowRight", "→"), K("b", "↙"), K("ArrowDown", "↓"), K("n", "↘")],
-      keys: [K("1", "1", "normal"), K("2", "2", "offence"), K("3", "3", "defence"), K("4", "4", "guard"),
-        K("5", "5", "power"), K("6", "6", "double"), K("f", "F", "fire"), K("p", "P", "potion"),
-        K("m", "M", "bandage"), K("r", "R", "rest"), K("t", "T", "light"), K("g", "G", "take"),
-        K("<", "<", "climb"), K("?", "?", "rules"), K("i", "I", "intro"), QUIT,
-        K("Enter", "Enter"), K(" ", "Space"), K("Escape", "Esc"), K("Tab", "Tab")],
-      wide: true,
-      scores: true,
-    },
-    salvo: {
-      size: [480, 270], file: "wasm/salvo.wasm?v=1.3-0.8",
-      help: "Arrows fly, <kbd>Space</kbd> fires (hold it), <kbd>Z</kbd> takes the lit power-up, <kbd>P</kbd> pauses.",
-      move: ARROWS,
-      keys: [K(" ", "Space", "fire"), K("z", "Z", "power"), K("p", "P", "pause"), K("Enter", "Enter", "start"), QUIT],
-      scores: true,
-    },
     gems: {
       size: [512, 384], file: "wasm/gems.wasm?v=1.3-0.8",
       help: "Arrows walk, two at once for the diagonals, <kbd>Space</kbd> jumps.",
       move: [K("ArrowUp|ArrowLeft", "↖"), K("ArrowUp", "↑"), K("ArrowUp|ArrowRight", "↗"), K("ArrowLeft", "←"), gap,
         K("ArrowRight", "→"), K("ArrowDown|ArrowLeft", "↙"), K("ArrowDown", "↓"), K("ArrowDown|ArrowRight", "↘")],
       keys: [K(" ", "Space", "jump"), K("Enter", "Enter", "start"), QUIT],
-      scores: true,
-    },
-    jumpman: {
-      size: [256, 192], file: "wasm/jumpman.wasm?v=1.1-0.8",
-      help: "Arrows run and climb, <kbd>Space</kbd> jumps, <kbd>R</kbd> gives up a life when you are stuck.",
-      move: ARROWS,
-      keys: [K(" ", "Space", "jump"), K("Enter", "Enter", "start"), K("r", "R", "stuck"), QUIT],
       scores: true,
     },
     invaders: {
@@ -162,6 +55,9 @@
   };
 
   const name = new URLSearchParams(location.search).get("g");
+  // These moved to the Game Room, with a top ten and comments each.
+  const ROOM = ["raid", "blocks", "chomp", "kart", "again", "marble", "vector", "stack", "eliminator", "salvo", "jumpman"];
+  if (ROOM.includes(name)) { location.replace("https://isene.com/games/play.html?g=" + name); return; }
   const g = Object.prototype.hasOwnProperty.call(GAMES, name) ? GAMES[name] : null;
   if (!g) { document.getElementById("none").hidden = false; return; }
 
