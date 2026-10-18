@@ -148,7 +148,7 @@ no cloud middleman.
 | **vox** | — | Voice quick-capture — pocket version of the laptop `Win+a` voice-to-text |
 | **gazette** | [gazette](https://github.com/isene/gazette) | Daily news digest reader — browse the last 7 issues (and PDF) synced into `~/.news` |
 | **books** | [library](https://github.com/isene/library) | The library on your phone, read-only: only the books you have made, grouped by shelf, with inline figures and spoken tracks |
-| **onepage** | — | Minimal Android home launcher (one screen, freely-placed widgets, your apps in a panel on a swipe up, zero idle cost) |
+| **onepage** | — | Minimal Android home launcher (one screen, freely-placed widgets, your apps in a panel on a swipe up, switched off while a bank app runs, zero idle cost) |
 | **kastrup** | [kastrup](https://github.com/isene/kastrup) | Your Gmail inboxes and RSS feeds on the phone — same decoder as kastrup, bodies on demand, an explicit Mark READ that reaches the laptop |
 | **gaze** | [gaze](https://github.com/isene/gaze) | Web browser around Android's WebView: tabs sent to and from the laptop, the laptop's encrypted passwords and bookmarks, ad blocking, dark pages |
 | **fresh** | — | Every installed app, newest first: tap opens one, long-press for app info or uninstall |
