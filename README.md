@@ -6,7 +6,7 @@
 
 A suite of fast, opinionated terminal tools written in Rust. Single static binaries. Shared TUI foundation (crust). No runtime dependencies.
 
-**Landing page:** [isene.github.io/fe2o3](https://isene.github.io/fe2o3/)
+**Landing page:** [isene.org/fe2o3](https://isene.org/fe2o3/)
 
 <br clear="left"/>
 
@@ -122,7 +122,7 @@ Superseded by the assembly tools in [CHasm](https://github.com/isene/chasm), whi
 | [fe2o3-rpnx-core](https://github.com/isene/rpnx-core) | ![rpnx-core](https://badgen.net/github/release/isene/rpnx-core) | RPN / XRPN calculator engine shared by rpnx (TUI) + the RPNx phone app | — |
 | [mail](https://github.com/isene/mail) | ![mail](https://badgen.net/github/release/isene/mail) | Email plumbing (MIME, HTML-to-text, read state across devices) shared by kastrup + the nomad mail app | — |
 | [feed](https://github.com/isene/feed) | ![feed](https://badgen.net/github/release/isene/feed) | RSS / Atom parsing shared by kastrup + the nomad kastrup app | — |
-| [ferrite](https://github.com/isene/ferrite) | ![ferrite](https://badgen.net/github/release/isene/ferrite) | Embedded SQL database that keeps its tables in memory: five times SQLite on reads, ahead on writes, a log and a snapshot on disk ([the comparison](https://isene.github.io/ferrite/)) | — |
+| [ferrite](https://github.com/isene/ferrite) | ![ferrite](https://badgen.net/github/release/isene/ferrite) | Embedded SQL database that keeps its tables in memory: five times SQLite on reads, ahead on writes, a log and a snapshot on disk ([the comparison](https://isene.org/ferrite/)) | — |
 | [funkey](https://github.com/isene/funkey) | ![funkey](https://badgen.net/github/release/isene/funkey) | Game engine for the terminal: a pixel frame shown two pixels a cell or as real pixels, held keys, a fixed-step loop that pauses at no cost, sprites, tiles, platformer physics, sound, a 3D rasterizer, a textured multi-core scene and a Doom renderer; `climb`, `jumpman`, `invaders`, `drive`, `soar`, `castle` and the full `doom` run on it; `funkeys` picks one | — |
 
 ## Companion apps — [nomad](https://github.com/isene/nomad)
@@ -155,6 +155,7 @@ no cloud middleman.
 | **pointer** | [pointer](https://github.com/isene/pointer) | File manager: tag items, walk to another folder, copy or move them there; a trash, undo for every step, tabs, archives that open as folders, search inside files, and marked folders that other apps can save into |
 | **tock** | [tock](https://github.com/isene/tock) | Calendar: the calendars the phone already syncs as a month and an agenda, with reminders, a home-screen agenda widget, and each calendar in the colour tock has for it on the laptop |
 | **prism** | [prism](https://github.com/isene/prism) | Colour picker: a foreground and a background, R/G/B and H/S/V sliders, hex, sample text and the WCAG contrast of the pair, copy in four formats |
+| **fleet** | [fleet](https://github.com/isene/fleet) | Claude Code sessions: a buzz when one finishes, its last answer and open questions, answers by tap, messages back, and drop for an item answered on the laptop |
 
 ## Install everything
 

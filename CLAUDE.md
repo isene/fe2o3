@@ -4,7 +4,7 @@ This repo is the **landing page and suite-level docs** for the Fe₂O₃
 family of Rust terminal tools. There is no Rust code here — the actual
 code lives in sibling repos (one per binary, plus shared libraries).
 
-Public landing page: <https://isene.github.io/fe2o3/>
+Public landing page: <https://isene.org/fe2o3/>
 
 ## Suite members
 
