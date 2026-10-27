@@ -97,8 +97,8 @@ what it would do; running it twice changes nothing the second time.
 | [roam](https://github.com/isene/roam) | ![roam](https://badgen.net/github/release/isene/roam) | Wi-Fi and VPN in the terminal (join, leave, forget, rescan, radio, VPNs), straight to NetworkManager over D-Bus; replaces nm-applet | — |
 | [launch](https://github.com/isene/launch) | ![launch](https://badgen.net/github/release/isene/launch) | App launcher: your helpers from ~/.launch above, every program below, one search for both; replaces rofi | — |
 | [herald](https://github.com/isene/herald) | ![herald](https://badgen.net/github/release/isene/herald) | Desktop notifications over D-Bus: boxes at the top right, coloured by urgency, closed by timeout, click or Ctrl+Space; replaces dunst | — |
-| [gluon](https://github.com/isene/gluon) | ![gluon](https://badgen.net/github/release/isene/gluon) | Mail, calendar, tasks and Claude in one app (kastrup, tock and deck as tabs, ~/.tasks/todo.hl as the Tasks tab) | — |
-| [deck](https://github.com/isene/deck) | ![deck](https://badgen.net/github/release/isene/deck) | A paned front for Claude Code (answers, a tool log and a status line; resumes a session by its bookmark tag; gluon's Claude tab) | — |
+| [gluon](https://github.com/isene/gluon) | ![gluon](https://badgen.net/github/release/isene/gluon) | Mail, calendar, tasks and Claude in one app (a Home tab with unread mail, the agenda and tasks over a Claude pane; kastrup, tock and ~/.tasks/todo.hl as tabs) | — |
+| [deck](https://github.com/isene/deck) | ![deck](https://badgen.net/github/release/isene/deck) | A paned front for Claude Code (answers, a tool log and a status line; resumes a session by its bookmark tag; the Claude pane in gluon) | — |
 
 ### Retired
 
@@ -179,7 +179,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald elements isotopes particles circuit fractal universe; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald deck elements isotopes particles circuit fractal universe; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done

@@ -51,8 +51,8 @@ Public landing page: <https://isene.org/fe2o3/>
 | roam | <https://github.com/isene/roam> | Wi-Fi and VPN in the terminal (join, leave, forget, rescan, radio, VPNs), straight to NetworkManager over D-Bus; replaces nm-applet |
 | launch | <https://github.com/isene/launch> | App launcher: your helpers from ~/.launch above, every program below, one search for both; replaces rofi |
 | herald | <https://github.com/isene/herald> | Desktop notifications over D-Bus: boxes at the top right, coloured by urgency, closed by timeout, click or Ctrl+Space; replaces dunst |
-| gluon | <https://github.com/isene/gluon> | Mail, calendar, tasks and Claude in one app (kastrup, tock and deck as tabs, ~/.tasks/todo.hl as the Tasks tab) |
-| deck | <https://github.com/isene/deck> | A paned front for Claude Code (answers, a tool log and a status line; resumes a session by its bookmark tag; gluon's Claude tab) |
+| gluon | <https://github.com/isene/gluon> | Mail, calendar, tasks and Claude in one app (a Home tab with unread mail, the agenda and tasks over a Claude pane; kastrup, tock and ~/.tasks/todo.hl as tabs) |
+| deck | <https://github.com/isene/deck> | A paned front for Claude Code (answers, a tool log and a status line; resumes a session by its bookmark tag; the Claude pane in gluon) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
