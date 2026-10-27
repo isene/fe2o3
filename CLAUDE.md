@@ -51,6 +51,7 @@ Public landing page: <https://isene.org/fe2o3/>
 | roam | <https://github.com/isene/roam> | Wi-Fi and VPN in the terminal (join, leave, forget, rescan, radio, VPNs), straight to NetworkManager over D-Bus; replaces nm-applet |
 | launch | <https://github.com/isene/launch> | App launcher: your helpers from ~/.launch above, every program below, one search for both; replaces rofi |
 | herald | <https://github.com/isene/herald> | Desktop notifications over D-Bus: boxes at the top right, coloured by urgency, closed by timeout, click or Ctrl+Space; replaces dunst |
+| gluon | <https://github.com/isene/gluon> | Mail, calendar, tasks and Claude in one app (kastrup, tock and deck as tabs, ~/.tasks/todo.hl as the Tasks tab) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
@@ -212,15 +213,21 @@ tools/add-app <name> --kind "<one phrase>" --group <Daily drivers|Desk|Science|M
   --role "<a sentence for the two tables>"
 ```
 
-It writes: the row in `src/apps.rs` (at the end of its group) plus the
-`LOGOS` entry, `img/logos/<name>.png` rendered from `<app>/img/<name>.svg`,
-the binaries-table row in `README.md`, the app-table row in this file,
-the landing-page card in the right group with the app count bumped, and
-`<app>/.github/workflows/release.yml` if the app repo has none.
+Every new app goes through it, so it reaches the launcher, this landing
+page and the software page together. It writes:
+- the row in `src/apps.rs` (at the end of its group) and the `LOGOS`
+  entry, with `img/logos/<name>.png` rendered from `<app>/img/<name>.svg`;
+- the rows in `README.md` and in this file;
+- the landing-page card in its group, with the app count bumped;
+- `<app>/.github/workflows/release.yml` if the app repo has none;
+- the GitHub topics (fe2o3, the group's tag, `--topics messaging,ai`);
+- the card on isene.org/software, in `../isene.github.io/_projects.json`.
 
 It is idempotent, so re-running after drawing the logo picks up only
-what is missing. `--check` is a dry run. Afterwards: `cargo build
---release` here, then commit the umbrella repo and the app repo.
+what is missing. `--check` is a dry run. Re-run it after the app's first
+release: only then does it join the README's download loop. Afterwards:
+`cargo build --release` here, then commit this repo, the app repo and
+isene.github.io.
 
 ## Editing this repo
 

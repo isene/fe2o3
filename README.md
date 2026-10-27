@@ -97,6 +97,7 @@ what it would do; running it twice changes nothing the second time.
 | [roam](https://github.com/isene/roam) | ![roam](https://badgen.net/github/release/isene/roam) | Wi-Fi and VPN in the terminal (join, leave, forget, rescan, radio, VPNs), straight to NetworkManager over D-Bus; replaces nm-applet | — |
 | [launch](https://github.com/isene/launch) | ![launch](https://badgen.net/github/release/isene/launch) | App launcher: your helpers from ~/.launch above, every program below, one search for both; replaces rofi | — |
 | [herald](https://github.com/isene/herald) | ![herald](https://badgen.net/github/release/isene/herald) | Desktop notifications over D-Bus: boxes at the top right, coloured by urgency, closed by timeout, click or Ctrl+Space; replaces dunst | — |
+| [gluon](https://github.com/isene/gluon) | ![gluon](https://badgen.net/github/release/isene/gluon) | Mail, calendar, tasks and Claude in one app (kastrup, tock and deck as tabs, ~/.tasks/todo.hl as the Tasks tab) | — |
 
 ### Retired
 

@@ -12,6 +12,10 @@ the thing. This does the lot:
   * a card on the landing page, in the right group, with the app count
     on the page bumped
   * a release workflow in the app's repo, if it has none
+  * GitHub topics on the app's repo: fe2o3, one for its group, and any
+    given with --topics (the software page files its cards by them)
+  * a card on the software page, isene.org/software, in
+    isene.github.io/_projects.json
 
 Run it from anywhere:
 
@@ -27,7 +31,8 @@ Run it from anywhere:
 
 `--kind` is the one-phrase label on the card, `--blurb` the single line
 under it in the launcher, `--desc` the paragraph on the landing page,
-and `--role` the sentence in the two tables. Everything but the name has
+`--role` the sentence in the two tables, and `--topics` more tags for
+the software page (messaging,ai). Everything but the name has
 a sensible fallback, and re-running for an app that is already wired is
 a no-op, so it is safe to run twice.
 
@@ -35,6 +40,7 @@ Add `--check` to see what it would do without touching anything.
 """
 
 import argparse
+import json
 import re
 import shutil
 import subprocess
@@ -44,6 +50,9 @@ from pathlib import Path
 SUITE = Path(__file__).resolve().parent.parent
 TREE = SUITE.parent
 GROUPS = ["Daily drivers", "Desk", "Science", "Media", "Play", "System", "Retired"]
+# The software page tag that goes with a group, beside fe2o3.
+GROUP_TOPIC = {"Science": "science", "Play": "games", "System": "desktop"}
+SITE = TREE / "isene.github.io"
 
 
 def say(msg, done=True):
@@ -112,19 +121,25 @@ def readme_table(name, repo, role, check):
     s = read(p)
     if f"github.com/isene/{repo})" in s:
         say("README already lists it", done=False)
-        return
-    row = (f"| [{name}](https://github.com/isene/{repo}) | "
-           f"![{name}](https://badgen.net/github/release/isene/{repo}) | {role} | — |\n")
-    anchor = "\n### Retired\n"
-    s = s.replace(anchor, row + anchor, 1)
-    # and the install one-liner
-    s = re.sub(r"(for app in [^;]*?)( elements)", rf"\1 {name}\2", s, count=1) \
-        if f" {name} " not in s else s
-    s = s.replace("for app in ", "for app in ", 1)
-    if f" {name};" not in s and f" {name} " not in s.split("for app in ", 1)[-1][:400]:
-        s = s.replace(" stars particles; do", f" {name} stars particles; do", 1)
+    else:
+        row = (f"| [{name}](https://github.com/isene/{repo}) | "
+               f"![{name}](https://badgen.net/github/release/isene/{repo}) | {role} | — |\n")
+        anchor = "\n### Retired\n"
+        s = s.replace(anchor, row + anchor, 1)
+        say("README: table row")
+    # The install line downloads release binaries, so an app joins it
+    # with its first release.
+    loop = re.search(r"for app in ([^;]*); do", s)
+    if f" {name} " in f" {loop[1]} ":
+        say("README install line has it", done=False)
+    elif subprocess.run(["gh", "release", "view", "-R", f"isene/{repo}"],
+                        capture_output=True).returncode:
+        say("no release yet: re-run after the first one for the install line", done=False)
+    else:
+        s = s.replace(loop[0], loop[0].replace(" elements;", f" {name} elements;")
+                      .replace(" elements ", f" {name} elements ", 1), 1)
+        say("README: install line")
     write(p, s, check)
-    say("README: table row and install line")
 
 
 def claude_md(name, repo, role, check):
@@ -208,6 +223,49 @@ def workflow(name, check):
     say("release workflow written (four platforms, crust checked out)")
 
 
+def topics(repo, group, extra, check):
+    """Tag the repo on GitHub, so the software page files it under Fe2O3."""
+    want = ["fe2o3"] + [t for t in [GROUP_TOPIC.get(group)] + extra if t]
+    if check:
+        say(f"would tag isene/{repo}: {', '.join(want)}")
+        return
+    cmd = ["gh", "repo", "edit", f"isene/{repo}"]
+    for t in want:
+        cmd += ["--add-topic", t]
+    if subprocess.run(cmd, capture_output=True).returncode:
+        say(f"isene/{repo} is not on GitHub yet: re-run once it is", done=False)
+        return
+    say(f"GitHub topics: {', '.join(want)}")
+
+
+def software(repo, check):
+    """A card on the software page, made the way build.py --projects makes one."""
+    p = SITE / "_projects.json"
+    url = f"https://github.com/isene/{repo}"
+    cards = json.loads(read(p))
+    if any(c["url"] == url for c in cards):
+        say("software page already has a card", done=False)
+        return
+    if check:
+        say("would add a card to the software page")
+        return
+    r = subprocess.run(["gh", "repo", "view", f"isene/{repo}", "--json",
+                        "name,description,url,repositoryTopics,latestRelease,visibility"],
+                       capture_output=True, text=True)
+    if r.returncode or json.loads(r.stdout)["visibility"] != "PUBLIC":
+        say(f"isene/{repo} is not public yet: no card on the software page", done=False)
+        return
+    g = json.loads(r.stdout)
+    card = {"name": g["name"], "description": g["description"], "url": g["url"],
+            "topics": [t["name"] for t in g["repositoryTopics"] or []],
+            "download": g["latestRelease"] and g["url"] + "/releases/latest",
+            "packages": []}
+    at = next((i for i, c in enumerate(cards) if c["name"].lower() > g["name"].lower()), len(cards))
+    cards.insert(at, card)
+    p.write_text(json.dumps(cards, indent=1, ensure_ascii=False) + "\n")
+    say("software page: card in isene.github.io/_projects.json")
+
+
 def main():
     ap = argparse.ArgumentParser(description="Wire a new Fe2O3 app into the suite.")
     ap.add_argument("name", help="the app, as its binary and logo are named")
@@ -218,6 +276,7 @@ def main():
     ap.add_argument("--desc", default="", help="a paragraph, for the landing page")
     ap.add_argument("--role", default="", help="a sentence, for the two tables")
     ap.add_argument("--group", default="Desk", choices=GROUPS)
+    ap.add_argument("--topics", default="", help="more software page tags: messaging,ai")
     ap.add_argument("--check", action="store_true", help="say what it would do, change nothing")
     a = ap.parse_args()
 
@@ -236,8 +295,11 @@ def main():
     claude_md(name, repo, role, a.check)
     landing(name, repo, kind, desc, a.group, a.check)
     workflow(name, a.check)
+    topics(repo, a.group, [t for t in a.topics.split(",") if t], a.check)
+    software(repo, a.check)
     if not a.check:
-        print("\nnow: cargo build --release in fe2o3, then commit both repos.")
+        print("\nnow: cargo build --release in fe2o3, then commit fe2o3, the app"
+              " and isene.github.io.")
 
 
 if __name__ == "__main__":
