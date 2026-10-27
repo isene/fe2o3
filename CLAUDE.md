@@ -52,6 +52,7 @@ Public landing page: <https://isene.org/fe2o3/>
 | launch | <https://github.com/isene/launch> | App launcher: your helpers from ~/.launch above, every program below, one search for both; replaces rofi |
 | herald | <https://github.com/isene/herald> | Desktop notifications over D-Bus: boxes at the top right, coloured by urgency, closed by timeout, click or Ctrl+Space; replaces dunst |
 | gluon | <https://github.com/isene/gluon> | Mail, calendar, tasks and Claude in one app (kastrup, tock and deck as tabs, ~/.tasks/todo.hl as the Tasks tab) |
+| deck | <https://github.com/isene/deck> | A paned front for Claude Code (answers, a tool log and a status line; resumes a session by its bookmark tag; gluon's Claude tab) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |

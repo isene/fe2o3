@@ -98,6 +98,7 @@ what it would do; running it twice changes nothing the second time.
 | [launch](https://github.com/isene/launch) | ![launch](https://badgen.net/github/release/isene/launch) | App launcher: your helpers from ~/.launch above, every program below, one search for both; replaces rofi | — |
 | [herald](https://github.com/isene/herald) | ![herald](https://badgen.net/github/release/isene/herald) | Desktop notifications over D-Bus: boxes at the top right, coloured by urgency, closed by timeout, click or Ctrl+Space; replaces dunst | — |
 | [gluon](https://github.com/isene/gluon) | ![gluon](https://badgen.net/github/release/isene/gluon) | Mail, calendar, tasks and Claude in one app (kastrup, tock and deck as tabs, ~/.tasks/todo.hl as the Tasks tab) | — |
+| [deck](https://github.com/isene/deck) | ![deck](https://badgen.net/github/release/isene/deck) | A paned front for Claude Code (answers, a tool log and a status line; resumes a session by its bookmark tag; gluon's Claude tab) | — |
 
 ### Retired
 
