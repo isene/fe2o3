@@ -2,7 +2,8 @@
 # Green letters on black everywhere, katakana down the launcher and on the
 # bar, and the code raining on the wallpaper (make it once with
 # tools/matrix-wall WIDTH HEIGHT). glass's tint turns every app green in a
-# new terminal, pictures too. Red stays red: the red pill.
+# new terminal, pictures too. With the beam-in on in fx, a new window
+# arrives as falling code. Red stays red: the red pill.
 
 [views]
 notice = Wake up, Neo. The Matrix has you.
@@ -74,3 +75,4 @@ color15 = #b8ffc8
 
 [frame]
 background = ~/.views/matrix.bgrx
+beam_style = rain

@@ -230,7 +230,8 @@ Two views come with it:
   the screens in Star Trek.
 - **matrix**: green letters on black, strands of katakana down the
   launcher and on the bar, and the code raining on the wallpaper. New
-  terminals turn every app green, pictures too. Make the
+  terminals turn every app green, pictures too, and with the beam-in on
+  a new window arrives as falling code. Make the
   wallpaper once with `tools/matrix-wall WIDTH HEIGHT`, at your screen's
   size.
 
