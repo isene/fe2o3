@@ -1,9 +1,10 @@
 #!/bin/bash
 # views: one look for the whole desktop. A view is a file in views/ beside
-# this tool, with a section for each program: [strip], [herald], [launch]
-# and [tile]. A section goes at the end of that program's own settings
-# file, between two marked lines, and the program reloads. Off takes the
-# marked lines out again, so each file is as it was.
+# this tool, with a section for each program: [strip], [herald], [launch],
+# [tile], [glass] and [frame]. A section goes at the end of that program's
+# own settings file, between two marked lines, and the program reloads.
+# Off takes the marked lines out again, so each file is as it was. A
+# [views] section may hold `notice = ...`, the notice the view comes on with.
 #
 #   views              the views there are, the one in use marked, each
 #                      with the first line of its file
@@ -12,10 +13,13 @@
 #   views toggle NAME  NAME on, or off when it is on (for a key)
 #
 # Nothing runs between switches: the programs read their files at start
-# (tile on its reload signal).
+# (tile on its reload signal, frame on its wallpaper signal). glass reads
+# its file when a terminal opens, so a view reaches new terminals only.
 
 dir=$(dirname "$(dirname "$(readlink -f "$0")")")/views
-declare -A rc=([strip]=$HOME/.striprc [herald]=$HOME/.heraldrc [launch]=$HOME/.launchrc [tile]=$HOME/.tilerc)
+declare -A rc=([strip]=$HOME/.striprc [herald]=$HOME/.heraldrc [launch]=$HOME/.launchrc [tile]=$HOME/.tilerc
+               [glass]=$HOME/.glassrc [frame]=$HOME/.framerc)
+say=
 
 # The view in use: the name in the first marked line found.
 current() {
@@ -51,7 +55,8 @@ put() {
         case $line in
             "["*"]") sec=${line:1:-1} ;;
             ""|"#"*) ;;
-            *) [ -n "$sec" ] && body[$sec]+=$line$'\n' ;;
+            notice*=*) [ "$sec" = views ] && { say=${line#*=}; say=${say# }; } ;;
+            *) [ -n "$sec" ] && body[$sec]+=${line/= \~\//= $HOME/}$'\n' ;;
         esac
     done < "$file"
     for sec in "${!rc[@]}"; do
@@ -64,17 +69,55 @@ put() {
 
 off() { for f in "${rc[@]}"; do unmark "$f"; done; }
 
+# The programs of this desktop: those started with its DISPLAY, and the
+# frame serving it. A second desktop beside it (a test) is left alone.
+mine() {
+    local p
+    for p in $(pgrep -x "$1"); do
+        grep -qz "^DISPLAY=$DISPLAY\$" /proc/$p/environ 2>/dev/null && echo $p
+    done
+}
+my_frame() {
+    local p a
+    for p in $(pgrep -x frame); do
+        mapfile -d '' a < /proc/$p/cmdline
+        [ "${a[1]}" = "${DISPLAY#:}" ] && echo $p
+    done
+}
+
+# frame's wallpaper: the last background line in its file.
+wallpaper() {
+    local line v=
+    [ -f "${rc[frame]}" ] || return 0
+    while IFS= read -r line; do
+        case $line in background*=*) v=${line#*=}; v=${v%%#*}; v=${v// /} ;; esac
+    done < "${rc[frame]}"
+    echo "$v"
+}
+
 # tile reloads on a signal. strip and herald read their files only at
 # start: strip-watchdog starts strip again (or we do), and D-Bus starts
 # herald again with the notice below. launch reads its file each time.
+# frame reloads its wallpaper on a signal, and only when it changed;
+# astro's living wallpaper, when it is back, gets its drawer back too.
 reload() {
-    local p
-    p=$(pgrep -x tile) && kill -USR1 $p
-    p=$(pgrep -x strip) && kill $p
-    pgrep -x strip-watchdog >/dev/null || { sleep 0.2; setsid strip >/dev/null 2>&1 & }
-    p=$(pgrep -x herald) && kill $p
+    local p was=$1
+    p=$(mine tile); [ -n "$p" ] && kill -USR1 $p
+    p=$(mine strip); [ -n "$p" ] && kill $p
+    [ -n "$(mine strip-watchdog)" ] || { sleep 0.2; setsid strip >/dev/null 2>&1 & }
+    p=$(mine herald); [ -n "$p" ] && kill $p
+    if [ "$(wallpaper)" != "$was" ]; then
+        p=$(cat "${XDG_RUNTIME_DIR:-/run/user/$UID}/astro-wall.pid" 2>/dev/null)
+        [ -n "$p" ] && [ "$(cat /proc/$p/comm 2>/dev/null)" = astro ] || p=
+        if [ "$(wallpaper)" = "$HOME/.astro/wall.bgrx" ]; then
+            [ -n "$p" ] || { setsid astro --wall >/dev/null 2>&1 & }
+        elif [ -n "$p" ]; then
+            kill -USR1 $p   # astro wakes, sees its picture is not shown, and ends
+        fi
+        p=$(my_frame); [ -n "$p" ] && kill -USR2 $p
+    fi
     sleep 0.3
-    notify-send views "$1"
+    notify-send views "$2"
 }
 
 case $1 in
@@ -86,11 +129,12 @@ case $1 in
             [ "$n" = "$now" ] && m='*'
             printf '%s %-10s %s\n' "$m" "$n" "${about#"# "}"
         done ;;
-    off) off; reload "Each program has its own look again." ;;
+    off) was=$(wallpaper); off; reload "$was" "Each program has its own look again." ;;
     toggle)
         [ -n "$2" ] || { echo "usage: views toggle NAME" >&2; exit 1; }
-        if [ "$(current)" = "$2" ]; then off; reload "Each program has its own look again."
-        else put "$2"; reload "The $2 view is on."; fi ;;
-    -h|--help) sed -n '2,15s/^# \{0,1\}//p' "$0" ;;
-    *) put "$1"; reload "The $1 view is on." ;;
+        was=$(wallpaper)
+        if [ "$(current)" = "$2" ]; then off; reload "$was" "Each program has its own look again."
+        else put "$2"; reload "$was" "${say:-The $2 view is on.}"; fi ;;
+    -h|--help) sed -n '2,17s/^# \{0,1\}//p' "$0" ;;
+    *) was=$(wallpaper); put "$1"; reload "$was" "${say:-The $1 view is on.}" ;;
 esac

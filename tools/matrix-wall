@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""matrix-wall WIDTH HEIGHT [OUT]: one still of the Matrix code as a wallpaper.
+
+Green strands of mirrored half-width katakana and digits on black, each
+with a pale head and a tail that fades upward. It writes the raw BGRX
+picture frame shows (`background = ...` in ~/.framerc), by default
+~/.views/matrix.bgrx, which the matrix view points frame at. WIDTH and
+HEIGHT must be the screen's. Run it once; the picture never changes.
+Needs Pillow and numpy.
+"""
+import os
+import random
+import sys
+
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
+
+if len(sys.argv) < 3:
+    sys.exit(__doc__.strip())
+W, H = int(sys.argv[1]), int(sys.argv[2])
+OUT = sys.argv[3] if len(sys.argv) > 3 else os.path.expanduser("~/.views/matrix.bgrx")
+
+KANA = [chr(c) for c in range(0xFF66, 0xFF9E)]
+DIGITS = list("0123456789Z:.=*+-<>¦")
+FONTS = ["/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf",
+         "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"]
+MONO = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+CW, CH = 22, 30
+rng = random.Random(1999)
+
+kana_font = ImageFont.truetype(next(f for f in FONTS if os.path.exists(f)), 26)
+digit_font = ImageFont.truetype(MONO, 22)
+
+
+def tile(ch, rgb):
+    """One letter in its cell, mirrored as in the film."""
+    t = Image.new("RGB", (CW, CH))
+    font = digit_font if ch in DIGITS else kana_font
+    ImageDraw.Draw(t).text((CW / 2, CH / 2), ch, font=font, fill=rgb, anchor="mm")
+    return t.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+
+
+img = Image.new("RGB", (W, H))
+heads = Image.new("RGB", (W, H))
+cols, rows = W // CW + 1, H // CH + 1
+for x in range(cols):
+    for _ in range(rng.choice((0, 1, 1, 1, 2))):
+        head = rng.randrange(-4, rows + 8)
+        length = rng.randint(5, 28)
+        far = rng.uniform(0.35, 1.0)  # strands further back are darker
+        for k in range(length):
+            y = head - k
+            if not 0 <= y < rows:
+                continue
+            ch = rng.choice(KANA if rng.random() < 0.8 else DIGITS)
+            if k == 0:
+                g = tile(ch, (200, 255, 210))
+                heads.paste(g, (x * CW, y * CH))
+            else:
+                s = far * (1 - k / length) ** 1.4
+                g = tile(ch, (0, int(40 + 215 * s), int(10 + 55 * s)))
+            img.paste(g, (x * CW, y * CH))
+
+# The heads glow a little.
+glow = np.asarray(heads.filter(ImageFilter.GaussianBlur(9)), dtype=np.uint16)
+a = np.minimum(np.asarray(img, dtype=np.uint16) + glow, 255).astype(np.uint8)
+bgrx = np.dstack([a[..., 2], a[..., 1], a[..., 0], np.full((H, W), 255, np.uint8)])
+os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
+with open(OUT, "wb") as f:
+    f.write(bgrx.tobytes())
+print(f"{OUT}: {W}x{H}")

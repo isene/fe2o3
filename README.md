@@ -211,8 +211,10 @@ since it ships a `lib/` next to the executable rather than one binary.
 
 A view gives one look to the status bar and window borders
 ([tile](https://github.com/isene/tile)), the notices
-([herald](https://github.com/isene/herald)) and the launcher
-([launch](https://github.com/isene/launch)). Each view is a file in
+([herald](https://github.com/isene/herald)), the launcher
+([launch](https://github.com/isene/launch)), new terminals
+([glass](https://github.com/isene/glass)) and the wallpaper
+([frame](https://github.com/isene/frame)). Each view is a file in
 [`views/`](views/), and `tools/views` puts it on:
 
 ```
@@ -221,6 +223,15 @@ views lcars        # put the LCARS view on
 views off          # back to each program's own look
 views toggle lcars # for a key: bind Mod4+Shift+l exec views toggle lcars
 ```
+
+Two views come with it:
+
+- **lcars**: black letters on bars of orange, peach, lilac and blue, like
+  the screens in Star Trek.
+- **matrix**: green letters on black, strands of katakana down the
+  launcher and on the bar, and the code raining on the wallpaper. Make the
+  wallpaper once with `tools/matrix-wall WIDTH HEIGHT`, at your screen's
+  size.
 
 A section goes at the end of that program's settings file, between two
 marked lines, and `views off` takes them out again. Nothing runs between

@@ -1,0 +1,74 @@
+# Matrix: green code on black.
+# Green letters on black everywhere, katakana down the launcher and on the
+# bar, and the code raining on the wallpaper (make it once with
+# tools/matrix-wall WIDTH HEIGHT). Red stays red: the red pill.
+
+[views]
+notice = Wake up, Neo. The Matrix has you.
+
+[strip]
+bg = #000000
+segment_fg = #00ff41
+palette.32 = #00ff41
+palette.33 = #ccff66
+palette.34 = #00c832
+palette.35 = #b8ffc8
+palette.36 = #3fbf7f
+palette.37 = #00c832
+palette.90 = #1f4d1f
+palette.95 = #b8ffc8
+palette.96 = #008f11
+segment code +8 #00ff41 /bin/echo ﾊﾐﾋｰｳｼﾅﾓﾆ 0
+
+[herald]
+low_fg = #008f11
+normal_fg = #00ff41
+critical_fg = #ff3333
+low_bg = #000000
+normal_bg = #000000
+critical_bg = #000000
+title_fg = #000000
+text_fg = #00ff41
+
+[launch]
+accent = #b8ffc8
+text = #00ff41
+dim = #008f11
+dark = #003b00
+bar_bg = #001a00
+bar_title = #00ff41
+bar_text = #008f11
+foot_bg = #001a00
+foot_text = #00c832
+foot_dim = #008f11
+pick_fg = #000000
+pick_bg = #00ff41
+side_glyphs = #00ff41
+
+[tile]
+border_focused = #00ff41
+border_unfocused = #003b00
+
+[glass]
+bg = #000000
+fg = #00e639
+cursor = #00ff41
+color0 = #000000
+color1 = #d03030
+color2 = #00c832
+color3 = #9acd32
+color4 = #008f11
+color5 = #2fb36b
+color6 = #3fbf7f
+color7 = #00e639
+color8 = #1f4d1f
+color9 = #ff4040
+color10 = #00ff41
+color11 = #ccff66
+color12 = #33cc66
+color13 = #66ff99
+color14 = #7fffaa
+color15 = #b8ffc8
+
+[frame]
+background = ~/.views/matrix.bgrx
