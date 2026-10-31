@@ -1,5 +1,6 @@
-# LCARS: the screens of Star Trek. Black letters on bars of orange,
-# peach, lilac and blue; notifications in an elbow.
+# LCARS: the screens of Star Trek.
+# Black letters on bars of orange, peach, lilac and blue; notifications
+# in an elbow.
 
 [strip]
 blocks = 1

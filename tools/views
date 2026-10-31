@@ -5,7 +5,8 @@
 # file, between two marked lines, and the program reloads. Off takes the
 # marked lines out again, so each file is as it was.
 #
-#   views              the views there are, the one in use marked
+#   views              the views there are, the one in use marked, each
+#                      with the first line of its file
 #   views NAME         put view NAME on
 #   views off          back to each program's own look
 #   views toggle NAME  NAME on, or off when it is on (for a key)
@@ -80,14 +81,16 @@ case $1 in
     "")
         now=$(current)
         for f in "$dir"/*; do
-            n=${f##*/}
-            if [ "$n" = "$now" ]; then echo "* $n"; else echo "  $n"; fi
+            n=${f##*/} m=' '
+            read -r about < "$f"
+            [ "$n" = "$now" ] && m='*'
+            printf '%s %-10s %s\n' "$m" "$n" "${about#"# "}"
         done ;;
     off) off; reload "Each program has its own look again." ;;
     toggle)
         [ -n "$2" ] || { echo "usage: views toggle NAME" >&2; exit 1; }
         if [ "$(current)" = "$2" ]; then off; reload "Each program has its own look again."
         else put "$2"; reload "The $2 view is on."; fi ;;
-    -h|--help) sed -n '2,13s/^# \{0,1\}//p' "$0" ;;
+    -h|--help) sed -n '2,15s/^# \{0,1\}//p' "$0" ;;
     *) put "$1"; reload "The $1 view is on." ;;
 esac
