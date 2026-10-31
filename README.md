@@ -229,7 +229,8 @@ Two views come with it:
 - **lcars**: black letters on bars of orange, peach, lilac and blue, like
   the screens in Star Trek.
 - **matrix**: green letters on black, strands of katakana down the
-  launcher and on the bar, and the code raining on the wallpaper. Make the
+  launcher and on the bar, and the code raining on the wallpaper. New
+  terminals turn every app green, pictures too. Make the
   wallpaper once with `tools/matrix-wall WIDTH HEIGHT`, at your screen's
   size.
 

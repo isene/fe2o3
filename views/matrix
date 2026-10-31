@@ -1,7 +1,8 @@
 # Matrix: green code on black.
 # Green letters on black everywhere, katakana down the launcher and on the
 # bar, and the code raining on the wallpaper (make it once with
-# tools/matrix-wall WIDTH HEIGHT). Red stays red: the red pill.
+# tools/matrix-wall WIDTH HEIGHT). glass's tint turns every app green in a
+# new terminal, pictures too. Red stays red: the red pill.
 
 [views]
 notice = Wake up, Neo. The Matrix has you.
@@ -53,6 +54,7 @@ border_unfocused = #003b00
 bg = #000000
 fg = #00e639
 cursor = #00ff41
+tint = #00ff41
 color0 = #000000
 color1 = #d03030
 color2 = #00c832
