@@ -69,6 +69,7 @@ pub const APPS: &[App] = &[
     App { name: "roam", bin: "roam", repo: "roam", kind: "Wi-Fi and VPN", blurb: "Wi-Fi and VPN, straight to NetworkManager", group: "System" },
     App { name: "launch", bin: "launch", repo: "launch", kind: "App launcher", blurb: "Your helpers above, every program below, one search for both", group: "System" },
     App { name: "herald", bin: "herald", repo: "herald", kind: "Desktop notifications", blurb: "Notification boxes at the top right; replaces dunst", group: "System" },
+    App { name: "fx", bin: "fx", repo: "fx", kind: "Views and effects", blurb: "The desktop's views and effects, each with a tick box", group: "System" },
 ];
 
 /// Logos, embedded so a downloaded binary needs nothing beside it. They
@@ -110,6 +111,7 @@ pub const LOGOS: &[(&str, &[u8])] = &[
     ("herald", include_bytes!("../img/logos/herald.png")),
     ("gluon", include_bytes!("../img/logos/gluon.png")),
     ("deck", include_bytes!("../img/logos/deck.png")),
+    ("fx", include_bytes!("../img/logos/fx.png")),
     ("gazette", include_bytes!("../img/logos/gazette.png")),
     ("watchit", include_bytes!("../img/logos/watchit.png")),
     ("tune", include_bytes!("../img/logos/tune.png")),
