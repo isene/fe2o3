@@ -1,0 +1,37 @@
+# LCARS: the screens of Star Trek. Black letters on bars of orange,
+# peach, lilac and blue; notifications in an elbow.
+
+[strip]
+blocks = 1
+bold = 1
+colours = #ff9900, #ffcc99, #cc99cc, #9999ff, #99ccff, #cc6666
+block_text = #000000
+
+[herald]
+shape = elbow
+low_fg = #9999ff
+normal_fg = #ff9900
+critical_fg = #cc6666
+low_bg = #000000
+normal_bg = #000000
+critical_bg = #000000
+title_fg = #000000
+text_fg = #ffcc99
+
+[launch]
+accent = #ff9900
+text = #ffcc99
+dim = #9999ff
+dark = #666699
+bar_bg = #ff9900
+bar_title = #000000
+bar_text = #000000
+foot_bg = #cc99cc
+foot_text = #000000
+foot_dim = #000000
+pick_fg = #000000
+pick_bg = #ff9900
+side = #ff9900
+
+[tile]
+border_focused = #ff9900

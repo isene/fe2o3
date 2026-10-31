@@ -206,6 +206,26 @@ since it ships a `lib/` next to the executable rather than one binary.
 `funkeys` and the six games come from one repo; the loop for them is on
 [funkey's release page](https://github.com/isene/funkey/releases/latest).
 
+## Views
+
+A view gives one look to the status bar and window borders
+([tile](https://github.com/isene/tile)), the notices
+([herald](https://github.com/isene/herald)) and the launcher
+([launch](https://github.com/isene/launch)). Each view is a file in
+[`views/`](views/), and `tools/views` puts it on:
+
+```
+views              # the views there are, the one in use marked
+views lcars        # put the LCARS view on
+views off          # back to each program's own look
+views toggle lcars # for a key: bind Mod4+Shift+l exec views toggle lcars
+```
+
+A section goes at the end of that program's settings file, between two
+marked lines, and `views off` takes them out again. Nothing runs between
+switches. To make a new view, copy [`views/lcars`](views/lcars) and change
+the colours.
+
 ## Why "Fe₂O₃"?
 
 Rust the language was actually named after a family of fungi (Pucciniales, plant pathogens "over-engineered for survival" per Graydon Hoare). The iron-oxide association came later, through the visual rhyme with what those fungi look like on a leaf. Fe₂O₃ is that iron oxide: what happens when iron meets oxygen meets time. This is the terminal-facing half of that toolkit.

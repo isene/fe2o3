@@ -1,0 +1,93 @@
+#!/bin/bash
+# views: one look for the whole desktop. A view is a file in views/ beside
+# this tool, with a section for each program: [strip], [herald], [launch]
+# and [tile]. A section goes at the end of that program's own settings
+# file, between two marked lines, and the program reloads. Off takes the
+# marked lines out again, so each file is as it was.
+#
+#   views              the views there are, the one in use marked
+#   views NAME         put view NAME on
+#   views off          back to each program's own look
+#   views toggle NAME  NAME on, or off when it is on (for a key)
+#
+# Nothing runs between switches: the programs read their files at start
+# (tile on its reload signal).
+
+dir=$(dirname "$(dirname "$(readlink -f "$0")")")/views
+declare -A rc=([strip]=$HOME/.striprc [herald]=$HOME/.heraldrc [launch]=$HOME/.launchrc [tile]=$HOME/.tilerc)
+
+# The view in use: the name in the first marked line found.
+current() {
+    local f line
+    for f in "${rc[@]}"; do
+        [ -f "$f" ] || continue
+        while IFS= read -r line; do
+            case $line in "# view "*": begin"*) line=${line#"# view "}; echo "${line%%:*}"; return ;; esac
+        done < "$f"
+    done
+}
+
+# Take a view's marked lines out of a file. Written in place, so a file
+# that is a link stays one.
+unmark() {
+    local f=$1 out= skip=0 line
+    [ -f "$f" ] || return 0
+    while IFS= read -r line || [ -n "$line" ]; do
+        case $line in
+            "# view "*": begin"*) skip=1; continue ;;
+            "# view "*": end"*) skip=0; continue ;;
+        esac
+        [ $skip = 1 ] || out+=$line$'\n'
+    done < "$f"
+    printf '%s' "$out" > "$f"
+}
+
+put() {
+    local name=$1 file=$dir/$1 sec= line
+    [ -f "$file" ] || { echo "views: no view named $name in $dir" >&2; exit 1; }
+    declare -A body
+    while IFS= read -r line || [ -n "$line" ]; do
+        case $line in
+            "["*"]") sec=${line:1:-1} ;;
+            ""|"#"*) ;;
+            *) [ -n "$sec" ] && body[$sec]+=$line$'\n' ;;
+        esac
+    done < "$file"
+    for sec in "${!rc[@]}"; do
+        unmark "${rc[$sec]}"
+        [ -n "${body[$sec]}" ] || continue
+        printf '# view %s: begin (views off takes these lines out)\n%s# view %s: end\n' \
+            "$name" "${body[$sec]}" "$name" >> "${rc[$sec]}"
+    done
+}
+
+off() { for f in "${rc[@]}"; do unmark "$f"; done; }
+
+# tile reloads on a signal. strip and herald read their files only at
+# start: strip-watchdog starts strip again (or we do), and D-Bus starts
+# herald again with the notice below. launch reads its file each time.
+reload() {
+    local p
+    p=$(pgrep -x tile) && kill -USR1 $p
+    p=$(pgrep -x strip) && kill $p
+    pgrep -x strip-watchdog >/dev/null || { sleep 0.2; setsid strip >/dev/null 2>&1 & }
+    p=$(pgrep -x herald) && kill $p
+    sleep 0.3
+    notify-send views "$1"
+}
+
+case $1 in
+    "")
+        now=$(current)
+        for f in "$dir"/*; do
+            n=${f##*/}
+            if [ "$n" = "$now" ]; then echo "* $n"; else echo "  $n"; fi
+        done ;;
+    off) off; reload "Each program has its own look again." ;;
+    toggle)
+        [ -n "$2" ] || { echo "usage: views toggle NAME" >&2; exit 1; }
+        if [ "$(current)" = "$2" ]; then off; reload "Each program has its own look again."
+        else put "$2"; reload "The $2 view is on."; fi ;;
+    -h|--help) sed -n '2,13s/^# \{0,1\}//p' "$0" ;;
+    *) put "$1"; reload "The $1 view is on." ;;
+esac
