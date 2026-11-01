@@ -74,6 +74,14 @@
 .app:fullscreen .screen { flex: 1; height: auto; border: 0; }
 .app:fullscreen .bar, .app:fullscreen .help { display: none; }
 
+/* In a frame on another page (?embed): the terminal fills the frame, the rest hides. */
+body.embed { overflow: hidden; }
+body.embed::before { display: none; }
+.embed .container { max-width: none; padding: 0; }
+.embed .crumbs, .embed .bar, .embed .help { display: none; }
+.embed .app { margin: 0; height: 100vh; display: flex; flex-direction: column; }
+.embed .app .screen { flex: 1; height: auto; border-radius: 0; }
+
 /* rpnx's program library: a shelf of buttons per category, the F-keys, the notes. */
 .library { margin: -1.5rem 0 3rem; max-width: 760px; }
 .library h2 { font-size: 1.1rem; color: var(--yellow); margin-bottom: 0.6rem; }

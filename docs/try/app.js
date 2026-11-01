@@ -118,7 +118,10 @@
   const PAD = [["Escape", "Esc"], ["Tab", "Tab"], ["ArrowLeft", "←"], ["ArrowUp", "↑"], ["ArrowDown", "↓"],
     ["ArrowRight", "→"], ["Backspace", "⌫"], ["Enter", "Enter"]];
 
-  const name = new URLSearchParams(location.search).get("a");
+  const params = new URLSearchParams(location.search);
+  const name = params.get("a");
+  // In a frame on another page (?embed): the terminal alone, filling the frame.
+  if (params.has("embed")) document.body.classList.add("embed");
   const a = Object.prototype.hasOwnProperty.call(APPS, name) ? APPS[name] : null;
   if (!a) { document.getElementById("none").hidden = false; return; }
 
