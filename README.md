@@ -101,6 +101,7 @@ what it would do; running it twice changes nothing the second time.
 | [deck](https://github.com/isene/deck) | ![deck](https://badgen.net/github/release/isene/deck) | A paned front for Claude Code (answers, a tool log and a status line; resumes a session by its bookmark tag; the Claude pane in gluon) | — |
 | [fx](https://github.com/isene/fx) | ![fx](https://badgen.net/github/release/isene/fx) | Views and effects of the desktop with tick boxes (LCARS, the transporter beam-in); one key instead of one per effect | — |
 | [galaxy](https://github.com/isene/galaxy) | ![galaxy](https://badgen.net/github/release/isene/galaxy) | Your repos as a spiral galaxy (a star per repo, sized by its code, coloured by its language, flaring on a commit; Enter opens it in pointer) | — |
+| [computer](https://github.com/isene/computer) | ![computer](https://badgen.net/github/release/isene/computer) | Voice control (hold a key, speak, and Claude switches workspaces, starts apps or answers) | — |
 
 ### Retired
 
@@ -181,7 +182,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald deck fx galaxy elements isotopes particles circuit fractal universe; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald deck fx galaxy computer elements isotopes particles circuit fractal universe; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
