@@ -1,0 +1,17 @@
+#!/bin/bash
+# galaxy-data: the list the try page's galaxy draws, made from the public
+# repos on GitHub alone (no forks), measured in their clones beside this
+# repo. A public repo with no clone here is left out. Run it again to
+# bring the page's galaxy up to date, then bump its ?v= in docs/try/app.js.
+#
+#   tools/galaxy-data      writes docs/try/data/galaxy.tsv
+set -e
+here=$(dirname "$(dirname "$(readlink -f "$0")")")
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+mkdir "$tmp/repos" "$tmp/home"
+for n in $(gh repo list isene --visibility public --source --limit 1000 --json name -q '.[].name'); do
+  [ -d "$here/../$n/.git" ] && ln -s "$(readlink -f "$here/../$n")" "$tmp/repos/$n"
+done
+HOME=$tmp/home galaxy --tsv "$tmp/repos" > "$here/docs/try/data/galaxy.tsv"
+echo "$(wc -l < "$here/docs/try/data/galaxy.tsv") repos in docs/try/data/galaxy.tsv"

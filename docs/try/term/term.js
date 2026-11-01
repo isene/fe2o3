@@ -69,6 +69,9 @@
     const term = new Terminal({
       fontFamily: 'ui-monospace, "DejaVu Sans Mono", "Cascadia Mono", Menlo, Consolas, monospace',
       fontSize: 15, scrollback: 0, theme, cursorBlink: false, drawBoldTextInBrightColors: false,
+      // A link an app draws (crust's style::hyperlink) opens in a new tab,
+      // web addresses only.
+      linkHandler: { activate: (e, uri) => { if (/^https:\/\//.test(uri)) window.open(uri, "_blank", "noopener"); } },
     });
     const fit = new FitAddon.FitAddon();
     term.loadAddon(fit);
@@ -151,6 +154,16 @@
       field.value = "";
     });
     field.addEventListener("compositionend", () => { typed(field.value); field.value = ""; });
+    // The field lies over the terminal and takes every click, so the
+    // pointer is passed on for xterm to find a link under it. The field
+    // keeps the focus, or the keys would stop reaching the app.
+    for (const type of ["mousemove", "mousedown", "mouseup"]) {
+      field.addEventListener(type, e => {
+        const screen = term.element && term.element.querySelector(".xterm-screen");
+        if (screen) screen.dispatchEvent(new MouseEvent(type, e));
+        if (type !== "mousemove") field.focus();
+      });
+    }
     field.addEventListener("focus", () => el.classList.add("on"));
     field.addEventListener("blur", () => el.classList.remove("on"));
     let cols = term.cols, rows = term.rows;

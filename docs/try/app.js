@@ -78,6 +78,13 @@
       help: "<kbd>↑</kbd> steps out, <kbd>↓</kbd> steps in, from the quantum foam to the cosmic web. " +
         "<kbd>PgUp</kbd> <kbd>PgDn</kbd> go five rungs at a time, <kbd>H</kbd> goes back to the human body.",
     },
+    galaxy: {
+      file: "apps/galaxy.wasm?v=0.1.1-1", repo: "galaxy",
+      files: { "/home/web/.galaxy/repos.tsv": "data/galaxy.tsv?v=1" },
+      help: "Geir's public repos as a spiral galaxy: a star for each, sized by its lines of code, coloured by its " +
+        "language, the oldest by the core. Arrows move between stars, <kbd>Tab</kbd> goes to the next newer, " +
+        "<kbd>/</kbd> finds one by name, and a click on the address opens it on GitHub.",
+    },
     elements: {
       file: "apps/elements.wasm?v=0.1.15-2", repo: "elements",
       files: { "/home/web/.elements/elements.json": "data/elements.json?v=1" },
