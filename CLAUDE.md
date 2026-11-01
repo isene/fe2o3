@@ -54,6 +54,7 @@ Public landing page: <https://isene.org/fe2o3/>
 | gluon | <https://github.com/isene/gluon> | Mail, calendar, tasks and Claude in one app (a Home tab with unread mail, the agenda and tasks over a Claude pane; kastrup, tock and ~/.tasks/todo.hl as tabs) |
 | deck | <https://github.com/isene/deck> | A paned front for Claude Code (answers, a tool log and a status line; resumes a session by its bookmark tag; the Claude pane in gluon) |
 | fx | <https://github.com/isene/fx> | Views and effects of the desktop with tick boxes (LCARS, the transporter beam-in); one key instead of one per effect |
+| galaxy | <https://github.com/isene/galaxy> | Your repos as a spiral galaxy (a star per repo, sized by its code, coloured by its language, flaring on a commit; Enter opens it in pointer) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |

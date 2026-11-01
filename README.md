@@ -100,6 +100,7 @@ what it would do; running it twice changes nothing the second time.
 | [gluon](https://github.com/isene/gluon) | ![gluon](https://badgen.net/github/release/isene/gluon) | Mail, calendar, tasks and Claude in one app (a Home tab with unread mail, the agenda and tasks over a Claude pane; kastrup, tock and ~/.tasks/todo.hl as tabs) | — |
 | [deck](https://github.com/isene/deck) | ![deck](https://badgen.net/github/release/isene/deck) | A paned front for Claude Code (answers, a tool log and a status line; resumes a session by its bookmark tag; the Claude pane in gluon) | — |
 | [fx](https://github.com/isene/fx) | ![fx](https://badgen.net/github/release/isene/fx) | Views and effects of the desktop with tick boxes (LCARS, the transporter beam-in); one key instead of one per effect | — |
+| [galaxy](https://github.com/isene/galaxy) | ![galaxy](https://badgen.net/github/release/isene/galaxy) | Your repos as a spiral galaxy (a star per repo, sized by its code, coloured by its language, flaring on a commit; Enter opens it in pointer) | — |
 
 ### Retired
 
@@ -180,7 +181,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald deck fx elements isotopes particles circuit fractal universe; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald deck fx galaxy elements isotopes particles circuit fractal universe; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
