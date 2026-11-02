@@ -49,9 +49,9 @@ from pathlib import Path
 
 SUITE = Path(__file__).resolve().parent.parent
 TREE = SUITE.parent
-GROUPS = ["Daily drivers", "Desk", "Science", "Media", "Play", "System", "Retired"]
+GROUPS = ["Daily drivers", "Claude", "Desk", "Science", "Media", "Play", "System", "Retired"]
 # The software page tag that goes with a group, beside fe2o3.
-GROUP_TOPIC = {"Science": "science", "Play": "games", "System": "desktop"}
+GROUP_TOPIC = {"Claude": "ai", "Science": "science", "Play": "games", "System": "desktop"}
 SITE = TREE / "isene.github.io"
 
 

@@ -212,7 +212,7 @@ C types that differ between them: cast an ioctl request with `as _`.
 Do not hand-edit the six places an app has to appear. Run:
 
 ```bash
-tools/add-app <name> --kind "<one phrase>" --group <Daily drivers|Desk|Science|Media|Play|System> \
+tools/add-app <name> --kind "<one phrase>" --group <Daily drivers|Claude|Desk|Science|Media|Play|System> \
   --blurb "<one line for the launcher>" --desc "<a paragraph for the landing page>" \
   --role "<a sentence for the two tables>"
 ```
