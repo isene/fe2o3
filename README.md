@@ -102,6 +102,7 @@ what it would do; running it twice changes nothing the second time.
 | [prism](https://github.com/isene/prism) | ![prism](https://badgen.net/github/release/isene/prism) | TUI color picker (FG/BG slots, RGB+HSV, WCAG contrast) | — |
 | [fonts](https://github.com/isene/fonts) | ![fonts](https://badgen.net/github/release/isene/fonts) | TUI font picker with live previews (enumerates installed fonts via glyph); returns family + size | — |
 | [torii](https://github.com/isene/torii) | ![torii](https://badgen.net/github/release/isene/torii) | Captive-portal listener (NetworkManager → Firefox) | — |
+| [lookout](https://github.com/isene/lookout) | ![lookout](https://badgen.net/github/release/isene/lookout) | Server checks as statuses and graphs (green, amber or red per server, a graph per check, from fleet's checkup log over ssh) | — |
 
 ### Retired
 
@@ -182,7 +183,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald deck fx galaxy computer elements isotopes particles circuit fractal universe; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald deck fx galaxy computer lookout elements isotopes particles circuit fractal universe; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done

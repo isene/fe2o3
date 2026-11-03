@@ -56,6 +56,7 @@ Public landing page: <https://isene.org/fe2o3/>
 | fx | <https://github.com/isene/fx> | Views and effects of the desktop with tick boxes (LCARS, the transporter beam-in); one key instead of one per effect |
 | galaxy | <https://github.com/isene/galaxy> | Your repos as a spiral galaxy (a star per repo, sized by its code, coloured by its language, flaring on a commit; Enter opens it in pointer) |
 | computer | <https://github.com/isene/computer> | Voice control (hold a key, speak, and Claude switches workspaces, starts apps or answers) |
+| lookout | <https://github.com/isene/lookout> | Server checks as statuses and graphs (green, amber or red per server, a graph per check, from fleet's checkup log over ssh) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
