@@ -57,12 +57,13 @@ const DIM_RGB: (u8, u8, u8) = (110, 110, 120);
 const BAR_BG: (u8, u8, u8) = (38, 38, 38);
 
 /// Card geometry. The logo is a square block on the left, the words sit
-/// to its right; three text rows is what a name, a kind and a hook need.
+/// to its right: the name over the kind. Two text rows, not three, so a
+/// 1200-pixel screen shows 65 cards on one page instead of 50.
 /// The width is worked out from the terminal so the grid fills it — a
 /// fixed width leaves a ragged margin on wide screens and drops a column
 /// on narrow ones.
 const CARD_MIN_W: u16 = 34;
-const CARD_H: u16 = 5;
+const CARD_H: u16 = 4;
 const LOGO_W: u16 = 6;
 const GRID_Y: u16 = 3;
 
@@ -91,7 +92,7 @@ fn main() {
                 println!("  -v     print version");
                 println!();
                 println!("In the grid: arrows move · Enter runs · i installs · I installs all missing");
-                println!("             ? help · w repo · / filter · q quit");
+                println!("             ? help · w repo · / filter · q or Esc quit");
                 return;
             }
             "-v" | "--version" => {
@@ -159,7 +160,7 @@ fn main() {
     loop {
         let Some(key) = Input::getchr(None) else { continue };
         match key.as_str() {
-            "q" => break,
+            "q" | "ESC" => break,
             "RIGHT" | "l" => step(&mut ui, 1, &mut status, cols, rows),
             "LEFT" | "h" => step(&mut ui, -1, &mut status, cols, rows),
             "DOWN" | "j" => {
@@ -486,7 +487,7 @@ fn draw_cards(ui: &mut Ui, cols: u16, rows: u16, with_images: bool) {
     }
 }
 
-/// One card: frame, name, kind, hook. The logo is painted over the left
+/// One card: frame, name and kind. The logo is painted over the left
 /// block afterwards by the image layer.
 fn card(app: &App, x: u16, y: u16, card_w: u16, selected: bool, installed: bool) -> String {
     let w = (card_w - 2) as usize;
@@ -500,7 +501,6 @@ fn card(app: &App, x: u16, y: u16, card_w: u16, selected: bool, installed: bool)
         ((45, 45, 52), DIM_RGB)
     };
     let text_rgb = if installed { (170, 170, 180) } else { DIM_RGB };
-    let blurb_rgb = if installed { (135, 135, 145) } else { (85, 85, 92) };
     let tw = w - LOGO_W as usize; // room left of the logo block
     let mut s = String::new();
     // Every segment carries the tint itself: a nested reset would drop
@@ -527,7 +527,6 @@ fn card(app: &App, x: u16, y: u16, card_w: u16, selected: bool, installed: bool)
     let lines = [
         style::rgb(&fit(app.name, tw), Some(name_rgb), Some(bg), if selected { "b" } else { "" }),
         style::rgb(&fit(app.kind, tw), Some(text_rgb), Some(bg), ""),
-        style::rgb(&fit(app.blurb, tw), Some(blurb_rgb), Some(bg), ""),
     ];
     for (i, l) in lines.iter().enumerate() {
         s.push_str(&Cursor::at(x, y + 1 + i as u16));

@@ -13,7 +13,7 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 ## The launcher
 
 This repo also holds `fe2o3` itself: the suite as a grid of cards, one per
-app, with its logo, what it is and one line on why. Arrow keys move, Enter
+app, with its logo, its name and what it is. Arrow keys move, Enter
 runs it **in the same terminal**, `?` shows that app's own help, `w` opens
 its repo, `/` filters.
 
