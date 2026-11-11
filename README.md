@@ -103,6 +103,7 @@ what it would do; running it twice changes nothing the second time.
 | [fonts](https://github.com/isene/fonts) | ![fonts](https://badgen.net/github/release/isene/fonts) | TUI font picker with live previews (enumerates installed fonts via glyph); returns family + size | — |
 | [torii](https://github.com/isene/torii) | ![torii](https://badgen.net/github/release/isene/torii) | Captive-portal listener (NetworkManager → Firefox) | — |
 | [lookout](https://github.com/isene/lookout) | ![lookout](https://badgen.net/github/release/isene/lookout) | Server checks as statuses and graphs (green, amber or red per server, a graph per check, from fleet's checkup log over ssh) | — |
+| [vault](https://github.com/isene/vault) | ![vault](https://badgen.net/github/release/isene/vault) | Passwords in one encrypted file (find by typing, Enter copies for one paste and the clipboard empties itself, tags as tabs; the same file the gaze browser and its phone half fill logins from) | — |
 
 ### Retired
 

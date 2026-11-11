@@ -73,6 +73,7 @@ pub const APPS: &[App] = &[
     App { name: "fonts", bin: "fonts", repo: "fonts", kind: "Font Picker", blurb: "TUI font picker with live previews", group: "System" },
     App { name: "torii", bin: "torii", repo: "torii", kind: "Captive-portal listener", blurb: "Replaces Firefox's removed network-login banner", group: "System" },
     App { name: "lookout", bin: "lookout", repo: "lookout", kind: "server checks", blurb: "Your servers' checks as statuses and graphs", group: "System" },
+    App { name: "vault", bin: "vault", repo: "vault", kind: "Password manager", blurb: "Every password in one encrypted file, one key to paste one", group: "System" },
 ];
 
 /// Logos, embedded so a downloaded binary needs nothing beside it. They
@@ -118,6 +119,7 @@ pub const LOGOS: &[(&str, &[u8])] = &[
     ("galaxy", include_bytes!("../img/logos/galaxy.png")),
     ("computer", include_bytes!("../img/logos/computer.png")),
     ("lookout", include_bytes!("../img/logos/lookout.png")),
+    ("vault", include_bytes!("../img/logos/vault.png")),
     ("gazette", include_bytes!("../img/logos/gazette.png")),
     ("watchit", include_bytes!("../img/logos/watchit.png")),
     ("tune", include_bytes!("../img/logos/tune.png")),

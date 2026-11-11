@@ -57,6 +57,7 @@ Public landing page: <https://isene.org/fe2o3/>
 | galaxy | <https://github.com/isene/galaxy> | Your repos as a spiral galaxy (a star per repo, sized by its code, coloured by its language, flaring on a commit; Enter opens it in pointer) |
 | computer | <https://github.com/isene/computer> | Voice control (hold a key, speak, and Claude switches workspaces, starts apps or answers) |
 | lookout | <https://github.com/isene/lookout> | Server checks as statuses and graphs (green, amber or red per server, a graph per check, from fleet's checkup log over ssh) |
+| vault | <https://github.com/isene/vault> | Passwords in one encrypted file (find by typing, Enter copies for one paste and the clipboard empties itself, tags as tabs; the same file the gaze browser and its phone half fill logins from) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
