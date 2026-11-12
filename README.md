@@ -13,13 +13,14 @@ A suite of fast, opinionated terminal tools written in Rust. Single static binar
 ## The launcher
 
 This repo also holds `fe2o3` itself: the suite as a grid of cards, one per
-app, with its logo, its name and what it is. Arrow keys move, Enter
-runs it **in the same terminal**, `?` shows that app's own help, `w` opens
-its repo, `/` filters.
+app, with its logo, its name and what it is. Type a few letters
+and only the cards that match stay; Backspace takes a letter back and Esc
+empties the search. Arrow keys move, Enter runs it **in the same
+terminal**, F1 shows that app's own help, F4 opens its repo.
 
 It is also the installer. What you have has a solid frame and a green
-`✓`; what you do not have is dashed with an amber `↓`. `i` fetches the one
-under the cursor, `I` fetches every missing one in view — so you can take
+`✓`; what you do not have is dashed with an amber `↓`. F2 fetches the one
+under the cursor, F3 fetches every missing one in view — so you can take
 the launcher alone and pick up only the apps you fancy. Binaries land in
 `~/bin` if you have it, else `~/.local/bin`. A `~/bin/<tool>` that is a
 symlink to a local build is left alone.

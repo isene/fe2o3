@@ -91,8 +91,8 @@ fn main() {
                 println!("  -l     list the suite as plain text");
                 println!("  -v     print version");
                 println!();
-                println!("In the grid: arrows move · Enter runs · i installs · I installs all missing");
-                println!("             ? help · w repo · / filter · q or Esc quit");
+                println!("In the grid: type to search · arrows move · Enter runs · F2 installs · F3 installs all missing");
+                println!("             F1 help · F4 repo · Backspace · Esc empties the search, then quits");
                 return;
             }
             "-v" | "--version" => {
@@ -160,30 +160,41 @@ fn main() {
     loop {
         let Some(key) = Input::getchr(None) else { continue };
         match key.as_str() {
-            "q" | "ESC" => break,
-            "RIGHT" | "l" => step(&mut ui, 1, &mut status, cols, rows),
-            "LEFT" | "h" => step(&mut ui, -1, &mut status, cols, rows),
-            "DOWN" | "j" => {
+            // Esc empties the search first; with none it quits.
+            "ESC" if !ui.filter.is_empty() => {
+                ui.filter.clear();
+                refilter(&mut ui);
+                draw_all(&mut ui, &mut status, cols, rows);
+            }
+            "ESC" | "C-Q" => break,
+            "BACK" if !ui.filter.is_empty() => {
+                ui.filter.pop();
+                refilter(&mut ui);
+                draw_all(&mut ui, &mut status, cols, rows);
+            }
+            "RIGHT" => step(&mut ui, 1, &mut status, cols, rows),
+            "LEFT" => step(&mut ui, -1, &mut status, cols, rows),
+            "DOWN" => {
                 let c = per_row(cols) as i32;
                 step(&mut ui, c, &mut status, cols, rows);
             }
-            "UP" | "k" => {
+            "UP" => {
                 let c = per_row(cols) as i32;
                 step(&mut ui, -c, &mut status, cols, rows);
             }
-            "HOME" | "g" => {
+            "HOME" => {
                 ui.sel = 0;
                 draw_all(&mut ui, &mut status, cols, rows);
             }
-            "END" | "G" => {
+            "END" => {
                 ui.sel = ui.shown.len().saturating_sub(1);
                 draw_all(&mut ui, &mut status, cols, rows);
             }
-            "ENTER" | " " => {
+            "ENTER" => {
                 let Some(&i) = ui.shown.get(ui.sel) else { continue };
                 if !ui.installed[i] {
                     status.say(&style::rgb(
-                        &format!(" {} is not installed — press i to fetch it", APPS[i].name),
+                        &format!(" {} is not installed — press F2 to fetch it", APPS[i].name),
                         Some((255, 170, 80)),
                         None,
                         "",
@@ -198,14 +209,14 @@ fn main() {
                 status.w = cols;
                 draw_all(&mut ui, &mut status, cols, rows);
             }
-            "i" => {
+            "F2" => {
                 let Some(&i) = ui.shown.get(ui.sel) else { continue };
                 fetch_one(&mut ui, i, &mut status);
                 let again = needs_pictures_again(&ui);
                 draw_cards(&mut ui, cols, rows, again);
                 draw_header(&ui, cols);
             }
-            "I" => {
+            "F3" => {
                 let missing: Vec<usize> = ui
                     .shown
                     .iter()
@@ -230,12 +241,12 @@ fn main() {
                     "",
                 ));
             }
-            "?" => {
+            "F1" | "?" => {
                 let Some(&i) = ui.shown.get(ui.sel) else { continue };
                 show_help(&mut ui, i, cols, rows);
                 draw_all(&mut ui, &mut status, cols, rows);
             }
-            "w" => {
+            "F4" => {
                 let Some(&i) = ui.shown.get(ui.sel) else { continue };
                 let url = format!("https://github.com/isene/{}", APPS[i].repo);
                 let _ = std::process::Command::new("xdg-open")
@@ -245,22 +256,18 @@ fn main() {
                     .spawn();
                 status.say(&style::dim(&format!(" {url}")));
             }
-            "/" => {
-                let q = status.ask_or_cancel("Filter: ", &ui.filter);
-                print!("{}", Cursor::hide_seq());
-                std::io::stdout().flush().ok();
-                if let Some(q) = q {
-                    ui.filter = q.trim().to_lowercase();
-                    refilter(&mut ui);
-                }
-                draw_all(&mut ui, &mut status, cols, rows);
-            }
             "RESIZE" => {
                 let (c, r) = Crust::terminal_size();
                 cols = c;
                 rows = r;
                 status.y = rows;
                 status.w = cols;
+                draw_all(&mut ui, &mut status, cols, rows);
+            }
+            // A letter or a digit: the search grows, and the cards follow.
+            k if k.chars().count() == 1 && k.chars().all(|c| c.is_alphanumeric() || c == '-') => {
+                ui.filter.push_str(&k.to_lowercase());
+                refilter(&mut ui);
                 draw_all(&mut ui, &mut status, cols, rows);
             }
             _ => {}
@@ -555,11 +562,11 @@ fn fit(s: &str, w: usize) -> String {
 fn help_line(ui: &Ui) -> String {
     match ui.shown.get(ui.sel) {
         Some(&i) if !ui.installed[i] => style::dim(&format!(
-            "←↓↑→ move · i installs {} · I installs all missing · ? help · w repo · q quit",
+            "type to search · ←↓↑→ move · F2 installs {} · F3 installs all missing · F1 help · F4 repo · Esc quit",
             APPS[i].name
         )),
         _ => style::dim(
-            "←↓↑→ move · Enter runs it here · ? its help · w its repo · I installs missing · q quit",
+            "type to search · ←↓↑→ move · Enter runs it here · F1 its help · F4 its repo · F3 installs missing · Esc quit",
         ),
     }
 }
