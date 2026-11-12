@@ -58,6 +58,7 @@ Public landing page: <https://isene.org/fe2o3/>
 | computer | <https://github.com/isene/computer> | Voice control (hold a key, speak, and Claude switches workspaces, starts apps or answers) |
 | lookout | <https://github.com/isene/lookout> | Server checks as statuses and graphs (green, amber or red per server, a graph per check, from fleet's checkup log over ssh) |
 | vault | <https://github.com/isene/vault> | Passwords in one encrypted file (find by typing, Enter copies for one paste and the clipboard empties itself, tags as tabs; the same file the gaze browser and its phone half fill logins from) |
+| coaching | <https://github.com/isene/coaching> | The people you coach (a card with picture and CV, goals, a roadmap, a timeline of notes and the tock calendar for each; the page takes the person's colour) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
