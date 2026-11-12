@@ -616,7 +616,7 @@ fn asset_suffix() -> Option<&'static str> {
 /// the card names. funkey's card runs the picker; the games come along.
 const EXTRA_BINS: &[(&str, &[&str])] = &[
     ("cc-sessions", &["cc", "cc-bookmark"]),
-    ("funkey", &["climb", "jumpman", "invaders", "drive", "soar", "castle", "gems", "salvo", "eliminator", "stack", "raid", "vector", "marble", "again", "kart", "chomp", "blocks", "dust", "doom"]),
+    ("funkey", &["climb", "jumpman", "invaders", "drive", "soar", "castle", "gems", "salvo", "eliminator", "stack", "raid", "vector", "marble", "again", "kart", "chomp", "blocks", "wargame", "dust", "bigger", "doom"]),
 ];
 
 /// Download one app's latest release, plus any sibling commands it ships.
