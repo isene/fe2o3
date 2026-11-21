@@ -150,6 +150,7 @@ no cloud middleman.
 | **hyperlist** | [scribe](https://github.com/isene/scribe) | General HyperList editor with full syntax highlighting |
 | **relay** | [kastrup](https://github.com/isene/kastrup) | Notification gateway (WhatsApp / Messenger / IG / SMS / Discord → kastrup) — replaces the laptop Marionette bridge |
 | **astro** | [astro](https://github.com/isene/astro) | Ephemeris, weather + observing conditions, events, APOD, gear catalog |
+| **orrery** | [astro](https://github.com/isene/astro) | Astronomy clock: a 24-hour dial with twilights, rise and set, hourly weather, planet paths and the Moon's phase |
 | **watchit** | [watchit](https://github.com/isene/watchit) | TMDB movie / series browser with wish/dump lists |
 | **amardice** | [amar](https://github.com/isene/amar) | Amar RPG O6 dice roller (skill / combat / fear) |
 | **rpnx** | [rpnx](https://github.com/isene/rpnx) | Pocket HP-41 RPN calculator + FOCAL program runner (same engine as the rpnx TUI) |
