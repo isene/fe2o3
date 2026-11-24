@@ -106,6 +106,7 @@ what it would do; running it twice changes nothing the second time.
 | [lookout](https://github.com/isene/lookout) | ![lookout](https://badgen.net/github/release/isene/lookout) | Server checks as statuses and graphs (green, amber or red per server, a graph per check, from fleet's checkup log over ssh) | — |
 | [vault](https://github.com/isene/vault) | ![vault](https://badgen.net/github/release/isene/vault) | Passwords in one encrypted file (find by typing, Enter copies for one paste and the clipboard empties itself, tags as tabs; the same file the gaze browser and its phone half fill logins from) | — |
 | [coaching](https://github.com/isene/coaching) | ![coaching](https://badgen.net/github/release/isene/coaching) | The people you coach (a card with picture and CV, goals, a roadmap, a timeline of notes and the tock calendar for each; the page takes the person's colour) | — |
+| [dm41](https://github.com/isene/dm41) | ![dm41](https://badgen.net/github/release/isene/dm41) | Shows a DM41X calculator's programs, registers, flags and X-Memory files, and saves edited programs as .raw files | — |
 
 ### Retired
 
