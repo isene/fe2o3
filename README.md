@@ -107,6 +107,7 @@ what it would do; running it twice changes nothing the second time.
 | [vault](https://github.com/isene/vault) | ![vault](https://badgen.net/github/release/isene/vault) | Passwords in one encrypted file (find by typing, Enter copies for one paste and the clipboard empties itself, tags as tabs; the same file the gaze browser and its phone half fill logins from) | — |
 | [coaching](https://github.com/isene/coaching) | ![coaching](https://badgen.net/github/release/isene/coaching) | The people you coach (a card with picture and CV, goals, a roadmap, a timeline of notes and the tock calendar for each; the page takes the person's colour) | — |
 | [dm41](https://github.com/isene/dm41) | ![dm41](https://badgen.net/github/release/isene/dm41) | Shows a DM41X calculator's programs, registers, flags and X-Memory files, and saves edited programs as .raw files | — |
+| [indi](https://github.com/isene/indi) | ![indi](https://badgen.net/github/release/isene/indi) | Telescope gear through an INDI server (focuser, mount with go-to by name, camera pictures with stars and HFR, every driver setting) | — |
 
 ### Retired
 
@@ -189,7 +190,7 @@ fe2o3          # then press I
 Or grab them all straight from the shell:
 
 ```bash
-for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald deck fx galaxy computer lookout vault coaching dm41 elements isotopes particles circuit fractal universe; do
+for app in pointer kastrup scribe folio scroll gazette tock astro watchit torii prism fonts drain amar tune melody petri library grid viewer rpnx typo fleet hl2web beam yank moon stars exoplanets gambit alchemy gaze hush roam launch herald deck fx galaxy computer lookout vault coaching dm41 indi elements isotopes particles circuit fractal universe; do
   curl -L "https://github.com/isene/$app/releases/latest/download/$app-linux-x86_64" \
     -o ~/bin/$app && chmod +x ~/bin/$app
 done
