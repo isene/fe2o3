@@ -108,6 +108,7 @@ what it would do; running it twice changes nothing the second time.
 | [coaching](https://github.com/isene/coaching) | ![coaching](https://badgen.net/github/release/isene/coaching) | The people you coach (a card with picture and CV, goals, a roadmap, a timeline of notes and the tock calendar for each; the page takes the person's colour) | — |
 | [dm41](https://github.com/isene/dm41) | ![dm41](https://badgen.net/github/release/isene/dm41) | Shows a DM41X calculator's programs, registers, flags and X-Memory files, and saves edited programs as .raw files | — |
 | [indi](https://github.com/isene/indi) | ![indi](https://badgen.net/github/release/isene/indi) | Telescope gear through an INDI server (focuser, mount with go-to by name, camera pictures with stars and HFR, every driver setting) | — |
+| [neon](https://github.com/isene/neon) | ![neon](https://badgen.net/github/release/isene/neon) | A folder as a neon city at night in 3D (files as towers, folders as gates with a tunnel behind them; Ctrl+W in pointer, built on funkey) | — |
 
 ### Retired
 

@@ -61,6 +61,7 @@ Public landing page: <https://isene.org/fe2o3/>
 | coaching | <https://github.com/isene/coaching> | The people you coach (a card with picture and CV, goals, a roadmap, a timeline of notes and the tock calendar for each; the page takes the person's colour) |
 | dm41 | <https://github.com/isene/dm41> | Shows a DM41X calculator's programs, registers, flags and X-Memory files, and saves edited programs as .raw files |
 | indi | <https://github.com/isene/indi> | Telescope gear through an INDI server (focuser, mount with go-to by name, camera pictures with stars and HFR, every driver setting) |
+| neon | <https://github.com/isene/neon> | A folder as a neon city at night in 3D (files as towers, folders as gates with a tunnel behind them; Ctrl+W in pointer, built on funkey) |
 
 ### Archived (don't modify)
 | Tool | Repo | Replaced by |
